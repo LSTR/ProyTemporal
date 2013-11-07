@@ -1,3 +1,0 @@
-ErrorDocument 404 /ventaPollos/404.php
-
-#|ErrorDocument 404 "La página solicitada no existe"
