@@ -1,0 +1,27 @@
+#cont{
+	position: relative;
+	left: 25%;
+	border: 1px solid #123;
+	width: 50%;
+	padding: 25px;
+	border-radius: 3px;
+}
+.Columna1 #Contenedor{
+    width: 750px;
+    background: #FFF;
+    margin: 0 auto;
+    border: 1px solid #999;
+    text-align: left;
+}
+.Columna1 #Cabecera{
+    background: #ABC101;
+    padding: 0 10px 0 20px;
+}
+.Columna1 #Cuerpo{
+    background: #FFF;
+    padding: 0 20px;
+}
+.Columna1 #Pie{
+    background: #DDD;
+    padding: 0 10px;
+}
