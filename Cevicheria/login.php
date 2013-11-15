@@ -52,9 +52,20 @@ $E[1]="Datos Incorrectos";
   </head>
   <body>
     <div class="container">
-        <form class="form-signin" method="post" action="Controlador/UsuarioC.php" onsubmit="return validar();">
+      <form class="form-signin" method="post" action="Controlador/usuario.php" onsubmit="return validar();">
         <h2 class="form-signin-heading">Ingreso al Sistema</h2>
-        <input type="text" id="txtUsu" name="txtUsu" class="input-block-level" placeholder="Usuario">
+        
+        <select name="txtUsu">
+            <?php
+                require 'Modelo/personalM.php';
+                require 'bd/conexion.php';
+                $objDAO=new PersonalM();
+                $resultP=$objDAO->listar();
+                foreach ($resultP as $val) {?>
+                <option value="<?php echo $val->cod_empleado;?>"><?php echo $val->nombre." ".$val->apellido;?></option>
+               <?php }
+            ?>
+        </select>
         <input type="password" id="txtPass" name="txtPass" class="input-block-level" placeholder="contraseña">
         <label class="text-error"><?php if(isset($_GET["e"])) echo $E[$_GET["e"]]; ?></label>
         <button class="btn btn-large btn-primary" type="submit">Ingresar</button>

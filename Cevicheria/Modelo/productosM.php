@@ -1,9 +1,9 @@
 <?php
-    class PlatoM {
+    class ProductosM {
         function listar($where=NULL) {
             require_once '../../bd/conexion.php';
             $conex=new conexion();
-            $sql="Select * from v_platos";
+            $sql="Select * from producto";
             if($where!=NULL){
                $sql.=" where ";
                 $cc=0;
@@ -18,19 +18,19 @@
         }
         function insertar($Data) {
             require_once '../bd/conexion.php';
-            $sql="INSERT INTO platos (nomb_plato,descripcion,precio,estado) VALUES ('$Data[0]','$Data[1]','$Data[2]','A')";
+            $sql="INSERT INTO producto (nombre,marca,cantidad,estado) VALUES ('$Data[0]','$Data[1]','$Data[2]','A')";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function actualizar($Data,$id) {
             require_once '../bd/conexion.php';
-            $sql="UPDATE platos set nomb_plato='$Data[0]',descripcion='$Data[1]',precio='$Data[2]]'  where cod_platos=".$id;
+            $sql="UPDATE producto set nombre='$Data[0]',marca='$Data[1]',cantidad='$Data[2]' where cod_producto=".$id;
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function eliminar($id) {
             require_once '../bd/conexion.php';
-            $sql="DELETE FROM platos WHERE cod_platos =$id";
+            $sql="DELETE FROM producto WHERE cod_producto =$id";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }

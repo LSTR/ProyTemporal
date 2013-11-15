@@ -2,7 +2,7 @@
 session_start();
 class session {
     function sesionActiva() {
-        if($_SESSION["active"]<>1){
+        if(!isset($_SESSION["active"])||$_SESSION["active"]<>1){
             session_destroy();
             return false;
         }
@@ -11,7 +11,7 @@ class session {
     function activarSesion($login) {
         $_SESSION["active"]=1;
         $_SESSION["login_usuario"]=$login;
-        $_SESSION["host"]="http://".$_SERVER["SERVER_NAME"]."/cevicheria";
+        $_SESSION["host"]="http://".$_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"]."/cevicheria";
     }
     function addSesion($nombre,$val) {
         $_SESSION[$nombre]=$val;

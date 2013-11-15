@@ -1,6 +1,6 @@
 <?php
-    require_once '../Modelo/usuarioM.php';
-    $accion="log";
+    require_once '../Modelo/BebidasM.php';
+    $accion=null;
     if(isset($_POST["txtAccion"]))
         $accion=$_POST["txtAccion"];
     else if(isset($_GET["txtAccion"]))
@@ -13,27 +13,31 @@
     
     function agregar() {
         $nombre=$_POST["txtN"];
-        $sueldo=$_POST["txtC"];
+        $precio=$_POST["txtP"];
+        $descripcion=$_POST["txtD"];
         $Data[0]=$nombre;
-        $Data[1]=$sueldo;
-        $objDAO=new UsuarioM();
+        $Data[1]=$precio;
+        $Data[2]=$descripcion;
+        $objDAO=new BebidasM();
         $result=$objDAO->insertar($Data);
-        header("Location: ../Vista/usuario/tabla.php");
+        header("Location: ../Vista/Bebidas/tabla.php");
     }
     function actualizar() {
         $nombre=$_POST["txtN"];
-        $sueldo=$_POST["txtC"];
+        $precio=$_POST["txtP"];
         $idAl=$_POST["txtId"];
+        $descripcion=$_POST["txtD"];
         $Data[0]=$nombre;
-        $Data[1]=$sueldo;
-        $objDAO=new UsuarioM();
+        $Data[1]=$precio;
+        $Data[2]=$descripcion;
+        $objDAO=new BebidasM();
         $result=$objDAO->actualizar($Data,$idAl);
-        header("Location: ../Vista/usuario/tabla.php");
+        header("Location: ../Vista/Bebidas/tabla.php");
     }
     function eliminar() {
         $id=$_GET["id"];
-        $objDAO=new UsuarioM();
+        $objDAO=new BebidasM();
         $objDAO->eliminar($id);
-        header("Location: ../Vista/usuario/tabla.php");
+        header("Location: ../Vista/Bebidas/tabla.php");
     }
 ?>

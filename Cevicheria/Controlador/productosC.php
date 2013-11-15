@@ -1,5 +1,5 @@
 <?php
-    require_once '../Modelo/platoM.php';
+    require_once '../Modelo/ProductosM.php';
     $accion=null;
     if(isset($_POST["txtAccion"]))
         $accion=$_POST["txtAccion"];
@@ -13,35 +13,35 @@
     
     function agregar() {
         $nombre=$_POST["txtN"];
-        $descripcion=$_POST["txtD"];
-        $precio=$_POST["txtP"];
+        $marcaProd=$_POST["txtM"];
+        $cantidad=$_POST["txtC"];
         $Data[0]=$nombre;
-        $Data[1]=$descripcion;
-        $Data[2]=$precio;
-        $objDAO=new PlatoM();
+        $Data[1]=$marcaProd;
+        $Data[2]=$cantidad;
+        $objDAO=new ProductosM();
         $result=$objDAO->insertar($Data);
-        header("Location: ../Vista/plato/tabla.php");
+        header("Location: ../Vista/Productos/tabla.php");
     }
     function actualizar() {
         $nombre=$_POST["txtN"];
-        $descripcion=$_POST["txtD"];
-        $precio=$_POST["txtP"];
+        $marcaProd=$_POST["txtM"];
+        $cantidad=$_POST["txtC"];
         $idAl=$_POST["txtId"];
         $Data[0]=$nombre;
-        $Data[1]=$descripcion;
-        $Data[2]=$precio;
-        $objDAO=new PlatoM();
+        $Data[1]=$marcaProd;
+        $Data[2]=$cantidad;
+        $objDAO=new ProductosM();
         $result=$objDAO->actualizar($Data,$idAl);
-        header("Location: ../Vista/plato/tabla.php");
+        header("Location: ../Vista/Productos/tabla.php");
     }
     function eliminar() {
         $id=$_GET["id"];
-        $objDAO=new PlatoM();
+        $objDAO=new ProductosM();
         $objDAO->eliminar($id);
-        header("Location: ../Vista/plato/tabla.php");
+        header("Location: ../Vista/Productos/tabla.php");
     }
     function listar() {
-        $objDAO=new PlatoM();
+        $objDAO=new ProductosM();
         return $objDAO->listar();
     }
 ?>

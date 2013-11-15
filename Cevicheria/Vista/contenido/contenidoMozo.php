@@ -49,28 +49,12 @@
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">MOZO</a>
-          <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-                Usuario Mozo &nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
-            </p>
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+    <!--INI NAVBAR-->
+    <?php
+         $inc='../navbar.php';
+         include $inc;
+    ?>
+    <!--FIN NAVBAR-->
 
     <div class="container">
       <!-- Main hero unit for a primary marketing message or call to action -->

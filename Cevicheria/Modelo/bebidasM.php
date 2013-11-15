@@ -1,9 +1,9 @@
 <?php
-    class PlatoM {
+    class BebidasM {
         function listar($where=NULL) {
             require_once '../../bd/conexion.php';
             $conex=new conexion();
-            $sql="Select * from v_platos";
+            $sql="Select * from v_bebidas";
             if($where!=NULL){
                $sql.=" where ";
                 $cc=0;
@@ -18,19 +18,19 @@
         }
         function insertar($Data) {
             require_once '../bd/conexion.php';
-            $sql="INSERT INTO platos (nomb_plato,descripcion,precio,estado) VALUES ('$Data[0]','$Data[1]','$Data[2]','A')";
+            $sql="INSERT INTO bebidas (nomb_bebida,precio_bebida,descripcion,estado) VALUES ('$Data[0]','$Data[1]','$Data[2]','A')";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function actualizar($Data,$id) {
             require_once '../bd/conexion.php';
-            $sql="UPDATE platos set nomb_plato='$Data[0]',descripcion='$Data[1]',precio='$Data[2]]'  where cod_platos=".$id;
+            $sql="UPDATE bebidas set nomb_bebida='$Data[0]',precio_bebida='$Data[1]',descripcion='$Data[2]' where id_bebidas=".$id;
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function eliminar($id) {
             require_once '../bd/conexion.php';
-            $sql="DELETE FROM platos WHERE cod_platos =$id";
+            $sql="DELETE FROM bebidas WHERE id_bebidas =$id";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
