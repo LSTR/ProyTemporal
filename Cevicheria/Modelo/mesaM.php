@@ -18,7 +18,7 @@
         }
         function insertar($Data) {
             require_once '../bd/conexion.php';
-            $sql="INSERT INTO mesa (descripcion,ubicacion,estado) VALUES ('$Data[0]','$Data[1]','A')";
+            $sql="INSERT INTO mesa (descripcion,ubicacion,estado_Mesa) VALUES ('$Data[0]','$Data[1]','A')";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }

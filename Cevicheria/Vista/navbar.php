@@ -29,6 +29,8 @@
                 <li class="<?php echo($opcMenu=="productos")?"active":""?>"><a href="../Productos/tabla.php">Productos</a></li>
                 <li class="<?php echo($opcMenu=="platos")?"active":""?>"><a href="../plato/tabla.php">Platos</a></li>
                 <li class="<?php echo($opcMenu=="bebida")?"active":""?>"><a href="../Bebidas/tabla.php">Bebidas</a></li>
+                <li class="<?php echo($opcMenu=="mesa")?"active":""?>"><a href="../mesa/tabla.php">Mesa</a></li>
+                <li class="<?php echo($opcMenu=="pedido")?"active":""?>"><a href="../pedido/data.php">Pedidos</a></li>
               </ul>
             </div>
           </div>
