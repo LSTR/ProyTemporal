@@ -37,7 +37,7 @@
         <?php
             foreach ($result as $val) {?>
             <tr>
-                <td><?php echo $val->cod_cargo;?></td>
+                <td><?php echo "CARG00".$val->cod_cargo;?></td>
                 <td><?php echo $val->nom_cargo;?></td>
                 <td><?php echo $val->suel_cargo;?></td>
                 <td><a href="form.php?id=<?php echo $val->cod_cargo;?>">Modificar</a></td>

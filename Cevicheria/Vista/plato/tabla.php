@@ -37,7 +37,7 @@
         <?php
             foreach ($result as $val) {?>
             <tr>
-                <td><?php echo $val->cod_platos;?></td>
+                <td><?php echo "PLAT00".$val->cod_platos;?></td>
                 <td><?php echo $val->nomb_plato;?></td>
                 <td><?php echo $val->descripcion;?></td>
                 <td><?php echo $val->precio;?></td>

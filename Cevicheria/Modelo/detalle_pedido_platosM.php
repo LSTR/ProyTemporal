@@ -1,12 +1,11 @@
 <?php
-    class PersonalM {
-        function listar($where=null) {
-//            session_start();
-            if(isset($_SESSION["active"])) require_once '../../bd/conexion.php';
+    class detalle_pedido_platosM {
+        function listar($where=NULL) {
+            require_once '../../bd/conexion.php';
             $conex=new conexion();
-            $sql="Select * from v_personal";
-            if($where!=null){
-                $sql.=" where ";
+            $sql="Select * from v_detalle_pedido_platos";
+            if($where!=NULL){
+               $sql.=" where ";
                 $cc=0;
                 foreach ($where as $k => $val) {
                     if($cc>0)
@@ -19,19 +18,19 @@
         }
         function insertar($Data) {
             require_once '../bd/conexion.php';
-            $sql="INSERT INTO personal (nombre,apellido,direccion,cod_cargo,estado_empl) VALUES ('$Data[0]','$Data[1]','$Data[2]','$Data[3]','A')";
+            $sql="INSERT INTO detalle_pedido_platos(cantidad,cod_platos,id_pedido,estado_cocina) VALUES ('1',$Data[0],'$Data[1]','A')";
             $con=new conexion();
-            return $con->insertGetId($sql);
+            return $con->ejecutaQuery($sql);
         }
-        function actualizar($Data,$id) {
+        function PlatoListo($id) {
             require_once '../bd/conexion.php';
-            $sql="UPDATE personal set nombre='$Data[0]',apellido='$Data[1]',direccion='$Data[2]',cod_cargo='$Data[3]' where cod_empleado=".$id;
+            $sql="UPDATE detalle_pedido_platos set estado_cocina='E' where cod_detallePed=".$id;
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function eliminar($id) {
             require_once '../bd/conexion.php';
-            $sql="DELETE FROM v_personal WHERE cod_empleado =$id";
+            $sql="DELETE FROM detalle_pedido_platos WHERE cod_detallePed =$id";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }

@@ -18,19 +18,20 @@
         }
         function insertar($Data) {
             require_once '../bd/conexion.php';
-            $sql="INSERT INTO platos (nomb_plato,descripcion,precio,estado) VALUES ('$Data[0]','$Data[1]','$Data[2]','A')";
+            $sql="INSERT INTO platos (nomb_plato,tipo_plato,descripcion,precio,estado_plat) VALUES ('$Data[0]','$Data[1]','$Data[2]','$Data[3]','A')";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function actualizar($Data,$id) {
             require_once '../bd/conexion.php';
-            $sql="UPDATE platos set nomb_plato='$Data[0]',descripcion='$Data[1]',precio='$Data[2]]'  where cod_platos=".$id;
+            $sql="UPDATE platos set nomb_plato='$Data[0]',tipo_plato='$Data[1]',descripcion='$Data[2]',precio=$Data[3]  where cod_platos=".$id;
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function eliminar($id) {
             require_once '../bd/conexion.php';
-            $sql="DELETE FROM platos WHERE cod_platos =$id";
+//            $sql="DELETE FROM platos WHERE cod_platos =$id";
+            $sql="UPDATE platos set estado='D' where cod_platos=".$id;
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }

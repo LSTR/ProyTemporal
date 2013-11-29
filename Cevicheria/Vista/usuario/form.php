@@ -1,4 +1,5 @@
 <?php
+$id="";
     $opcMenu="usuario";
     include '../base.php';
     require_once '../../session.php';
@@ -16,7 +17,7 @@
     $Data["idUsuario"]=$id;
     $result=$objDAO->listar($Data);
     // CREA VARIABLES
-    $id="";
+    
     $cod_emp="";
     $con="";
     if(count($result)==0){

@@ -37,9 +37,13 @@
             </tr>
         </thead>
         <?php
-            foreach ($result as $val) {?>
+            foreach ($result as $val) {
+            $cod=$val->cod_empleado;
+            $cad="P00000";
+            $cod=substr($cad,0,  strlen($cad)-strlen($cod)).$cod;
+            ?>
             <tr>
-                <td><?php echo $val->cod_empleado;?></td>
+                <td><?php echo $cod?></td>
                 <td><?php echo $val->nombre;?></td>
                 <td><?php echo $val->apellido;?></td>
                 <td><?php echo $val->direccion;?></td>

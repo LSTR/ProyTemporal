@@ -1,6 +1,6 @@
 <?php
-    header('Content-type: application/msword');
-    header('Content-Disposition: inline;filename=reporte_bebidas.doc');
+//    header('Content-type: application/msword');
+//    header('Content-Disposition: inline;filename=reporte_productos.doc');
     require_once '../../session.php';
     $sess=new session();
     if(!$sess->sesionActiva())

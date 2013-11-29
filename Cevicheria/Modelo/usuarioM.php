@@ -1,7 +1,7 @@
 <?php
     class UsuarioM {
         function listar($where=null) {
-            session_start();
+//            session_start();
             if(!isset($_SESSION["active"])) require_once '../bd/conexion.php';
             else require_once '../../bd/conexion.php';
             $conex=new conexion();
@@ -20,19 +20,19 @@
         }
         function insertar($Data) {
             require_once '../bd/conexion.php';
-            $sql="INSERT INTO usuario (cod_empleado,contrasena,estado) VALUES ('$Data[0]','$Data[1]','A')";
+            $sql="INSERT INTO usuario (cod_empleado,contrasena,esta_usu) VALUES ('$Data[0]','$Data[1]','A')";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function actualizar($Data,$id) {
             require_once '../bd/conexion.php';
-            $sql="UPDATE usuario set cod_empleado='$Data[0]',contrasena='$Data[1]' where idUsuario=".$id;
+            $sql="UPDATE usuario set contrasena='$Data[0]' where cod_empleado=".$id;
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function eliminar($id) {
             require_once '../bd/conexion.php';
-            $sql="DELETE FROM usuario WHERE idUsuario =$id";
+            $sql="DELETE FROM usuario WHERE cod_empleado =$id";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }

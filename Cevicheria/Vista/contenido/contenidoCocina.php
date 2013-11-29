@@ -1,11 +1,15 @@
 <?php
+    $opcMenu="mesa";
     require_once '../../session.php';
     $sess=new session();
     if(!$sess->sesionActiva())
         header("Location: ".$sess->getHost());
     require "../../configuracion.php";
+    require '../../Modelo/detalle_pedido_platosM.php';
+    $Data["estado_cocina"]="A";
+    $objDAO=new detalle_pedido_platosM($Data);
+    $result=$objDAO->listar();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,18 +22,20 @@
 
     <!-- Le styles -->
     <link href="<?php echo $pathBootstrap?>/css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/bootstrapCustom.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
         padding-bottom: 40px;
       }
+      .ListaInfo{
+          float: left;
+          width: 290px;
+          margin: 5px;
+          margin-left: 45px;
+      }
     </style>
     <link href="<?php echo $pathBootstrap?>/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="<?php echo $pathBootstrap?>/js/html5shiv.js"></script>
-    <![endif]-->
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $pathBootstrap?>/ico/apple-touch-icon-144-precomposed.png">
@@ -38,9 +44,8 @@
                     <link rel="apple-touch-icon-precomposed" href="<?php echo $pathBootstrap?>/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="<?php echo $pathBootstrap?>/ico/favicon.png">
   </head>
-
+  
   <body>
-
     <!--INI NAVBAR-->
     <?php
          $inc='../navbar.php';
@@ -49,33 +54,26 @@
     <!--FIN NAVBAR-->
 
     <div class="container">
-
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-      </div>
-
-      <!-- Example row of columns -->
       <div class="row">
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
+        <?php
+            foreach ($result as $val) {
+                    if($val->estado_cocina!="A")continue;
+                    $cod=$val->nomb_plato;
+                    $mesa=$val->num_mesa;
+                    $desc=$val->tipo_plato;
+                    $ubic=$val->precio;
+                    ?>
+                    <div class="ListaInfo">
+                        <div class="alert alert-success">
+                             <h3 align="center"><?php echo $cod;?></h3>
+                             <h4>Mesa N&deg;<?php echo $mesa;?></h4>
+                              <p><?php echo $desc;?></p>
+                              <p>S/ <?php echo $ubic;?> Soles</p>
+                              <p align="center"><a class="btn btn-success" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=U&id=<?php echo $val->cod_detallePed;?>">Preparado</a></p>
+                        </div>
+                    </div>
+            <?php }?>
       </div>
-
       <hr>
 
       <footer>
@@ -87,7 +85,7 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<?php echo $pathBootstrap?>/scripts/jquery.js"></script>
+    <script src="<?php echo $pathBootstrap?>/scripts/jquery.min.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-transition.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-alert.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-modal.js"></script>
@@ -100,6 +98,6 @@
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-collapse.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-carousel.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-typeahead.js"></script>
-
+    <script src="<?php echo $pathBootstrap?>/scripts/holder.js"></script>
   </body>
 </html>

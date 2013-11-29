@@ -1,4 +1,11 @@
 <?php
+ // CREA VARIABLES
+    $id="";
+    $nom="";
+    $tipoProd="";
+    $unidProd="";
+    $cantidadProd=0;
+    $descripcion="";
     $opcMenu="productos";
     include '../base.php';
     require_once '../../session.php';
@@ -6,27 +13,26 @@
     if(!$sess->sesionActiva())
         header("Location: ../inicio.php");
     $accion="A";
+//    $id="";
     if(isset($_GET["id"])){
         $id=$_GET["id"];
         $accion="U";
     } 
     require_once '../../Modelo/ProductosM.php';
     $objDAO=new ProductosM();
-    $Data["cod_producto"]=$id;
+    $Data["id_insumos"]=$id;
     $result=$objDAO->listar($Data);
-    // CREA VARIABLES
-    $id="";
-    $nomb="";
-    $marcProd="";
-    $descrip="";
-    $cantidad="";
+   
+
     if(count($result)==0){
         $accion="A";  // Se habilita la opcion para que se agregue
     }else{        
-        $id=$result[0]->cod_producto;
-        $nom=$result[0]->nombre;
-        $marcProd=$result[0]->marca;
-        $cantidad=$result[0]->cantidad;
+        $id=$result[0]->id_insumos;
+        $nom=$result[0]->nombreProd;
+        $tipoProd=$result[0]->tipoProd;
+        $unidProd=$result[0]->unidadProd;
+        $cantidadProd=$result[0]->cantidadProd;
+        $descripcion=$result[0]->descripcion;
     }
 ?>
 <div style="width: 60%">
@@ -36,15 +42,23 @@
         <col width="50%">
             <tr>
                 <td>Nombre</td>
-                <td><input type="text" name="txtN" value="<?php echo $nom;?>"></td>
+                <td><input type="text" required name="txtN" value="<?php echo $nom;?>"></td>
             </tr>
             <tr>
-                <td>Marca</td>
-                <td><input type="text" name="txtM" value="<?php echo $marcProd;?>"></td>
+                <td>Tipo</td>
+                <td><input type="text" required name="txtT" value="<?php echo $tipoProd;?>"></td>
+            </tr>
+            <tr>
+                <td>Unidad</td>
+                <td><input type="text" required name="txtU" value="<?php echo $unidProd;?>"></td>
             </tr>
             <tr>
                 <td>Cantidad</td>
-                <td><input type="text" name="txtC" value="<?php echo $cantidad;?>"></td>
+                <td><input type="number" required name="txtC" value="<?php echo $cantidadProd;?>"></td>
+            </tr>
+            <tr>
+                <td>Descripción</td>
+                <td><input type="text" name="txtD" value="<?php echo $descripcion;?>"></td>
             </tr>
             <tr>
                 <td><input type="hidden" name="txtAccion" value="<?php echo $accion;?>">

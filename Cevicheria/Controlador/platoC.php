@@ -13,23 +13,27 @@
     
     function agregar() {
         $nombre=$_POST["txtN"];
+         $tipo=$_POST["txtT"];
         $descripcion=$_POST["txtD"];
         $precio=$_POST["txtP"];
         $Data[0]=$nombre;
-        $Data[1]=$descripcion;
-        $Data[2]=$precio;
+        $Data[1]=$tipo;
+        $Data[2]=$descripcion;
+        $Data[3]=$precio;
         $objDAO=new PlatoM();
         $result=$objDAO->insertar($Data);
         header("Location: ../Vista/plato/tabla.php");
     }
     function actualizar() {
         $nombre=$_POST["txtN"];
+        $tipo=$_POST["txtT"];
         $descripcion=$_POST["txtD"];
         $precio=$_POST["txtP"];
         $idAl=$_POST["txtId"];
         $Data[0]=$nombre;
-        $Data[1]=$descripcion;
-        $Data[2]=$precio;
+        $Data[1]=$tipo;
+        $Data[2]=$descripcion;
+        $Data[3]=$precio;
         $objDAO=new PlatoM();
         $result=$objDAO->actualizar($Data,$idAl);
         header("Location: ../Vista/plato/tabla.php");

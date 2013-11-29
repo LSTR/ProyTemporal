@@ -17,14 +17,29 @@
              echo "Error ",$exc->getMessage(),"/n";
          }
      }
+     public static function insertGetId($consulta) {
+         try {
+             $conec=new conexion();
+             $cn=$conec->conectar();
+             $result=mysql_query($consulta,$cn) or die("Error en la Consultasdas ".$consulta.".");
+             $id=mysql_insert_id();
+             $conec->desconectar($cn);
+             return $id;
+         } catch (Exception $exc) {
+             echo "Error ",$exc->getMessage(),"/n";
+             return NULL;
+         }
+     }
      public static function ejecutaQuery($consulta) {
          try {
              $conec=new conexion();
              $cn=$conec->conectar();
              $result=mysql_query($consulta,$cn) or die("Error en la Consultasdas ".$consulta.".");
              $conec->desconectar($cn);
+             return $result;
          } catch (Exception $exc) {
              echo "Error ",$exc->getMessage(),"/n";
+             return NULL;
          }
      }
      public static function listarObject($consulta) {

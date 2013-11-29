@@ -5,6 +5,7 @@
         header("Location: index.php");
     //ACA PUEDES VERIFICAR EL NIVEL DE ACCESO Y REDIRIGIR A ESE ARCHIVO.
     $NivelAcceso=$sess->getSesion("NivelAcceso");
+
         if($NivelAcceso=="1")
             header("Location: Vista/contenido/contenidoAdministrador.php");
         else if($NivelAcceso=="2")

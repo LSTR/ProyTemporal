@@ -12,24 +12,33 @@
     }
     
     function agregar() {
-        $nombre=$_POST["txtN"];
-        $marcaProd=$_POST["txtM"];
-        $cantidad=$_POST["txtC"];
-        $Data[0]=$nombre;
-        $Data[1]=$marcaProd;
-        $Data[2]=$cantidad;
+        $nombreProd=$_POST["txtN"];
+        $tipoProd=$_POST["txtT"];
+        $unidadProd=$_POST["txtU"];
+        $cantidadProd=$_POST["txtC"];
+        $descripcion=$_POST["txtD"];
+        $Data[0]=$nombreProd;
+        $Data[1]=$tipoProd;
+        $Data[2]=$unidadProd;
+        $Data[3]=$cantidadProd;
+        $Data[4]=$descripcion;
         $objDAO=new ProductosM();
         $result=$objDAO->insertar($Data);
         header("Location: ../Vista/Productos/tabla.php");
     }
     function actualizar() {
-        $nombre=$_POST["txtN"];
-        $marcaProd=$_POST["txtM"];
-        $cantidad=$_POST["txtC"];
+       
+        $nombreProd=$_POST["txtN"];
+        $tipoProd=$_POST["txtT"];
+        $unidadProd=$_POST["txtU"];
+        $cantidadProd=$_POST["txtC"];
+        $descripcion=$_POST["txtD"];
         $idAl=$_POST["txtId"];
-        $Data[0]=$nombre;
-        $Data[1]=$marcaProd;
-        $Data[2]=$cantidad;
+        $Data[0]=$nombreProd;
+        $Data[1]=$tipoProd;
+        $Data[2]=$unidadProd;
+        $Data[3]=$cantidadProd;
+        $Data[4]=$descripcion;
         $objDAO=new ProductosM();
         $result=$objDAO->actualizar($Data,$idAl);
         header("Location: ../Vista/Productos/tabla.php");

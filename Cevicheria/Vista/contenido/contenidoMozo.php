@@ -1,9 +1,13 @@
 <?php
+    $opcMenu="mesa";
     require_once '../../session.php';
     $sess=new session();
     if(!$sess->sesionActiva())
         header("Location: ".$sess->getHost());
     require "../../configuracion.php";
+    require '../../Modelo/mesaM.php';
+    $objDAO=new MesaM();
+    $result=$objDAO->listar();
 ?>
 
 
@@ -24,20 +28,13 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
-      .ListaPlato{
-          border: 2px solid #333333;
-          border-radius: 5px;
-          width: 250px;
-          background-color: #cccccc;
-          margin: 8px;
+      .ListaMesa{
+          float: left;
+          width: 390px;
+          margin: 5px;
       }
     </style>
     <link href="<?php echo $pathBootstrap?>/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="<?php echo $pathBootstrap?>/js/html5shiv.js"></script>
-    <![endif]-->
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $pathBootstrap?>/ico/apple-touch-icon-144-precomposed.png">
@@ -46,9 +43,8 @@
                     <link rel="apple-touch-icon-precomposed" href="<?php echo $pathBootstrap?>/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="<?php echo $pathBootstrap?>/ico/favicon.png">
   </head>
-
+  
   <body>
-
     <!--INI NAVBAR-->
     <?php
          $inc='../navbar.php';
@@ -57,46 +53,42 @@
     <!--FIN NAVBAR-->
 
     <div class="container">
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h3>Lista Platos!!!</h3>
-        <div style="position: relative">
-            <div class="ListaPlato">
-                Plato 1<br>
-                Precio $20.00<br>
-            </div>
-            <div class="ListaPlato">
-                Plato 2<br>
-                Precio $25.00<br>
-            </div>
-            <div class="ListaPlato">
-                Plato 3<br>
-                Precio $15.00<br>
-            </div>
-        
-        </div>
-        <div></div>
-      </div>
-
-      <!-- Example row of columns -->
       <div class="row">
-        <div class="span4">
-          <h2>Plato A</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+        <?php
+            foreach ($result as $val) {
+            $cod=$val->num_mesa;
+            $cad="M0000";
+            $cod=substr($cad,0,  strlen($cad)-strlen($cod)).$cod;
+            $desc=$val->descripcion;
+            $ubic=$val->ubicacion;
+            $est=$val->estado;
+            ?>
+            <div class="ListaMesa">
+                <div class="alert alert-success">
+                     <h2 align="center">MESA <?php echo $cod;?></h2>
+                      <p><?php echo $desc;?></p>
+                      <p><?php echo $ubic;?></p>
+                      <p align="center"><a class="btn btn-primary" href="../pedido/tabla.php?m=<?php echo $val->num_mesa;?>">+ Detalles</a></p>
+                </div>
+            </div>
+          
+           <?php }
+        ?>
+        <div class="ListaMesa">
+            <div class="alert alert-success">
+             <h2>Mesa B</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p align="center"><a class="btn btn-primary" href="#">+ Detalles</a></p>
+            </div>
         </div>
-        <div class="span4">
-          <h2>Plato B</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Plato C</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+        <div class="ListaMesa">
+            <div class="alert alert-info">
+             <h2>Mesa C</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p align="center"><a class="btn btn-primary" href="#">+ Detalles</a></p>
+            </div>
         </div>
       </div>
-
       <hr>
 
       <footer>

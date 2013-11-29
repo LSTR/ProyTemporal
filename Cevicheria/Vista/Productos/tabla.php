@@ -28,21 +28,25 @@
         <col width="10%">
         <col width="10%">
         <tr>
-            <td><div style="text-align: center">Codigo</div></td>
-            <td><div style="text-align: center">Nombre Producto</div></td>
-            <td><div style="text-align: center">Marca Producto</div></td>
-            <td><div style="text-align: center">Descripcion</div></td>
-            <td colspan="2"><div style="text-align: center">Opciones</div></td>
+            <td><div style="text-align: center">CODIGO</div></td>
+            <td><div style="text-align: center">NOMBRE</div></td>
+            <td><div style="text-align: center">TIPO</div></td>
+            <td><div style="text-align: center">UNIDAD</div></td>
+            <td><div style="text-align: center">CANTIDAD</div></td>
+            <td><div style="text-align: center">DESCRIPCIÓN</div></td>
+            <td colspan="2"><div style="text-align: center">OPCIONES</div></td>
         </tr>
         <?php
             foreach ($result as $val) {?>
             <tr>
-                <td><?php echo $val->cod_producto;?></td>
-                <td><?php echo $val->nombre;?></td>
-                <td><?php echo $val->marca;?></td>
-                <td><?php echo $val->cantidad;?></td>
-                <td><a href="form.php?id=<?php echo $val->cod_producto;?>">Modificar</a></td>
-                <td><a href="../../Controlador/ProductosC.php?txtAccion=E&id=<?php echo $val->cod_producto;?>">Eliminar</a></td>
+                <td><?php echo "PROD00". $val->id_insumos;?></td>
+                <td><?php echo $val->nombreProd;?></td>
+                <td><?php echo $val->tipoProd;?></td>
+                <td><?php echo $val->unidadProd;?></td>
+                <td><?php echo $val->cantidadProd;?></td>
+                <td><?php echo $val->descripcion;?></td>
+                <td><a href="form.php?id=<?php echo $val->id_insumos;?>">Modificar</a></td>
+                <td><a href="../../Controlador/ProductosC.php?txtAccion=E&id=<?php echo $val->id_insumos;?>">Eliminar</a></td>
             </tr>
            <?php }
         ?>

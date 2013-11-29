@@ -57,10 +57,12 @@
         <col width="35%">
         <col width="35%">
         <col width="20%">
+            <tr><img h></tr>
         <tr>
 
             <td><div style="text-align: center">Codigo</div></td>
             <td><div style="text-align: center">Nombre</div></td>
+            <td><div style="text-align: center">Tipo</div></td>
             <td><div style="text-align: center">Precio</div></td>
             <td><div style="text-align: center">Descripcion</div></td>
         </tr>
@@ -69,6 +71,7 @@
             <tr>
                 <td><?php echo $val->id_bebidas;?></td>
                 <td><?php echo $val->nomb_bebida;?></td>
+                <td><?php echo $val->tipo_beb;?></td>
                 <td><?php echo $val->precio_bebida;?></td>
                 <td><?php echo $val->descripcion;?></td>
             </tr>

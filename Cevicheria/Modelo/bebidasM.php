@@ -16,21 +16,21 @@
             }
             return $conex->listarObject($sql);
         }
-        function insertar($Data) {
+                    function insertar($Data) {
             require_once '../bd/conexion.php';
-            $sql="INSERT INTO bebidas (nomb_bebida,precio_bebida,descripcion,estado) VALUES ('$Data[0]','$Data[1]','$Data[2]','A')";
+            $sql="INSERT INTO bebidas (nomb_bebida,tipo_beb,descripcion,precio_bebida,estado_Beb) VALUES ('$Data[0]','$Data[1]','$Data[2]',$Data[3],'A')";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function actualizar($Data,$id) {
             require_once '../bd/conexion.php';
-            $sql="UPDATE bebidas set nomb_bebida='$Data[0]',precio_bebida='$Data[1]',descripcion='$Data[2]' where id_bebidas=".$id;
+            $sql="UPDATE bebidas set nomb_bebida='$Data[0]',tipo_beb='$Data[1]',descripcion='$Data[2]',precio_bebida='$Data[3]' where id_bebidas=".$id;
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function eliminar($id) {
             require_once '../bd/conexion.php';
-            $sql="DELETE FROM bebidas WHERE id_bebidas =$id";
+            $sql="DELETE FROM v_bebidas WHERE id_bebidas =$id";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }

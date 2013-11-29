@@ -1,5 +1,6 @@
 <?php
     require_once '../Modelo/personalM.php';
+    require_once '../Modelo/usuarioM.php';
     $accion=null;
     if(isset($_POST["txtAccion"]))
         $accion=$_POST["txtAccion"];
@@ -16,12 +17,18 @@
         $apell=$_POST["txtA"];
         $direc=$_POST["txtD"];
         $cargo=$_POST["cboCargo"];
+        $_contras=$_POST["txtP"];
         $Data[0]=$nombre;
         $Data[1]=$apell;
         $Data[2]=$direc;
         $Data[3]=$cargo;
         $objDAO=new PersonalM();
         $result=$objDAO->insertar($Data);
+        $objDAO=new UsuarioM();
+        $Dt[0]=$result;
+        $Dt[1]=$_contras;
+        $result=$objDAO->insertar($Dt);
+        
         header("Location: ../Vista/personal/tabla.php");
     }
     function actualizar() {
@@ -30,18 +37,27 @@
         $apell=$_POST["txtA"];
         $direc=$_POST["txtD"];
         $cargo=$_POST["cboCargo"];
+        $_contras=$_POST["txtP"];
         $Data[0]=$nombre;
         $Data[1]=$apell;
         $Data[2]=$direc;
         $Data[3]=$cargo;
         $objDAO=new PersonalM();
         $result=$objDAO->actualizar($Data,$idPer);
+        
+        $objDAO=new UsuarioM();
+        $Dt[0]=$_contras;
+        $result=$objDAO->actualizar($Dt,$idPer);
         header("Location: ../Vista/personal/tabla.php");
     }
     function eliminar() {
         $id=$_GET["id"];
-        $objDAO=new CargoM();
+        $objDAO=new PersonalM();
+        $objDAO->eliminar($id);
+        $objDAO=new UsuarioM();
         $objDAO->eliminar($id);
         header("Location: ../Vista/personal/tabla.php");
     }
+    
+    
 ?>

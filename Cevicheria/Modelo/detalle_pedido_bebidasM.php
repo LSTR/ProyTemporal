@@ -1,9 +1,9 @@
 <?php
-    class CargoM {
+    class detalle_pedido_bebidaM {
         function listar($where=NULL) {
             require_once '../../bd/conexion.php';
             $conex=new conexion();
-            $sql="Select * from v_cargo";
+            $sql="Select * from v_detalle_pedido_bebidas";
             if($where!=NULL){
                $sql.=" where ";
                 $cc=0;
@@ -18,19 +18,13 @@
         }
         function insertar($Data) {
             require_once '../bd/conexion.php';
-            $sql="INSERT INTO cargo (nom_cargo,suel_cargo,estado_carg) VALUES ('$Data[0]',$Data[1],'A')";
-            $con=new conexion();
-            return $con->ejecutaQuery($sql);
-        }
-        function actualizar($Data,$id) {
-            require_once '../bd/conexion.php';
-            $sql="UPDATE cargo set nom_cargo='$Data[0]',suel_cargo='$Data[1]' where cod_cargo=".$id;
+            $sql="INSERT INTO detalle_pedido_bebidas(cantidad,id_bebidas,id_pedido) VALUES ('1',$Data[0],'$Data[1]')";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function eliminar($id) {
             require_once '../bd/conexion.php';
-            $sql="DELETE FROM v_cargo WHERE cod_cargo =$id";
+            $sql="DELETE FROM detalle_pedido_bebidas WHERE cod_detallePedBeb =$id";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }

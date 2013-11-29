@@ -1,4 +1,8 @@
 <?php
+// CREA VARIABLES
+    $id="";
+    $nom="";
+    $suel=0;
     $opcMenu="cargo";
     include '../base.php';
     require_once '../../session.php';
@@ -15,11 +19,7 @@
     $objDAO=new CargoM();
     $Data["cod_cargo"]=$id;
     $result=$objDAO->listar($Data);
-    // CREA VARIABLES
-    $id="";
-    $nom="";
-    $suel="";
-    if(count($result)==0){
+   if(count($result)==0){
 //        echo 'No Existen Datos';
         $accion="A";  // Se habilita la opcion para que se agregue
     }else{        
@@ -35,11 +35,11 @@
         <col width="50%">
             <tr>
                 <td>Nombre</td>
-                <td><input type="text" name="txtN" value="<?php echo $nom;?>"></td>
+                <td><input type="text" required name="txtN" value="<?php echo $nom;?>"></td>
             </tr>
             <tr>
                 <td>Sueldo</td>
-                <td><input type="text" name="txtS" value="<?php echo $suel;?>"></td>
+                <td><input type="text" required name="txtS" value="<?php echo $suel;?>"></td>
             </tr>
             <tr>
                 <td><input type="hidden" name="txtAccion" value="<?php echo $accion;?>">

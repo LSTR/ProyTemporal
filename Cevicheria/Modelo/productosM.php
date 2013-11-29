@@ -3,7 +3,7 @@
         function listar($where=NULL) {
             require_once '../../bd/conexion.php';
             $conex=new conexion();
-            $sql="Select * from producto";
+            $sql="Select * from v_productos";
             if($where!=NULL){
                $sql.=" where ";
                 $cc=0;
@@ -18,19 +18,19 @@
         }
         function insertar($Data) {
             require_once '../bd/conexion.php';
-            $sql="INSERT INTO producto (nombre,marca,cantidad,estado) VALUES ('$Data[0]','$Data[1]','$Data[2]','A')";
+            $sql="INSERT INTO productos_almacen (nombreProd,tipoProd,unidadProd,cantidadProd,descripcion,estado_Prod) VALUES ('$Data[0]','$Data[1]','$Data[2]','$Data[3]','$Data[4]','A')";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function actualizar($Data,$id) {
             require_once '../bd/conexion.php';
-            $sql="UPDATE producto set nombre='$Data[0]',marca='$Data[1]',cantidad='$Data[2]' where cod_producto=".$id;
+            $sql="UPDATE productos_almacen set nombreProd='$Data[0]',tipoProd='$Data[1]',unidadProd='$Data[2]',cantidadProd='$Data[3]' , descripcion='$Data[4]' where id_insumos=".$id;
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function eliminar($id) {
             require_once '../bd/conexion.php';
-            $sql="DELETE FROM producto WHERE cod_producto =$id";
+            $sql="DELETE FROM v_productos WHERE id_insumos =$id";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }

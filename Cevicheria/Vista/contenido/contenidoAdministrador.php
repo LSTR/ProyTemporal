@@ -37,9 +37,10 @@
          include $inc;
     ?>
     <!--FIN NAVBAR-->
-   
-    <div class="container">
-      <div class="hero-unit">
+   <center>
+    <div class="container" >
+        <img src="<?php echo $pathBootstrap?>/img/examples/slide-01.jpg" alt="">
+<!--      <div class="hero-unit">
         <h1>Hello, world!</h1>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
@@ -64,8 +65,8 @@
       <hr>
       <footer>
         <p>&copy; Company 2013</p>
-      </footer>
-    </div>
+      </footer>-->
+    </div></center>
     <script src="<?php echo $pathBootstrap?>/scripts/jquery.min.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-transition.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-alert.js"></script>
