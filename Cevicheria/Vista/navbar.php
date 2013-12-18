@@ -5,6 +5,7 @@
         header("Location: index.php");
     //ACA PUEDES VERIFICAR EL NIVEL DE ACCESO Y REDIRIGIR A ESE ARCHIVO.
     $NivelAcceso=$sess->getSesion("NivelAcceso");
+    $Empleado=$sess->getSesion("Empleado");
     $host=$sess->getHost();
 ?>
 
@@ -21,7 +22,7 @@
               <a class="brand" href="<?php echo $host?>">ADMINISTRADOR</a>
             <div class="nav-collapse collapse">
               <p class="navbar-text pull-right">
-                  Administrador General &nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
+                  <?php echo $Empleado?>&nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
               </p>
               <ul class="nav">
                 <li class="<?php echo($opcMenu=="personal")?"active":""?>"><a href="../personal/tabla.php">Personal</a></li>
@@ -50,12 +51,10 @@
             <a class="brand" href="<?php echo $host?>">CAJERO</a>
             <div class="nav-collapse collapse">
               <p class="navbar-text pull-right">
-                  Usuario Admin &nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
+                  <?php echo $Empleado?>&nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
               </p>
               <ul class="nav">
                 <li class="active"><a href="#">Inicio</a></li>
-                <li><a href="../cargo/tblCargo.php">Cargo</a></li>
-                <li><a href="#contact">Personal</a></li>
               </ul>
             </div>
           </div>
@@ -75,7 +74,7 @@
             <a class="brand" href="<?php echo $host?>">COCINA</a>
             <div class="nav-collapse collapse">
               <p class="navbar-text pull-right">
-                  Usuario Admin &nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
+                  <?php echo $Empleado?> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
               </p>
               <ul class="nav">
                 <li class="active"><a href="#">Inicio</a></li>
@@ -100,12 +99,10 @@
             <a class="brand" href="<?php echo $host?>">MOZO</a>
             <div class="nav-collapse collapse">
               <p class="navbar-text pull-right">
-                  Mozo &nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
+                  <?php echo $Empleado?> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
               </p>
               <ul class="nav">
-                <li class="<?php echo($opcMenu=="mesa")?"active":""?>"><a href="<?php echo $host?>">Mesa</a></li>
-                <li class="<?php echo($opcMenu=="bebidas")?"active":""?>"><a href="../bebidas/tabla.php">Bebidas</a></li>
-                <li class="<?php echo($opcMenu=="plato")?"active":""?>"><a href="../plato/tabla.php">Platos</a></li>
+                <li class="active"><a href="<?php echo $host?>">Mesa</a></li>
               </ul>
             </div>
           </div>

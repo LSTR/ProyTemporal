@@ -24,7 +24,13 @@
         }
         function PlatoListo($id) {
             require_once '../bd/conexion.php';
-            $sql="UPDATE detalle_pedido_platos set estado_cocina='E' where cod_detallePed=".$id;
+            $sql="UPDATE detalle_pedido_platos set estado_cocina='C' where cod_detallePed=".$id;
+            $con=new conexion();
+            return $con->ejecutaQuery($sql);
+        }
+        function enviarACocina($idPed) {
+            require_once '../bd/conexion.php';
+            $sql="UPDATE detalle_pedido_platos set estado_cocina='B' where id_pedido=".$idPed;
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }

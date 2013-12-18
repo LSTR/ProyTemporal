@@ -7,7 +7,7 @@
         $accion=$_GET["txtAccion"];
     switch ($accion){
         case "A":agregar();break;
-        case "U":actualizar();break;
+//        case "U":actualizar();break;
         case "E":eliminar();break;
     }
     
@@ -19,9 +19,9 @@
         $Data[1]=$idPedido;
         $objDAO=new detalle_pedido_bebidaM();
         $result=$objDAO->insertar($Data);
-        header("Location: ../Vista/pedido/tabla.php?m=".$m);
+        header("Location: ../Vista/pedido/tabla.php?m=".$m."&p=2");
     }
-    function actualizar() {
+//    function actualizar() {
 //       
 //        $nombreProd=$_POST["txtN"];
 //        $tipoProd=$_POST["txtT"];
@@ -37,7 +37,7 @@
 //        $objDAO=new ProductosM();
 //        $result=$objDAO->actualizar($Data,$idAl);
 //        header("Location: ../Vista/Productos/tabla.php");
-    }
+//    }
     function eliminar() {
         $id=$_GET["id"];
         $m=$_GET["m"];

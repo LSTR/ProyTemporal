@@ -8,6 +8,7 @@
     switch ($accion){
         case "A":agregar();break;
         case "U":actualizar();break;
+        case "C":enviarACocina();break;
         case "E":eliminar();break;
     }
     
@@ -19,13 +20,20 @@
         $Data[1]=$idPedido;
         $objDAO=new detalle_pedido_platosM();
         $result=$objDAO->insertar($Data);
-        header("Location: ../Vista/pedido/tabla.php?m=".$m);
+        header("Location: ../Vista/pedido/tabla.php?m=".$m."&p=1");
     }
     function actualizar() {
         $id=$_GET["id"];
         $objDAO=new detalle_pedido_platosM();
         $result=$objDAO->PlatoListo($id);
         header("Location: ../Vista/contenido/contenidoCocina.php");
+    }
+    function enviarACocina() {
+        $idP=$_GET["id"];
+        $m=$_GET["m"];
+        $objDAO=new detalle_pedido_platosM();
+        $result=$objDAO->enviarACocina($idP);
+        header("Location: ../Vista/pedido/tabla.php?m=".$m);
     }
     function eliminar() {
         $id=$_GET["id"];

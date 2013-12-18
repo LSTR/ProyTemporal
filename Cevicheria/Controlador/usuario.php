@@ -24,5 +24,7 @@
         $P=$personal->listar($W);
         $sess->activarSesion($idU);
         $sess->addSesion("NivelAcceso", $P[0]->cod_cargo);
+        $sess->addSesion("idEmpleado", $P[0]->cod_empleado);
+        $sess->addSesion("Empleado", $P[0]->nombre." ".$P[0]->apellido);
     }
 ?>

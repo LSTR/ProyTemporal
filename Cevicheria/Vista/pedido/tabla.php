@@ -4,33 +4,35 @@
     $opcMenu="pedido";
     include '../base.php';
     require '../../Modelo/pedidoM.php';
+    /////////////////////    BUSCAR PEDIDO EN LA MESA
     $objDAO=new PedidoM();
     $Data["num_mesa"]=$id;
-    $Data["especificaciones!"]="Finalizado";
+    $Data["estado_Pedido!"]="C";
     $resultP=$objDAO->listar($Data);
     $existePedido=count($resultP);
-    $id_ped=$resultP[0]->id_pedido;
-    /////////////////////    DETALLE PEDIDO PLATOS
-    require '../../Modelo/detalle_pedido_platosM.php';
-    $objDAO=new detalle_pedido_platosM();
-    $DtP["id_pedido"]=$id_ped;
-    $resultPP=$objDAO->listar($DtP);
-    /////////////////////    DETALLE PEDIDO BEBIDAS
-    require '../../Modelo/detalle_pedido_bebidasM.php';
-    $objDAO=new detalle_pedido_bebidaM();
-    $DtB["id_pedido"]=$id_ped;
-    $resultPB=$objDAO->listar($DtB);
-    /////////////////////   LISTA PLATOS
-    require '../../Modelo/platoM.php';
-    $objDAO=new PlatoM();
-    $resultLP=$objDAO->listar();
-    /////////////////////
-    /////////////////////   LISTA PLATOS
-    require '../../Modelo/bebidasM.php';
-    $objDAO=new BebidasM();
-    $resultLB=$objDAO->listar();
-    /////////////////////
-    
+    if($existePedido){
+        $id_ped=$resultP[0]->id_pedido;
+        /////////////////////    DETALLE PEDIDO PLATOS
+        require '../../Modelo/detalle_pedido_platosM.php';
+        $objDAO=new detalle_pedido_platosM();
+        $DtP["id_pedido"]=$id_ped;
+        $resultPP=$objDAO->listar($DtP);
+        /////////////////////    DETALLE PEDIDO BEBIDAS
+        require '../../Modelo/detalle_pedido_bebidasM.php';
+        $objDAO=new detalle_pedido_bebidaM();
+        $DtB["id_pedido"]=$id_ped;
+        $resultPB=$objDAO->listar($DtB);
+        /////////////////////   LISTA PLATOS
+        require '../../Modelo/platoM.php';
+        $objDAO=new PlatoM();
+        $resultLP=$objDAO->listar();
+        /////////////////////
+        /////////////////////   LISTA PLATOS
+        require '../../Modelo/bebidasM.php';
+        $objDAO=new BebidasM();
+        $resultLB=$objDAO->listar();
+        /////////////////////
+    }
 ?>
 <style type="text/css">
       .ListaInfo{
@@ -50,6 +52,23 @@
 </style>
 <div id="contenido">
     <div>
+        <?php
+        if(!$existePedido){?>
+            <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=A&m=<?php echo $id;?>">+ Nuevo Pedido</a>
+        <?php }else{
+            $NoEnCocina=true;
+            foreach ($resultPP as $val)
+                if($val->estado_cocina=="A")$NoEnCocina=false;
+            if(count($resultPP)==0&&count($resultPB)==0){?>
+            <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=C&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Cancelar Pedido</a>
+            <?php }else if($NoEnCocina){?>
+            <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=F&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Finalizar Pedido</a>
+            <?php } else{?>
+            <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=E&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Enviar Pedido</a>
+            <?php }?>
+    </div>
+    <br>
+    <div>
         <table class="table table-hover" style="width: 95%">
             <tr>
                 <th></th>
@@ -67,24 +86,14 @@
             </tr>
         </table>
     </div>
-    <div>
-        <?php
-        if(!$existePedido){?>
-            <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=A&m=<?php echo $id;?>">+ Nuevo Pedido</a>
-        <?php }else{?>
-            <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=E&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Finalizar Pedido</a>
-        <?php }
-        ?>
-    </div>
-    <br>
     <div class="tabbable tabs-left"> <!-- Only required for left/right tabs -->
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#tabPlato" data-toggle="tab">PLATOS</a></li>
+          <li class="<?php echo (!isset($_GET["p"]))?"active":"";?>"><a href="#tabPlato" data-toggle="tab">PLATOS</a></li>
           <li><a href="#tabBebida" data-toggle="tab">BEBIDAS</a></li>
-          <li><a href="#tabNuevo" data-toggle="tab">NUEVO</a></li>
+          <li class="<?php echo (isset($_GET["p"]))?"active":"";?>"><a href="#tabNuevo" data-toggle="tab">NUEVO</a></li>
         </ul>
         <div class="tab-content">
-          <div class="tab-pane active" id="tabPlato">
+          <div class="tab-pane <?php echo (!isset($_GET["p"]))?"active":"";?>" id="tabPlato">
               <div class="row">
                 <?php
                 if(count($resultPP)==0){?>
@@ -96,20 +105,22 @@
                     $ubic=$val->precio;
                     ?>
                     <div class="ListaInfo">
-                        <div class="alert alert-success">
+                        <div class="alert alert-success" style="height: 250px">
                              <h3 align="center"><?php echo $cod;?></h3>
                               <p><?php echo $desc;?></p>
                               <p>S/ <?php echo $ubic;?> Soles</p>
                               <?php
-                              if($val->estado_cocina!="E"){
+                              if($val->estado_cocina=="C"){
                               ?>
-                              <p align="center"><a class="btn btn-danger" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=E&id=<?php echo $val->cod_detallePed;?>&m=<?php echo $id;?>">- Cancelar</a></p>
-                              <?php }else{?>
                               <p align="center"><button type="button" class="btn btn-success" disabled>Atendido</button></p>
+                              <?php }else if($val->estado_cocina=="B"){
+                              ?>
+                              <p align="center"><button type="button" class="btn btn-success" disabled>En Preparacion</button></p>
+                              <?php }else{?>
+                              <p align="center"><a class="btn btn-danger" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=E&id=<?php echo $val->cod_detallePed;?>&m=<?php echo $id;?>">- Cancelar</a></p>
                               <?php }?>
                         </div>
                     </div>
-
                    <?php }
                    }
                 ?>
@@ -130,11 +141,11 @@
                     $ubic=$val->precio_bebida;
                     ?>
                     <div class="ListaInfo">
-                        <div class="alert alert-success">
+                        <div class="alert alert-success" style="height: 250px">
                              <h3 align="center"><?php echo $cod;?></h3>
                               <p><?php echo $desc;?></p>
                               <p>S/ <?php echo $ubic;?> Soles</p>
-                              <p align="center"><a class="btn btn-danger" href="../../Controlador/detalle_pedido_bebidasC.php?txtAccion=E&id=<?php echo $val->cod_detallePedBeb;?>&m=<?php echo $id;?>">- Cancelar</a></p>
+                              <!--<p align="center"><a class="btn btn-danger" href="../../Controlador/detalle_pedido_bebidasC.php?txtAccion=E&id=<?php //echo $val->cod_detallePedBeb;?>&m=<?php echo $id;?>">- Cancelar</a></p>-->
                         </div>
                     </div>
 
@@ -144,16 +155,16 @@
               </div>
               
           </div>
-          <div class="tab-pane" id="tabNuevo">
+          <div class="tab-pane <?php echo (isset($_GET["p"]))?"active":"";?>" id="tabNuevo">
               <div class="row" style="padding-left: 50px">
                   
                   <div class="tabbable"> <!-- Only required for left/right tabs -->
                     <ul class="nav nav-tabs">
-                      <li class="active"><a href="#tabLP" data-toggle="tab">Lista Platos</a></li>
-                      <li><a href="#tabLB" data-toggle="tab">Lista Bebidas</a></li>
+                      <li class="<?php echo (isset($_GET["p"])&&$_GET["p"]==1)?"active":"";?>"><a href="#tabLP" data-toggle="tab">Lista Platos</a></li>
+                      <li class="<?php echo (isset($_GET["p"])&&$_GET["p"]==2)?"active":"";?>"><a href="#tabLB" data-toggle="tab">Lista Bebidas</a></li>
                     </ul>
                     <div class="tab-content">
-                      <div class="tab-pane active" id="tabLP">
+                      <div class="tab-pane <?php echo (isset($_GET["p"])&&$_GET["p"]==1)?"active":"";?>" id="tabLP">
                         <?php
                              foreach ($resultLP as $val) {
                                 $cod=$val->nomb_plato;
@@ -161,7 +172,7 @@
                                 $ubic=$val->precio;
                                 ?>
                                 <div class="ListaInfo">
-                                    <div class="alert alert-info">
+                                    <div class="alert alert-info" style="height: 250px">
                                          <h3 align="center"><?php echo $cod;?></h3>
                                           <p><?php echo $desc;?></p>
                                           <p>S/ <?php echo $ubic;?> Soles</p>
@@ -174,7 +185,7 @@
                                <?php }
                             ?>
                       </div>
-                      <div class="tab-pane" id="tabLB">
+                      <div class="tab-pane <?php echo (isset($_GET["p"])&&$_GET["p"]==2)?"active":"";?>" id="tabLB">
                         <?php
                              foreach ($resultLB as $val) {
                                 $cod=$val->nomb_bebida;
@@ -182,11 +193,12 @@
                                 $ubic=$val->precio_bebida;
                                 ?>
                                 <div class="ListaInfo">
-                                    <div class="alert alert-info">
+                                    <div class="alert alert-info" style="height: 250px">
                                          <h3 align="center"><?php echo $cod;?></h3>
                                           <p><?php echo $desc;?></p>
                                           <p>S/ <?php echo $ubic;?> Soles</p>
-                                          <p align="center"><a class="btn btn-primary" href="../../Controlador/detalle_pedido_bebidasC.php?txtAccion=A&b=<?php echo $val->id_bebidas;?>&p=<?php echo $id_ped;?>&m=<?php echo $id;?>">+ Agregar Bebida</a></p>
+                                          <p align="center">
+                                              <a class="btn btn-primary" href="../../Controlador/detalle_pedido_bebidasC.php?txtAccion=A&b=<?php echo $val->id_bebidas;?>&p=<?php echo $id_ped;?>&m=<?php echo $id;?>">+ Agregar Bebida</a></p>
                                     </div>
                                 </div>
 
@@ -201,7 +213,7 @@
           </div>
         </div>
     </div>
-    
+    <?php }?>
 </div>
 <?php
     include '../baseFin.php';

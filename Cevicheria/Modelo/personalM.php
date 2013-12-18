@@ -31,7 +31,7 @@
         }
         function eliminar($id) {
             require_once '../bd/conexion.php';
-            $sql="DELETE FROM v_personal WHERE cod_empleado =$id";
+            $sql="DELETE FROM personal WHERE cod_empleado =$id";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }

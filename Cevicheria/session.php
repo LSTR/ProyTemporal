@@ -9,6 +9,7 @@ class session {
         return true;
     }
     function activarSesion($login) {
+        session_cache_expire(1440);
         $_SESSION["active"]=1;
         $_SESSION["login_usuario"]=$login;
         $_SESSION["host"]="http://".$_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"]."/cevicheria";

@@ -14,6 +14,7 @@
                     $cc=1;
                 }
             }
+            $sql.=" order by id_pedido";
             return $conex->listarObject($sql);
         }
         function insertar($Data) {
@@ -28,11 +29,29 @@
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
-        function eliminar($id) {
+        function finalizar($id) {
             require_once '../bd/conexion.php';
-            $sql="UPDATE pedido set estado_Pedido='D' where id_pedido=".$id;
+            $sql="UPDATE pedido set estado_Pedido='D', especificaciones='Finalizado' where id_pedido=".$id;
+            $con=new conexion();
+            return $con->ejecutaQuery($sql);
+        }
+        function cancelar($id) {
+            require_once '../bd/conexion.php';
+            $sql="UPDATE pedido set estado_Pedido='C', especificaciones='Cancelado' where id_pedido=".$id;
+            $con=new conexion();
+            return $con->ejecutaQuery($sql);
+        }
+        function enviarPedido($id) {
+            require_once '../bd/conexion.php';
+            $sql="UPDATE pedido set estado_Pedido='B', especificaciones='Pedido Realizado' where id_pedido=".$id;
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
     }
+/*
+        1- A PrePedido       -> Cuando se hace el pedido
+        2- B Pedido realizado -> Cuando ya hizo los pedidos
+        3- C Cancelado       -> Cuando se cancela el servicio
+        4- D Finalizado       -> Cuando se termina el servicio
+ */
 ?>

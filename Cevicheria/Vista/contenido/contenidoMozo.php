@@ -74,20 +74,6 @@
           
            <?php }
         ?>
-        <div class="ListaMesa">
-            <div class="alert alert-success">
-             <h2>Mesa B</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p align="center"><a class="btn btn-primary" href="#">+ Detalles</a></p>
-            </div>
-        </div>
-        <div class="ListaMesa">
-            <div class="alert alert-info">
-             <h2>Mesa C</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p align="center"><a class="btn btn-primary" href="#">+ Detalles</a></p>
-            </div>
-        </div>
       </div>
       <hr>
 

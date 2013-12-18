@@ -6,9 +6,9 @@
         header("Location: ".$sess->getHost());
     require "../../configuracion.php";
     require '../../Modelo/detalle_pedido_platosM.php';
-    $Data["estado_cocina"]="A";
-    $objDAO=new detalle_pedido_platosM($Data);
-    $result=$objDAO->listar();
+    $Data["estado_cocina"]="B";
+    $objDAO=new detalle_pedido_platosM();
+    $result=$objDAO->listar($Data);
 ?>
 
 <!DOCTYPE html>
@@ -57,14 +57,14 @@
       <div class="row">
         <?php
             foreach ($result as $val) {
-                    if($val->estado_cocina!="A")continue;
+                    if($val->estado_cocina!="B")continue;
                     $cod=$val->nomb_plato;
                     $mesa=$val->num_mesa;
                     $desc=$val->tipo_plato;
                     $ubic=$val->precio;
                     ?>
                     <div class="ListaInfo">
-                        <div class="alert alert-success">
+                        <div class="alert alert-success" style="height: 250px">
                              <h3 align="center"><?php echo $cod;?></h3>
                              <h4>Mesa N&deg;<?php echo $mesa;?></h4>
                               <p><?php echo $desc;?></p>
