@@ -65,15 +65,17 @@
                     <li><a id="btnF" href="#">Factura</a></li>
                 </ul>
               </div>
+              <div style="text-align: center;padding: 30px;">
+                  <button id="btnGuardar" onclick="guardar()" class="btn btn-info" disabled="true"><i class="icon-list-alt icon-white"></i>&nbsp;&nbsp;Guardar</button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <button id="btnImprimir" onclick="print()" class="btn btn-success" disabled="true"><i class="icon-print icon-white"></i>&nbsp;&nbsp;Imprimir</button>
+              </div>
           </div>
           	
 
            <div id="pagePrint">
-                
            </div>
-           <div style="text-align: center;padding: 30px;">
-               <button id="btnImprimir">Imprimir</button>
-           </div>
+           
         
       </div>
       <hr>
