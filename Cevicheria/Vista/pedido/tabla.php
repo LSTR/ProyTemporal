@@ -53,7 +53,7 @@
 <div id="contenido">
     <div>
         <?php
-        if(!$existePedido){?>
+        if(!$existePedido||$resultP[0]->estado_Pedido=="D"){?>
             <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=A&m=<?php echo $id;?>">+ Nuevo Pedido</a>
         <?php }else{
             $NoEnCocina=true;
@@ -135,8 +135,6 @@
                 <?php }else{
                     foreach ($resultPB as $val) {
                     $cod=$val->nomb_bebida;
-//                    $cad="M0000";
-//                    $cod=substr($cad,0,  strlen($cad)-strlen($cod)).$cod;
                     $desc=$val->tipo_beb;
                     $ubic=$val->precio_bebida;
                     ?>
@@ -145,7 +143,6 @@
                              <h3 align="center"><?php echo $cod;?></h3>
                               <p><?php echo $desc;?></p>
                               <p>S/ <?php echo $ubic;?> Soles</p>
-                              <!--<p align="center"><a class="btn btn-danger" href="../../Controlador/detalle_pedido_bebidasC.php?txtAccion=E&id=<?php //echo $val->cod_detallePedBeb;?>&m=<?php echo $id;?>">- Cancelar</a></p>-->
                         </div>
                     </div>
 

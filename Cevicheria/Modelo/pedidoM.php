@@ -29,15 +29,21 @@
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
+        function cancelar($id) {
+            require_once '../bd/conexion.php';
+            $sql="UPDATE pedido set estado_Pedido='C', especificaciones='Cancelado' where id_pedido=".$id;
+            $con=new conexion();
+            return $con->ejecutaQuery($sql);
+        }
         function finalizar($id) {
             require_once '../bd/conexion.php';
             $sql="UPDATE pedido set estado_Pedido='D', especificaciones='Finalizado' where id_pedido=".$id;
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
-        function cancelar($id) {
+        function pagarCaja($id) {
             require_once '../bd/conexion.php';
-            $sql="UPDATE pedido set estado_Pedido='C', especificaciones='Cancelado' where id_pedido=".$id;
+            $sql="UPDATE pedido set estado_Pedido='E', especificaciones='Pagado' where id_pedido=".$id;
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
