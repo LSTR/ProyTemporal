@@ -14,7 +14,7 @@
                     $cc=1;
                 }
             }
-            $sql.=" order by id_pedido";
+            $sql.=" order by id_pedido desc";
             return $conex->listarObject($sql);
         }
         function insertar($Data) {

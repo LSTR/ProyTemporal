@@ -90,7 +90,7 @@ CREATE TABLE `detalle_pedido_bebidas` (
   `id_bebidas` int(11) NOT NULL,
   `id_pedido` int(11) NOT NULL,
   PRIMARY KEY (`cod_detallePedBeb`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `detalle_pedido_bebidas` (
 
 LOCK TABLES `detalle_pedido_bebidas` WRITE;
 /*!40000 ALTER TABLE `detalle_pedido_bebidas` DISABLE KEYS */;
-INSERT INTO `detalle_pedido_bebidas` VALUES (1,1,2,2),(2,1,4,2),(4,1,2,0),(5,1,2,21),(6,1,2,23),(7,1,5,23),(8,1,8,23),(9,1,2,24),(10,1,1,34),(11,1,1,35),(12,1,2,35),(13,1,3,35),(14,1,1,35),(15,1,8,36),(16,1,3,36),(17,1,2,36),(18,1,2,37),(19,1,2,37),(20,1,3,37),(21,1,3,37),(22,1,3,37),(23,1,1,37),(24,1,1,37),(25,1,1,37),(26,1,1,37),(27,1,3,38),(28,1,3,38),(29,1,3,38),(30,1,3,38),(31,1,3,38);
+INSERT INTO `detalle_pedido_bebidas` VALUES (1,1,2,2),(2,1,4,2),(4,1,2,0),(5,1,2,21),(6,1,2,23),(7,1,5,23),(8,1,8,23),(9,1,2,24),(10,1,1,34),(11,1,1,35),(12,1,2,35),(13,1,3,35),(14,1,1,35),(15,1,8,36),(16,1,3,36),(17,1,2,36),(18,1,2,37),(19,1,2,37),(20,1,3,37),(21,1,3,37),(22,1,3,37),(23,1,1,37),(24,1,1,37),(25,1,1,37),(26,1,1,37),(27,1,3,38),(28,1,3,38),(29,1,3,38),(30,1,3,38),(31,1,3,38),(32,1,1,39),(33,1,2,39),(34,1,2,39),(35,1,1,39),(36,1,1,40),(37,1,1,40),(38,1,1,40),(39,1,7,40),(40,1,1,47),(41,1,2,47),(42,1,2,47),(43,1,2,47);
 /*!40000 ALTER TABLE `detalle_pedido_bebidas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,7 +119,7 @@ CREATE TABLE `detalle_pedido_platos` (
   PRIMARY KEY (`cod_detallePed`),
   KEY `Refplatos18` (`cod_platos`),
   KEY `Refpedido36` (`id_pedido`)
-) ENGINE=MyISAM AUTO_INCREMENT=76 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +128,7 @@ CREATE TABLE `detalle_pedido_platos` (
 
 LOCK TABLES `detalle_pedido_platos` WRITE;
 /*!40000 ALTER TABLE `detalle_pedido_platos` DISABLE KEYS */;
-INSERT INTO `detalle_pedido_platos` VALUES (5,1,1,2,'C'),(6,1,5,2,'C'),(21,1,2,2,'C'),(8,1,27,2,'C'),(12,1,1,1,'C'),(34,1,1,22,'C'),(13,1,2,1,'C'),(33,1,2,21,'C'),(16,1,1,0,'C'),(17,1,1,5,'C'),(18,1,1,6,'C'),(19,1,2,6,'C'),(32,1,3,20,'C'),(23,1,6,1,'C'),(24,1,2,18,'C'),(35,1,2,22,'C'),(36,1,5,22,'C'),(30,1,12,19,'C'),(31,1,11,19,'C'),(37,1,2,23,'C'),(38,1,5,23,'C'),(39,1,2,23,'C'),(40,1,6,23,'C'),(46,1,3,24,'C'),(45,1,1,24,'C'),(44,1,1,24,'C'),(47,1,3,25,'C'),(48,1,4,26,'C'),(49,1,1,28,'C'),(50,1,1,29,'C'),(51,1,1,30,'C'),(52,1,2,31,'C'),(58,1,15,33,'C'),(57,1,3,33,'C'),(56,1,2,33,'C'),(59,1,3,35,'C'),(60,1,2,35,'C'),(61,1,3,35,'C'),(67,1,3,36,'C'),(63,1,1,36,'C'),(64,1,1,36,'C'),(65,1,2,36,'C'),(66,1,3,36,'C'),(68,1,20,36,'C'),(69,1,1,37,'C'),(70,1,2,37,'C'),(71,1,1,38,'C'),(72,1,1,38,'C'),(73,1,2,38,'C'),(74,1,2,38,'C'),(75,1,2,38,'C');
+INSERT INTO `detalle_pedido_platos` VALUES (5,1,1,2,'C'),(6,1,5,2,'C'),(21,1,2,2,'C'),(8,1,27,2,'C'),(12,1,1,1,'C'),(34,1,1,22,'C'),(13,1,2,1,'C'),(33,1,2,21,'C'),(16,1,1,0,'C'),(17,1,1,5,'C'),(18,1,1,6,'C'),(19,1,2,6,'C'),(32,1,3,20,'C'),(23,1,6,1,'C'),(24,1,2,18,'C'),(35,1,2,22,'C'),(36,1,5,22,'C'),(30,1,12,19,'C'),(31,1,11,19,'C'),(37,1,2,23,'C'),(38,1,5,23,'C'),(39,1,2,23,'C'),(40,1,6,23,'C'),(46,1,3,24,'C'),(45,1,1,24,'C'),(44,1,1,24,'C'),(47,1,3,25,'C'),(48,1,4,26,'C'),(49,1,1,28,'C'),(50,1,1,29,'C'),(51,1,1,30,'C'),(52,1,2,31,'C'),(58,1,15,33,'C'),(57,1,3,33,'C'),(56,1,2,33,'C'),(59,1,3,35,'C'),(60,1,2,35,'C'),(61,1,3,35,'C'),(67,1,3,36,'C'),(63,1,1,36,'C'),(64,1,1,36,'C'),(65,1,2,36,'C'),(66,1,3,36,'C'),(68,1,20,36,'C'),(69,1,1,37,'C'),(70,1,2,37,'C'),(71,1,1,38,'C'),(72,1,1,38,'C'),(73,1,2,38,'C'),(74,1,2,38,'C'),(75,1,2,38,'C'),(76,1,1,39,'C'),(77,1,1,39,'C'),(78,1,1,39,'C'),(79,1,1,39,'C'),(80,1,2,39,'C'),(81,1,2,39,'C'),(82,1,2,39,'C'),(83,1,2,39,'C'),(84,1,6,39,'C'),(85,1,5,39,'C'),(86,1,20,40,'C'),(87,1,2,40,'C'),(88,1,2,40,'C'),(89,1,1,47,'C'),(90,1,2,47,'C'),(91,1,5,47,'C');
 /*!40000 ALTER TABLE `detalle_pedido_platos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,7 +174,7 @@ CREATE TABLE `pedido` (
   PRIMARY KEY (`id_pedido`),
   KEY `Refpersonal2` (`cod_empleado`),
   KEY `Refmesa32` (`num_mesa`)
-) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,7 +183,7 @@ CREATE TABLE `pedido` (
 
 LOCK TABLES `pedido` WRITE;
 /*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
-INSERT INTO `pedido` VALUES (35,'Pagado',6,20,'E'),(34,'Finalizado',6,8,'D'),(33,'Finalizado',6,8,'D'),(32,'Cancelado',6,8,'C'),(31,'Cancelado',3,5,'C'),(28,'Cancelado',6,4,'C'),(29,'Cancelado',3,5,'C'),(30,'Cancelado',3,5,'C'),(26,'Cancelado',3,3,'C'),(25,'Cancelado',3,9,'C'),(24,'Cancelado',6,1,'C'),(22,'Cancelado',6,1,'C'),(23,'Cancelado',6,1,'C'),(36,'Finalizado',6,5,'D'),(37,'Finalizado',6,11,'D'),(38,'Pagado',6,2,'E');
+INSERT INTO `pedido` VALUES (35,'Pagado',6,20,'E'),(34,'Pagado',6,8,'E'),(33,'Pagado',6,8,'E'),(32,'Cancelado',6,8,'C'),(31,'Cancelado',3,5,'C'),(28,'Cancelado',6,4,'C'),(29,'Cancelado',3,5,'C'),(30,'Cancelado',3,5,'C'),(26,'Cancelado',3,3,'C'),(25,'Cancelado',3,9,'C'),(24,'Cancelado',6,1,'C'),(22,'Cancelado',6,1,'C'),(23,'Cancelado',6,1,'C'),(36,'Pagado',6,5,'E'),(37,'Pagado',6,11,'E'),(38,'Pagado',6,2,'E'),(39,'Pagado',6,6,'E'),(40,'Pagado',6,7,'E'),(41,'Pagado',6,8,'E'),(47,'Finalizado',6,8,'D');
 /*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -324,7 +324,7 @@ CREATE TABLE `tb_comprobante` (
 
 LOCK TABLES `tb_comprobante` WRITE;
 /*!40000 ALTER TABLE `tb_comprobante` DISABLE KEYS */;
-INSERT INTO `tb_comprobante` VALUES (7,'0000-00-00','222.50','P',35),(2,'0000-00-00','222.50','P',35),(3,'0000-00-00','222.50','P',35),(4,'0000-00-00','222.50','P',35),(5,'0000-00-00','222.50','P',35),(6,'0000-00-00','222.50','P',35),(8,'2013-12-20','222.50','P',35),(9,'2013-12-20','222.50','P',35),(10,'2013-12-20','294.00','P',38);
+INSERT INTO `tb_comprobante` VALUES (8,'2013-09-20','222.50','P',35),(10,'2013-11-20','294.00','P',38);
 /*!40000 ALTER TABLE `tb_comprobante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -782,4 +782,4 @@ USE `cevicheria`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-19 20:54:46
+-- Dump completed on 2013-12-28 18:21:58

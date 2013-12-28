@@ -7,7 +7,7 @@
     /////////////////////    BUSCAR PEDIDO EN LA MESA
     $objDAO=new PedidoM();
     $Data["num_mesa"]=$id;
-    $Data["estado_Pedido!"]="C";
+//    $Data["estado_Pedido!"]="C";
     $resultP=$objDAO->listar($Data);
     $existePedido=count($resultP);
     if($existePedido){
@@ -53,8 +53,10 @@
 <div id="contenido">
     <div>
         <?php
-        if(!$existePedido||$resultP[0]->estado_Pedido=="D"){?>
+        if(!$existePedido||$resultP[0]->estado_Pedido=="E"){?>
             <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=A&m=<?php echo $id;?>">+ Nuevo Pedido</a>
+        <?php }else if($resultP[0]->estado_Pedido=="D"){?>
+            <a class="btn btn-success" href="">Mesa estara disponible despues de cancelar en caja</a>
         <?php }else{
             $NoEnCocina=true;
             foreach ($resultPP as $val)
@@ -75,14 +77,14 @@
                 <th>PEDIDO</th>
                 <th>ESTADO</th>
                 <th>MESA</th>
-                <th></th>
+                <th>PEDIDO</th>
             </tr>
             <tr class="info">
                 <td></td>
                 <td>P000<?php echo $resultP[0]->id_pedido;?></td>
                 <td><?php echo $resultP[0]->especificaciones;?></td>
                 <td><?php echo $resultP[0]->num_mesa;?></td>
-                <td></td>
+                <td><?php echo $resultP[0]->id_pedido;?></td>
             </tr>
         </table>
     </div>

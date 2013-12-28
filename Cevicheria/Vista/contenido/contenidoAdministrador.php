@@ -29,6 +29,23 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo $pathBootstrap?>/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="<?php echo $pathBootstrap?>/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="<?php echo $pathBootstrap?>/ico/favicon.png">
+    <link type="text/css" rel="stylesheet" href="<?php echo $pathName; ?>/js/jquery/css/mint-choc/base/jquery.ui.all.css">
+    <link type="text/css" rel="stylesheet" href="<?php echo $pathName;?>/js/jquery/css/mint-choc/base/jquery.ui.datepicker.css">
+    <script type="text/javascript" src="<?php echo $pathName;?>/js/jquery/js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="<?php echo $pathName;?>/js/jquery/js/jquery-ui-1.8.23.custom.min.js"></script>
+    <script type="text/javascript" src="<?php echo $pathName; ?>/js/jquery/js/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="<?php echo $pathName; ?>/js/jquery/js/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="jquery.ui.datepicker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#btnDownDia").click(function(){
+                var p=pathSemelec+"recibo/crearRecibo/1/"+idc+"/"+mes;
+                window.location.href = p;
+            });
+            $("#txtFechaDesde").datepicker({maxDate:0,"dateFormat":"yy-mm-dd"});
+            $("#txtFechaHasta").datepicker({maxDate:0,"dateFormat":"yy-mm-dd"});
+        });
+    </script>
   </head>
   <body>
     <!--INI NAVBAR-->
@@ -39,7 +56,13 @@
     <!--FIN NAVBAR-->
    <center>
     <div class="container" >
-        <img src="<?php echo $pathBootstrap?>/img/examples/slide-01.jpg" alt="">
+        <div class="container" >
+                  <div style="padding: 10px;">
+                    <div>Desde <input class="input-medium" type="text" id="txtFechaDesde" value="">&nbsp;&nbsp;&nbsp;
+                    Hasta <input class="input-medium" type="text" id="txtFechaHasta" value=""></div>
+                    <div><a style="position: relative;padding: 5px;top: -5px" href="#" id='btnDownDia' class="btn btn-info">Descargar Dia Seleccionado</a></div>
+                </div>
+    </div>
 <!--      <div class="hero-unit">
         <h1>Hello, world!</h1>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
@@ -67,7 +90,6 @@
         <p>&copy; Company 2013</p>
       </footer>-->
     </div></center>
-    <script src="<?php echo $pathBootstrap?>/scripts/jquery.min.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-transition.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-alert.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-modal.js"></script>

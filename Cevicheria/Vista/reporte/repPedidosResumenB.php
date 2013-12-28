@@ -1,14 +1,20 @@
 <?php
-//    header('Content-type: application/msword');
-//    header('Content-Disposition: inline;filename=reporte_pedido_platos.doc');
+    header('Content-type: application/msword');
+    header('Content-Disposition: inline;filename=reporte_bebidasvendidos.doc');
     require_once '../../session.php';
     $sess=new session();
     if(!$sess->sesionActiva())
         header("Location: ".$sess->getHost());
-    require "../../configuracion.php";
-    require '../../Modelo/detalle_pedido_platosM.php';
-    $objDAO=new detalle_pedido_platosM();
-    $resultP=$objDAO->listar();
+        require '../../Modelo/detalle_pedido_platosM.php';
+        $objDAO=new detalle_pedido_platosM();
+//        $DtP["id_pedido"]=$id_ped;
+        $resultPP=$objDAO->listar($DtP);
+        /////////////////////    DETALLE PEDIDO BEBIDAS
+        require '../../Modelo/detalle_pedido_bebidasM.php';
+        $objDAO=new detalle_pedido_bebidaM();
+//        $DtB["id_pedido"]=$id_ped;
+        $resultPB=$objDAO->listar($DtB);
+        
 ?>
 <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
     <head>
@@ -47,7 +53,7 @@
 <div id="wb_Text8" style="position:absolute;left:20px;top:5px;width:100%;height:29px;z-index:3;">
     <div style="text-align: center">
         <span style="color:#494848 ;font-family:Georgia;font-size:18px;">
-            REPORTE DE PEDIDOS - PLATOS:</span>
+            REPORTE DE PEDIDOS - BEBIDAS MAS VENDIDOS:</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
 </div>
@@ -60,31 +66,31 @@
             <col width="20%">
             <thead>
                 <tr>
-                    <th><div style="text-align: center">Mesa</div></th>
-                    <th><div style="text-align: center">Pedido</div></th>
+                    <th><div style="text-align: center">Cantidad</div></th>
                     <th><div style="text-align: center">Plato</div></th>
                     <th><div style="text-align: center">Precio</div></th>
-                    <th><div style="text-align: center">Mozo</div></th>
+                    <th><div style="text-align: center">Importe</div></th>
                 </tr>
-            </thead>
-            <?php
-                foreach ($resultP as $val) {
-                $ms=$val->num_mesa;
-                $cad="M00000";
-                $ms=substr($cad,0,  strlen($cad)-strlen($ms)).$ms;
-                $pd=$val->id_pedido;
-                $cad="P00000";
-                $pd=substr($cad,0,  strlen($cad)-strlen($pd)).$pd;
-                ?>
-                <tr>
-                    <td><?php echo $ms;?></td>
-                    <td><?php echo $pd;?></td>
-                    <td><?php echo $val->nomb_plato;?></td>
-                    <td><?php echo $val->precio;?></td>
-                    <td><?php echo $val->nombre." ".$val->apellido;?></td>
-                </tr>
-               <?php }
-            ?>
+            </thead>n
+                    <?php 
+                        $PB=array();
+                        $Precio=array();
+                        foreach ($resultPB as $val) {
+                            $total+=$val->precio_bebida;
+                            $PB[$val->nomb_bebida]=isset($PB[$val->nomb_bebida])?$PB[$val->nomb_bebida]+1:1;
+                            $Precio[$val->nomb_bebida]=$val->precio_bebida;
+                        }
+                        foreach ($PB as $k => $v) {
+                        $imp=$PB[$k]*$Precio[$k];
+                    ?>
+                    <tr>
+                        <td><?php echo $PB[$k];?></td>
+                        <td><?php echo $k;?></td>
+                        <td><?php echo $Precio[$k];?></td>
+                        <td><?php echo (strpos($imp."", ".")>0)?$imp."0":$imp.".00";?></td>
+                    </tr>
+                    <?php }
+                    ?>
       </table>
     </div>
 </body>

@@ -2,6 +2,7 @@
 //    if(!isset($_POST["idMesa"])) header("Location: ../inicio.php");
     $idM=$_POST["idMesa"];
     require '../../Modelo/pedidoM.php';
+    require "../../configuracion.php";
     /////////////////////    BUSCAR PEDIDO EN LA MESA
     $objDAO=new PedidoM();
     $Data["num_mesa"]=$idM;
@@ -28,8 +29,8 @@
 ?>
 <input type="hidden" id="idPed" value="<?php echo $id_ped?>"/>
 <input type="hidden" id="tipo" value="b"/>
-<link rel='stylesheet' type='text/css' href='<?php echo $pathName?>/cevicheria/css/print.css' media="print"/>
-<link rel='stylesheet' type='text/css' href='<?php echo $pathName?>/cevicheria/css/estiloCaja.css'/>
+<link rel='stylesheet' type='text/css' href='<?php echo $pathName?>/css/print.css' media="print"/>
+<link rel='stylesheet' type='text/css' href='<?php echo $pathName?>/css/estiloCaja.css'/>
 <div id="page-wrap">
     <table width="100%">
         <tr>
