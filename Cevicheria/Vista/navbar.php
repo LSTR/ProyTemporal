@@ -54,7 +54,8 @@
                   <?php echo $Empleado?>&nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
               </p>
               <ul class="nav">
-                <li class="active"><a href="#">Inicio</a></li>
+                <li class="<?php echo($opcMenu=="factura")?"active":""?>"><a href="../comprobante/dataFactura.php">Facturas</a></li>
+                <li class="<?php echo($opcMenu=="boleta")?"active":""?>"><a href="../comprobante/dataBoleta.php">Boletas</a></li>
               </ul>
             </div>
           </div>

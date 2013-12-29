@@ -21,8 +21,14 @@ $E[1] = "Datos Incorrectos";
                 padding-top: 40px;
                 padding-bottom: 40px;
                 background-color: #f5f5f5;
+                background-image: url('img/bg_lg.jpg');
             }
-
+            .container{
+                border-radius: 10px;
+            }
+            .container .form-signin{
+                background-color: rgba(255, 255, 255, 0);
+            }
             .form-signin {
                 max-width: 300px;
                 padding: 19px 29px 29px;
@@ -51,6 +57,7 @@ $E[1] = "Datos Incorrectos";
         <link href="<?php echo $pathBootstrap ?>/css/bootstrap-responsive.css" rel="stylesheet">
     </head>
     <body>
+        <br><br><br><br><br><br><br><br>
         <div class="container">
             <form class="form-signin" method="post" action="Controlador/usuario.php" onsubmit="return login();">
                 <h2 class="form-signin-heading">Ingreso al Sistema</h2>
@@ -72,11 +79,5 @@ $E[1] = "Datos Incorrectos";
                 <button class="btn btn-large btn-primary" type="submit">Ingresar</button>
             </form>
         </div>
-        <script src="<?php echo $pathBootstrap ?>/scripts/jquery.min.js"></script>
-        <script src="<?php echo $pathBootstrap ?>/scripts/bootstrap-alerts.js"></script>
-        <script src="<?php echo $pathBootstrap ?>/scripts/bootstrap-modal.js"></script>
-        <script src="<?php echo $pathBootstrap ?>/scripts/bootstrap-dropdown.js"></script>
-        <script src="<?php echo $pathBootstrap ?>/scripts/bootstrap-scrollspy.js"></script>
-
     </body>
 </html>

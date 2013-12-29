@@ -119,7 +119,7 @@ CREATE TABLE `detalle_pedido_platos` (
   PRIMARY KEY (`cod_detallePed`),
   KEY `Refplatos18` (`cod_platos`),
   KEY `Refpedido36` (`id_pedido`)
-) ENGINE=MyISAM AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=96 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +128,7 @@ CREATE TABLE `detalle_pedido_platos` (
 
 LOCK TABLES `detalle_pedido_platos` WRITE;
 /*!40000 ALTER TABLE `detalle_pedido_platos` DISABLE KEYS */;
-INSERT INTO `detalle_pedido_platos` VALUES (5,1,1,2,'C'),(6,1,5,2,'C'),(21,1,2,2,'C'),(8,1,27,2,'C'),(12,1,1,1,'C'),(34,1,1,22,'C'),(13,1,2,1,'C'),(33,1,2,21,'C'),(16,1,1,0,'C'),(17,1,1,5,'C'),(18,1,1,6,'C'),(19,1,2,6,'C'),(32,1,3,20,'C'),(23,1,6,1,'C'),(24,1,2,18,'C'),(35,1,2,22,'C'),(36,1,5,22,'C'),(30,1,12,19,'C'),(31,1,11,19,'C'),(37,1,2,23,'C'),(38,1,5,23,'C'),(39,1,2,23,'C'),(40,1,6,23,'C'),(46,1,3,24,'C'),(45,1,1,24,'C'),(44,1,1,24,'C'),(47,1,3,25,'C'),(48,1,4,26,'C'),(49,1,1,28,'C'),(50,1,1,29,'C'),(51,1,1,30,'C'),(52,1,2,31,'C'),(58,1,15,33,'C'),(57,1,3,33,'C'),(56,1,2,33,'C'),(59,1,3,35,'C'),(60,1,2,35,'C'),(61,1,3,35,'C'),(67,1,3,36,'C'),(63,1,1,36,'C'),(64,1,1,36,'C'),(65,1,2,36,'C'),(66,1,3,36,'C'),(68,1,20,36,'C'),(69,1,1,37,'C'),(70,1,2,37,'C'),(71,1,1,38,'C'),(72,1,1,38,'C'),(73,1,2,38,'C'),(74,1,2,38,'C'),(75,1,2,38,'C'),(76,1,1,39,'C'),(77,1,1,39,'C'),(78,1,1,39,'C'),(79,1,1,39,'C'),(80,1,2,39,'C'),(81,1,2,39,'C'),(82,1,2,39,'C'),(83,1,2,39,'C'),(84,1,6,39,'C'),(85,1,5,39,'C'),(86,1,20,40,'C'),(87,1,2,40,'C'),(88,1,2,40,'C'),(89,1,1,47,'C'),(90,1,2,47,'C'),(91,1,5,47,'C');
+INSERT INTO `detalle_pedido_platos` VALUES (5,1,1,2,'C'),(6,1,5,2,'C'),(21,1,2,2,'C'),(8,1,27,2,'C'),(12,1,1,1,'C'),(34,1,1,22,'C'),(13,1,2,1,'C'),(33,1,2,21,'C'),(16,1,1,0,'C'),(17,1,1,5,'C'),(18,1,1,6,'C'),(19,1,2,6,'C'),(32,1,3,20,'C'),(23,1,6,1,'C'),(24,1,2,18,'C'),(35,1,2,22,'C'),(36,1,5,22,'C'),(30,1,12,19,'C'),(31,1,11,19,'C'),(37,1,2,23,'C'),(38,1,5,23,'C'),(39,1,2,23,'C'),(40,1,6,23,'C'),(46,1,3,24,'C'),(45,1,1,24,'C'),(44,1,1,24,'C'),(47,1,3,25,'C'),(48,1,4,26,'C'),(49,1,1,28,'C'),(50,1,1,29,'C'),(51,1,1,30,'C'),(52,1,2,31,'C'),(58,1,15,33,'C'),(57,1,3,33,'C'),(56,1,2,33,'C'),(59,1,3,35,'C'),(60,1,2,35,'C'),(61,1,3,35,'C'),(67,1,3,36,'C'),(63,1,1,36,'C'),(64,1,1,36,'C'),(65,1,2,36,'C'),(66,1,3,36,'C'),(68,1,20,36,'C'),(69,1,1,37,'C'),(70,1,2,37,'C'),(71,1,1,38,'C'),(72,1,1,38,'C'),(73,1,2,38,'C'),(74,1,2,38,'C'),(75,1,2,38,'C'),(76,1,1,39,'C'),(77,1,1,39,'C'),(78,1,1,39,'C'),(79,1,1,39,'C'),(80,1,2,39,'C'),(81,1,2,39,'C'),(82,1,2,39,'C'),(83,1,2,39,'C'),(84,1,6,39,'C'),(85,1,5,39,'C'),(86,1,20,40,'C'),(87,1,2,40,'C'),(88,1,2,40,'C'),(89,1,1,47,'C'),(90,1,2,47,'C'),(91,1,5,47,'C'),(92,1,1,51,'C'),(93,1,1,51,'C'),(94,1,2,51,'C'),(95,1,1,51,'C');
 /*!40000 ALTER TABLE `detalle_pedido_platos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +154,7 @@ CREATE TABLE `mesa` (
 
 LOCK TABLES `mesa` WRITE;
 /*!40000 ALTER TABLE `mesa` DISABLE KEYS */;
-INSERT INTO `mesa` VALUES (1,'','1er piso','A'),(2,NULL,'1er piso','A'),(3,NULL,'1er piso','A'),(4,NULL,'1er piso','A'),(5,NULL,'1er piso','A'),(6,NULL,'1er piso','A'),(7,NULL,'1er piso','A'),(8,NULL,'1er piso','A'),(9,NULL,'1er piso','A'),(10,NULL,'1er piso','A'),(11,NULL,'2do piso','A'),(12,NULL,'2do piso','A'),(13,NULL,'2do piso','A'),(14,NULL,'2do piso','A'),(15,NULL,'2do piso','A'),(16,NULL,'2do piso','A'),(17,NULL,'2do piso','A'),(18,NULL,'2do piso','A'),(19,NULL,'2do piso','A'),(20,NULL,'2do piso','A'),(21,NULL,'2do piso','A');
+INSERT INTO `mesa` VALUES (1,'','1er piso','A'),(2,'DISPONIBLE','1er piso','A'),(3,NULL,'1er piso','A'),(4,NULL,'1er piso','A'),(5,NULL,'1er piso','A'),(6,NULL,'1er piso','A'),(7,NULL,'1er piso','A'),(8,NULL,'1er piso','A'),(9,'DISPONIBLE','1er piso','A'),(10,'DISPONIBLE','1er piso','A'),(11,NULL,'2do piso','A'),(12,NULL,'2do piso','A'),(13,NULL,'2do piso','A'),(14,NULL,'2do piso','A'),(15,NULL,'2do piso','A'),(16,NULL,'2do piso','A'),(17,NULL,'2do piso','A'),(18,NULL,'2do piso','A'),(19,NULL,'2do piso','A'),(20,NULL,'2do piso','A'),(21,NULL,'2do piso','A');
 /*!40000 ALTER TABLE `mesa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,7 +174,7 @@ CREATE TABLE `pedido` (
   PRIMARY KEY (`id_pedido`),
   KEY `Refpersonal2` (`cod_empleado`),
   KEY `Refmesa32` (`num_mesa`)
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,7 +183,7 @@ CREATE TABLE `pedido` (
 
 LOCK TABLES `pedido` WRITE;
 /*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
-INSERT INTO `pedido` VALUES (35,'Pagado',6,20,'E'),(34,'Pagado',6,8,'E'),(33,'Pagado',6,8,'E'),(32,'Cancelado',6,8,'C'),(31,'Cancelado',3,5,'C'),(28,'Cancelado',6,4,'C'),(29,'Cancelado',3,5,'C'),(30,'Cancelado',3,5,'C'),(26,'Cancelado',3,3,'C'),(25,'Cancelado',3,9,'C'),(24,'Cancelado',6,1,'C'),(22,'Cancelado',6,1,'C'),(23,'Cancelado',6,1,'C'),(36,'Pagado',6,5,'E'),(37,'Pagado',6,11,'E'),(38,'Pagado',6,2,'E'),(39,'Pagado',6,6,'E'),(40,'Pagado',6,7,'E'),(41,'Pagado',6,8,'E'),(47,'Finalizado',6,8,'D');
+INSERT INTO `pedido` VALUES (35,'Pagado',6,20,'E'),(34,'Pagado',6,8,'E'),(33,'Pagado',6,8,'E'),(32,'Cancelado',6,8,'C'),(31,'Cancelado',3,5,'C'),(28,'Cancelado',6,4,'C'),(29,'Cancelado',3,5,'C'),(30,'Cancelado',3,5,'C'),(26,'Cancelado',3,3,'C'),(25,'Cancelado',3,9,'C'),(24,'Cancelado',6,1,'C'),(22,'Cancelado',6,1,'C'),(23,'Cancelado',6,1,'C'),(36,'Pagado',6,5,'E'),(37,'Pagado',6,11,'E'),(38,'Pagado',6,2,'E'),(39,'Pagado',6,6,'E'),(40,'Pagado',6,7,'E'),(41,'Pagado',6,8,'E'),(51,'Pagado',6,2,'E'),(50,'Cancelado',6,10,'C'),(49,'Cancelado',6,9,'C'),(48,'Cancelado',6,9,'C'),(47,'Pagado',6,8,'E');
 /*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -297,7 +297,7 @@ CREATE TABLE `tb_boleta` (
 
 LOCK TABLES `tb_boleta` WRITE;
 /*!40000 ALTER TABLE `tb_boleta` DISABLE KEYS */;
-INSERT INTO `tb_boleta` VALUES (1,'00000001','Lester luigui narvasta ramirez',472332299,9893344,2),(2,'00000002','Empresa unodostres',546596959,32543543,3),(3,'00000003','egretre',0,0,4),(4,'00000004','Lester',325453324,32432543,5),(5,'00000005','Jose Perez',44775588,8753023,10);
+INSERT INTO `tb_boleta` VALUES (5,'00000005','Jose Perez',44775588,8753023,10);
 /*!40000 ALTER TABLE `tb_boleta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -315,7 +315,7 @@ CREATE TABLE `tb_comprobante` (
   `estado` char(1) NOT NULL,
   `id_pedido` int(11) NOT NULL,
   PRIMARY KEY (`id_comprobante`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -324,7 +324,7 @@ CREATE TABLE `tb_comprobante` (
 
 LOCK TABLES `tb_comprobante` WRITE;
 /*!40000 ALTER TABLE `tb_comprobante` DISABLE KEYS */;
-INSERT INTO `tb_comprobante` VALUES (8,'2013-09-20','222.50','P',35),(10,'2013-11-20','294.00','P',38);
+INSERT INTO `tb_comprobante` VALUES (12,'2013-12-29','200.50','P',51),(8,'2013-09-20','222.50','P',35),(11,'2013-12-28','191.00','P',47),(10,'2013-11-20','294.00','P',38);
 /*!40000 ALTER TABLE `tb_comprobante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -343,7 +343,7 @@ CREATE TABLE `tb_factura` (
   `telefono` int(15) NOT NULL,
   `id_comprobante` int(11) NOT NULL,
   PRIMARY KEY (`id_factura`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -352,7 +352,7 @@ CREATE TABLE `tb_factura` (
 
 LOCK TABLES `tb_factura` WRITE;
 /*!40000 ALTER TABLE `tb_factura` DISABLE KEYS */;
-INSERT INTO `tb_factura` VALUES (1,'00000001','etretretert',23423423,432423432,6),(2,'00000002','Empresa ABCD',44553322,12443434,7),(3,'00000003','Empresa 123',324234234,344443333,8),(4,'00000004','Industrias SA',1234567890,9894433,9);
+INSERT INTO `tb_factura` VALUES (1,'00000001','etretretert',23423423,432423432,6),(2,'00000002','Empresa ABCD',44553322,12443434,7),(3,'00000003','Empresa 123',324234234,344443333,8),(4,'00000004','Industrias SA',1234567890,9894433,9),(5,'00000005','Lester NR',2343243,324324324,11),(6,'00000006','Lester Narvasta Ramirez',1234433,32434325,12);
 /*!40000 ALTER TABLE `tb_factura` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -397,6 +397,28 @@ SET character_set_client = utf8;
   `tipo_beb` varchar(45),
   `descripcion` varchar(45),
   `precio_bebida` decimal(10,2)
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `v_boleta`
+--
+
+DROP TABLE IF EXISTS `v_boleta`;
+/*!50001 DROP VIEW IF EXISTS `v_boleta`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `v_boleta` (
+  `id_boleta` int(11),
+  `numero_boleta` varchar(15),
+  `cliente` varchar(250),
+  `dni` int(10),
+  `telefono` int(15),
+  `id_comprobante` int(11),
+  `fecha` date,
+  `total` decimal(10,2),
+  `estado` char(1),
+  `id_pedido` int(11)
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
 
@@ -465,6 +487,28 @@ SET character_set_client = utf8;
   `estado_Pedido` char(1),
   `nombre` varchar(50),
   `apellido` varchar(50)
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `v_factura`
+--
+
+DROP TABLE IF EXISTS `v_factura`;
+/*!50001 DROP VIEW IF EXISTS `v_factura`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `v_factura` (
+  `id_factura` int(11),
+  `numero_factura` varchar(15),
+  `cliente` varchar(250),
+  `ruc` int(15),
+  `telefono` int(15),
+  `id_comprobante` int(11),
+  `fecha` date,
+  `total` decimal(10,2),
+  `estado` char(1),
+  `id_pedido` int(11)
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
 
@@ -603,6 +647,25 @@ USE `cevicheria`;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `v_boleta`
+--
+
+/*!50001 DROP TABLE IF EXISTS `v_boleta`*/;
+/*!50001 DROP VIEW IF EXISTS `v_boleta`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_boleta` AS select `b`.`id_boleta` AS `id_boleta`,`b`.`numero_boleta` AS `numero_boleta`,`b`.`cliente` AS `cliente`,`b`.`dni` AS `dni`,`b`.`telefono` AS `telefono`,`b`.`id_comprobante` AS `id_comprobante`,`c`.`fecha` AS `fecha`,`c`.`total` AS `total`,`c`.`estado` AS `estado`,`c`.`id_pedido` AS `id_pedido` from (`tb_boleta` `b` join `tb_comprobante` `c` on((`b`.`id_comprobante` = `c`.`id_comprobante`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `v_cargo`
 --
 
@@ -655,6 +718,25 @@ USE `cevicheria`;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `v_detalle_pedido_platos` AS select `dpb`.`cod_detallePed` AS `cod_detallePed`,`dpb`.`cantidad` AS `cantidad`,`dpb`.`cod_platos` AS `cod_platos`,`dpb`.`id_pedido` AS `id_pedido`,`dpb`.`estado_cocina` AS `estado_cocina`,`b`.`nomb_plato` AS `nomb_plato`,`b`.`tipo_plato` AS `tipo_plato`,`b`.`descripcion` AS `descripcion`,`b`.`precio` AS `precio`,`pe`.`especificaciones` AS `especificaciones`,`pe`.`num_mesa` AS `num_mesa`,`pe`.`cod_empleado` AS `cod_empleado`,`pe`.`estado_Pedido` AS `estado_Pedido`,`pe`.`nombre` AS `nombre`,`pe`.`apellido` AS `apellido` from ((`detalle_pedido_platos` `dpb` join `v_platos` `b`) join `v_pedido` `pe`) where ((`b`.`cod_platos` = `dpb`.`cod_platos`) and (`dpb`.`id_pedido` = `pe`.`id_pedido`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `v_factura`
+--
+
+/*!50001 DROP TABLE IF EXISTS `v_factura`*/;
+/*!50001 DROP VIEW IF EXISTS `v_factura`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_factura` AS select `f`.`id_factura` AS `id_factura`,`f`.`numero_factura` AS `numero_factura`,`f`.`cliente` AS `cliente`,`f`.`ruc` AS `ruc`,`f`.`telefono` AS `telefono`,`f`.`id_comprobante` AS `id_comprobante`,`c`.`fecha` AS `fecha`,`c`.`total` AS `total`,`c`.`estado` AS `estado`,`c`.`id_pedido` AS `id_pedido` from (`tb_factura` `f` join `tb_comprobante` `c` on((`f`.`id_comprobante` = `c`.`id_comprobante`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -782,4 +864,4 @@ USE `cevicheria`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-28 18:21:58
+-- Dump completed on 2013-12-29  3:08:52

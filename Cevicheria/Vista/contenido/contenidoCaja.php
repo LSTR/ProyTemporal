@@ -53,7 +53,8 @@
     <div class="container">
       <div class="hero-unit">
           <div id="formOptions">
-              <span>Numero de Pedido&nbsp;&nbsp;&nbsp;<input type="text" id="txtPedido"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <span>Numero de Mesa&nbsp;&nbsp;&nbsp;<input type="text" id="txtMesa"></span>&nbsp;&nbsp;&nbsp;&nbsp;
               <div class="btn-group">
                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">

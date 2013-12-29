@@ -16,6 +16,38 @@
             }
             return $conex->listarObject($sql);
         }
+        function listarFactura($where=NULL) {
+            require_once '../../bd/conexion.php';
+            $conex=new conexion();
+            $sql="Select * from v_factura";
+            if($where!=NULL){
+               $sql.=" where ";
+                $cc=0;
+                foreach ($where as $k => $val) {
+                    if($cc>0)
+                        $sql.=" AND ";
+                    $sql.=" ".$k."='".$val."'";
+                    $cc=1;
+                }
+            }
+            return $conex->listarObject($sql);
+        }
+        function listarBoleta($where=NULL) {
+            require_once '../../bd/conexion.php';
+            $conex=new conexion();
+            $sql="Select * from v_boleta";
+            if($where!=NULL){
+               $sql.=" where ";
+                $cc=0;
+                foreach ($where as $k => $val) {
+                    if($cc>0)
+                        $sql.=" AND ";
+                    $sql.=" ".$k."='".$val."'";
+                    $cc=1;
+                }
+            }
+            return $conex->listarObject($sql);
+        }
         function insertar($Data) {
             require_once '../bd/conexion.php';
             $sql="INSERT INTO tb_comprobante (fecha,total,estado,id_pedido) VALUES ('$Data[0]','$Data[1]','$Data[2]','$Data[3]')";
@@ -24,7 +56,7 @@
         }
         function nuevaFactura($Data) {
             require_once '../bd/conexion.php';
-            $sql="INSERT INTO tb_factura (cliente,ruc,telefono,id_comprobante) VALUES ('$Data[0]','$Data[1]','$Data[2]','$Data[3]')";
+            $sql="INSERT INTO tb_factura (numero_factura,cliente,ruc,telefono,id_comprobante) VALUES ('000','$Data[0]','$Data[1]','$Data[2]','$Data[3]')";
             $con=new conexion();
             return $con->insertGetId($sql);
         }
@@ -36,7 +68,7 @@
         }
         function nuevaBoleta($Data) {
             require_once '../bd/conexion.php';
-            $sql="INSERT INTO tb_boleta (cliente,dni,telefono,id_comprobante) VALUES ('$Data[0]','$Data[1]','$Data[2]','$Data[3]')";
+            $sql="INSERT INTO tb_boleta (numero_boleta,cliente,dni,telefono,id_comprobante) VALUES ('000','$Data[0]','$Data[1]','$Data[2]','$Data[3]')";
             $con=new conexion();
             return $con->insertGetId($sql);
         }

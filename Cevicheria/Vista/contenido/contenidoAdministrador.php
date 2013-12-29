@@ -21,6 +21,7 @@
       body {
         padding-top: 60px;
         padding-bottom: 40px;
+        
       }
     </style>
     <link href="<?php echo $pathBootstrap?>/css/bootstrap-responsive.css" rel="stylesheet">
@@ -55,41 +56,42 @@
     ?>
     <!--FIN NAVBAR-->
    <center>
-    <div class="container" >
-        <div class="container" >
-                  <div style="padding: 10px;">
-                    <div>Desde <input class="input-medium" type="text" id="txtFechaDesde" value="">&nbsp;&nbsp;&nbsp;
-                    Hasta <input class="input-medium" type="text" id="txtFechaHasta" value=""></div>
-                    <div><a style="position: relative;padding: 5px;top: -5px" href="#" id='btnDownDia' class="btn btn-info">Descargar Dia Seleccionado</a></div>
-                </div>
-    </div>
-<!--      <div class="hero-unit">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-      </div>
-      <div class="row">
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+       <div class="hero-unit">
+            <div class="container" >
+                <div style="padding: 10px;">
+                  <div>Desde <input class="input-medium" type="text" id="txtFechaDesde" value="">&nbsp;&nbsp;&nbsp;
+                  Hasta <input class="input-medium" type="text" id="txtFechaHasta" value=""></div>
+                  <div><a style="position: relative;padding: 5px;top: -5px" href="#" id='btnDownDia' class="btn btn-info">Descargar Dia Seleccionado</a></div>
+              </div>
+    <!--      <div class="hero-unit">
+            <h1>Hello, world!</h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+          </div>
+          <div class="row">
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div>
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+           </div>
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div>
+          </div>
+          <hr>
+          <footer>
+            <p>&copy; Company 2013</p>
+          </footer>-->
         </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
       </div>
-      <hr>
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>-->
-    </div></center>
+   </center>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-transition.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-alert.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-modal.js"></script>

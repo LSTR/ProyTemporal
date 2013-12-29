@@ -28,10 +28,24 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
-      .ListaMesa{
+      .LMesa{
           float: left;
-          width: 390px;
+          width: 200px;
           margin: 5px;
+          left: 30px;
+          position: relative;
+      }
+      .ppMesa{
+          position: relative;
+          width: 135px;
+          height: 110px;
+          background-color: #333333;
+          border: 2px solid #ffffff;
+          border-radius: 8px;
+          color: #FFF;
+          top: -160px;
+          left: 30px;
+          opacity: 0.8;
       }
     </style>
     <link href="<?php echo $pathBootstrap?>/css/bootstrap-responsive.css" rel="stylesheet">
@@ -53,34 +67,76 @@
     <!--FIN NAVBAR-->
 
     <div class="container">
-      <div class="row">
-        <?php
-            foreach ($result as $val) {
-            $cod=$val->num_mesa;
-            $cad="M0000";
-            $cod=substr($cad,0,  strlen($cad)-strlen($cod)).$cod;
-            $desc=$val->descripcion;
-            $ubic=$val->ubicacion;
-            $est=$val->estado;
-            ?>
-            <div class="ListaMesa">
-                <div class="alert alert-success">
-                     <h2 align="center">MESA <?php echo $cod;?></h2>
-                      <p><?php echo $desc;?></p>
-                      <p><?php echo $ubic;?></p>
-                      <p align="center"><a class="btn btn-primary" href="../pedido/tabla.php?m=<?php echo $val->num_mesa;?>">+ Detalles</a></p>
+     <div class="hero-unit">
+         <div class="tabbable">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#piso1" data-toggle="tab">Piso 1</a></li>
+              <li><a href="#piso2" data-toggle="tab">Piso 2</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="piso1">
+                <div class="row">
+                  <?php
+                      foreach ($result as $val) {
+                      $cod=$val->num_mesa;
+                      $cad="M0000";
+                      $cod=substr($cad,0,  strlen($cad)-strlen($cod)).$cod;
+                      $desc=$val->descripcion;
+                      $ubic=$val->ubicacion;
+                      if($ubic!="1er piso")continue;
+                      $est=$val->estado;
+                      $bdg="badge-important";
+                      if($desc!="NO DISPONIBLE"){
+                          $desc="DISPONIBLE";
+                          $bdg="badge-success";
+                      }else $desc="ATENDIENDO";
+                      ?>
+                      <div class="LMesa">
+                        <img src="../../img/table.jpg" width="290" height="290" alt="table" class="img-circle"/>
+                        <div class="ppMesa">
+                            <h4 align="center">MESA <?php echo $cod;?></h4>
+                            <center><span class="badge <?php echo $bdg;?>"><?php echo $desc;?></span></center>
+                            <p align="center"><a class="btn btn-primary" href="../pedido/tabla.php?m=<?php echo $val->num_mesa;?>">+ Detalles</a></p>
+                        </div>
+                    </div>
+                     <?php }
+                  ?>
+                </div>  
+              </div>
+              <div class="tab-pane" id="piso2">    
+                <div class="row">
+                  <?php
+                      foreach ($result as $val) {
+                      $cod=$val->num_mesa;
+                      $cad="M0000";
+                      $cod=substr($cad,0,  strlen($cad)-strlen($cod)).$cod;
+                      $desc=$val->descripcion;
+                      $ubic=$val->ubicacion;
+                      $est=$val->estado;
+                      if($ubic=="1er piso")continue;
+                      ?>
+                      <div class="LMesa">
+                        <img src="../../img/table.jpg" width="290" height="290" alt="table" class="img-circle"/>
+                        <div class="ppMesa">
+                            <h4 align="center">MESA <?php echo $cod;?></h4>
+                            <center><span class="badge badge-success"><?php echo ($desc=="NO DISPONIBLE"?"NO DISPONIBLE":"DISPONIBLE");?></span></center>
+                            <p align="center"><a class="btn btn-primary" href="../pedido/tabla.php?m=<?php echo $val->num_mesa;?>">+ Detalles</a></p>
+                        </div>
+                    </div>
+                     <?php }
+                  ?>
                 </div>
+              </div>
             </div>
-          
-           <?php }
-        ?>
-      </div>
+          </div>
+         
+         
       <hr>
 
       <footer>
         <p>&copy; Company 2013</p>
       </footer>
-
+     </div>
     </div> <!-- /container -->
 
     <!-- Le javascript
