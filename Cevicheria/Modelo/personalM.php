@@ -1,17 +1,27 @@
 <?php
     class PersonalM {
-        function listar($where=null) {
-//            session_start();
-            if(isset($_SESSION["active"])) require_once '../../bd/conexion.php';
+    function listar($where=null,$whereLike=null,$op=0) {
+            if($op==0)
+                require '../../bd/conexion.php';
             $conex=new conexion();
             $sql="Select * from v_personal";
+            $cc=0;
             if($where!=null){
                 $sql.=" where ";
-                $cc=0;
                 foreach ($where as $k => $val) {
                     if($cc>0)
                         $sql.=" AND ";
                     $sql.=" ".$k."='".$val."'";
+                    $cc=1;
+                }
+            }
+            if($whereLike!=null){
+                if($cc==0)
+                   $sql.=" where ";
+                foreach ($whereLike as $k => $val) {
+                    if($cc>0)
+                        $sql.=" AND ";
+                    $sql.=" ".$k." like '%".$val."%'";
                     $cc=1;
                 }
             }

@@ -53,33 +53,37 @@
     ?>
     <!--FIN NAVBAR-->
 
+    <div>
+        <img src="../../img/portadas/cocina.png" width="1500" height="100" alt="cocina" style="position: relative;top: -50px;left: -30px;"/>
+    </div>
     <div class="container">
-      <div class="row">
-        <?php
-            foreach ($result as $val) {
-                    if($val->estado_cocina!="B")continue;
-                    $cod=$val->nomb_plato;
-                    $mesa=$val->num_mesa;
-                    $desc=$val->tipo_plato;
-                    $ubic=$val->precio;
-                    ?>
-                    <div class="ListaInfo">
-                        <div class="alert alert-success" style="height: 250px">
-                             <h3 align="center"><?php echo $cod;?></h3>
-                             <h4>Mesa N&deg;<?php echo $mesa;?></h4>
-                              <p><?php echo $desc;?></p>
-                              <p>S/ <?php echo $ubic;?> Soles</p>
-                              <p align="center"><a class="btn btn-success" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=U&id=<?php echo $val->cod_detallePed;?>">Preparado</a></p>
-                        </div>
-                    </div>
-            <?php }?>
-      </div>
-      <hr>
+        <div class="hero-unit">
+            <div class="row">
+              <?php
+                  foreach ($result as $val) {
+                          if($val->estado_cocina!="B")continue;
+                          $cod=$val->nomb_plato;
+                          $mesa=$val->num_mesa;
+                          $desc=$val->tipo_plato;
+                          $ubic=$val->precio;
+                          ?>
+                          <div class="ListaInfo">
+                              <div class="alert alert-success" style="height: 250px">
+                                   <h3 align="center"><?php echo $cod;?></h3>
+                                   <h4>Mesa N&deg;<?php echo $mesa;?></h4>
+                                    <p><?php echo $desc;?></p>
+                                    <p>S/ <?php echo $ubic;?> Soles</p>
+                                    <p align="center"><a class="btn btn-success" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=U&id=<?php echo $val->cod_detallePed;?>">Preparado</a></p>
+                              </div>
+                          </div>
+                  <?php }?>
+            </div>
+            <hr>
 
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
-
+            <footer>
+              <p>&copy; Company 2013</p>
+            </footer>
+        </div>
     </div> <!-- /container -->
 
     <!-- Le javascript

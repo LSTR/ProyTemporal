@@ -67,7 +67,7 @@ $E[1] = "Datos Incorrectos";
                     require 'Modelo/personalM.php';
                     require 'bd/conexion.php';
                     $objDAO = new PersonalM();
-                    $resultP = $objDAO->listar();
+                    $resultP = $objDAO->listar(null,null,1);
                     foreach ($resultP as $val) {
                         ?>
                         <option value="<?php echo $val->cod_empleado; ?>"><?php echo $val->nombre . " " . $val->apellido; ?></option>

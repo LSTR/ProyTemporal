@@ -79,7 +79,7 @@
             <tr>
                 <td><input type="hidden" name="txtAccion" value="<?php echo $accion;?>">
                     <input type="hidden" name="txtId" value="<?php echo $id;?>"></td>
-                <td><input type="submit" class="btn btn-primary">&nbsp;<a href="tabla.php" class="btn btn-info">Cancelar</a>
+                <td><input type="submit" class="btn btn-primary">&nbsp;<a href="index.php" class="btn btn-info">Cancelar</a>
                 </td>
             </tr>
         </table>

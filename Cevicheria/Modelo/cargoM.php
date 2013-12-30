@@ -1,16 +1,26 @@
 <?php
     class CargoM {
-        function listar($where=NULL) {
-            require_once '../../bd/conexion.php';
+        function listar($where=null,$whereLike=null) {
+            require '../../bd/conexion.php';
             $conex=new conexion();
             $sql="Select * from v_cargo";
-            if($where!=NULL){
-               $sql.=" where ";
-                $cc=0;
+            $cc=0;
+            if($where!=null){
+                $sql.=" where ";
                 foreach ($where as $k => $val) {
                     if($cc>0)
                         $sql.=" AND ";
                     $sql.=" ".$k."='".$val."'";
+                    $cc=1;
+                }
+            }
+            if($whereLike!=null){
+                if($cc==0)
+                   $sql.=" where ";
+                foreach ($whereLike as $k => $val) {
+                    if($cc>0)
+                        $sql.=" AND ";
+                    $sql.=" ".$k." like '%".$val."%'";
                     $cc=1;
                 }
             }

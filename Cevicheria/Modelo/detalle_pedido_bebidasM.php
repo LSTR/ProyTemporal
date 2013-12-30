@@ -16,6 +16,12 @@
             }
             return $conex->listarObject($sql);
         }
+        function listarIN($where=NULL) {
+            require_once '../../bd/conexion.php';
+            $conex=new conexion();
+            $sql="Select * from v_detalle_pedido_bebidas WHERE id_pedido IN ($where)";
+            return $conex->listarObject($sql);
+        }
         function insertar($Data) {
             require_once '../bd/conexion.php';
             $sql="INSERT INTO detalle_pedido_bebidas(cantidad,id_bebidas,id_pedido) VALUES ('1',$Data[0],'$Data[1]')";

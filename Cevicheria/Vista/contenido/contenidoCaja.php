@@ -4,6 +4,7 @@
     if(!$sess->sesionActiva())
         header("Location: ".$sess->getHost());
     require "../../configuracion.php";
+    $opcMenu="caja";
 ?>
 
 <!DOCTYPE html>

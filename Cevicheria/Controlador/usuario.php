@@ -21,7 +21,7 @@
         $personal=new PersonalM();
         $idU=$result[0]->idUsuario;
         $W["cod_empleado"]=$result[0]->cod_empleado;
-        $P=$personal->listar($W);
+        $P=$personal->listar($W,null,1);
         $sess->activarSesion($idU);
         $sess->addSesion("NivelAcceso", $P[0]->cod_cargo);
         $sess->addSesion("idEmpleado", $P[0]->cod_empleado);

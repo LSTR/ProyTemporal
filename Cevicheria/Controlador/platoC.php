@@ -22,7 +22,7 @@
         $Data[3]=$precio;
         $objDAO=new PlatoM();
         $result=$objDAO->insertar($Data);
-        header("Location: ../Vista/plato/tabla.php");
+        header("Location: ../Vista/plato/index.php");
     }
     function actualizar() {
         $nombre=$_POST["txtN"];
@@ -36,13 +36,13 @@
         $Data[3]=$precio;
         $objDAO=new PlatoM();
         $result=$objDAO->actualizar($Data,$idAl);
-        header("Location: ../Vista/plato/tabla.php");
+        header("Location: ../Vista/plato/index.php");
     }
     function eliminar() {
         $id=$_GET["id"];
         $objDAO=new PlatoM();
         $objDAO->eliminar($id);
-        header("Location: ../Vista/plato/tabla.php");
+        header("Location: ../Vista/plato/index.php");
     }
     function listar() {
         $objDAO=new PlatoM();

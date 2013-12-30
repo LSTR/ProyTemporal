@@ -15,13 +15,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    
     <link href="<?php echo $pathBootstrap?>/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
         padding-bottom: 40px;
         
+      }
+      .formBusq{
+          height: auto;
+          border: 1px solid #666666;
+          border-radius: 3px;
+      }
+      .opcActive{
+          color: #006666;
+          font-weight: bold;
+          font-size: 15px;
       }
     </style>
     <link href="<?php echo $pathBootstrap?>/css/bootstrap-responsive.css" rel="stylesheet">
@@ -36,16 +46,92 @@
     <script type="text/javascript" src="<?php echo $pathName;?>/js/jquery/js/jquery-ui-1.8.23.custom.min.js"></script>
     <script type="text/javascript" src="<?php echo $pathName; ?>/js/jquery/js/jquery.ui.core.js"></script>
     <script type="text/javascript" src="<?php echo $pathName; ?>/js/jquery/js/jquery.ui.widget.js"></script>
-    <script type="text/javascript" src="jquery.ui.datepicker.js"></script>
+    <script type="text/javascript" src="<?php echo $pathName; ?>/js/jquery/js/jquery.ui.datepicker.js"></script>
     <script type="text/javascript">
+        var opc=1;
+        var dateB="0000-00-00";
+        var tmpAct="lnkA"
         $(document).ready(function(){
-            $("#btnDownDia").click(function(){
-                var p=pathSemelec+"recibo/crearRecibo/1/"+idc+"/"+mes;
-                window.location.href = p;
+            $("#lnkA").click(function( ){
+                if(!validar()){
+                    alert("Seleccione Fecha")
+                    return;
+                }
+                $("#"+tmpAct).removeClass("opcActive")
+                $("#lnkA").addClass("opcActive")
+                tmpAct="lnkA";
+                buscar("A");
+            });
+            $("#lnkB").click(function( ){
+                if(!validar()){
+                    alert("Seleccione Fecha")
+                    return;
+                }
+                $("#"+tmpAct).removeClass("opcActive")
+                $("#lnkB").addClass("opcActive")
+                tmpAct="lnkB";
+                buscar("B");
+            });
+            $("#lnkC").click(function( ){
+                if(!validar()){
+                    alert("Seleccione Fecha")
+                    return;
+                }
+                $("#"+tmpAct).removeClass("opcActive")
+                $("#lnkC").addClass("opcActive")
+                tmpAct="lnkC";
+                buscar("C");
+            });
+            $("#lnkD").click(function( ){
+                if(!validar()){
+                    alert("Seleccione Fecha")
+                    return;
+                }
+                $("#"+tmpAct).removeClass("opcActive")
+                $("#lnkD").addClass("opcActive")
+                tmpAct="lnkD";
+                buscar("D");
+            });
+            $("#opcA").click(function(){
+                $("#txtFechaDesde").attr("disabled",false);
+                $("#txtFechaHasta").attr("disabled",false);
+                $("#txtFechaEx").attr("disabled",true);
+                opc=1;
+            });
+            $("#opcB").click(function(){
+                $("#txtFechaDesde").attr("disabled",true);
+                $("#txtFechaHasta").attr("disabled",true);
+                $("#txtFechaEx").attr("disabled",false);
+                opc=2;
             });
             $("#txtFechaDesde").datepicker({maxDate:0,"dateFormat":"yy-mm-dd"});
             $("#txtFechaHasta").datepicker({maxDate:0,"dateFormat":"yy-mm-dd"});
+            $("#txtFechaEx").datepicker({maxDate:0,"dateFormat":"yy-mm-dd"});
         });
+        function validar(){
+            if(opc==1){
+               var a=$("#txtFechaDesde").val();
+               var b=$("#txtFechaHasta").val();
+               dateB="i="+a+"&s="+b;
+               if(a!=""&&b!="")return true;
+            }else{
+               var b=$("#txtFechaEx").val();
+               dateB="f="+b;
+               if(b!="")return true; 
+            }
+            return false;
+        }
+        function buscar(tb){
+            var _data="opc="+opc+"&"+dateB;
+              $.ajax({
+                  type:"post",
+                  url:"../reporte/tabla"+tb+".php",
+                  data:_data,
+                  success:function(r){
+                     $("#contenidoData").html(r);
+                  }
+              });
+        }
     </script>
   </head>
   <body>
@@ -55,42 +141,42 @@
          include $inc;
     ?>
     <!--FIN NAVBAR-->
+   
    <center>
-       <div class="hero-unit">
-            <div class="container" >
-                <div style="padding: 10px;">
-                  <div>Desde <input class="input-medium" type="text" id="txtFechaDesde" value="">&nbsp;&nbsp;&nbsp;
-                  Hasta <input class="input-medium" type="text" id="txtFechaHasta" value=""></div>
-                  <div><a style="position: relative;padding: 5px;top: -5px" href="#" id='btnDownDia' class="btn btn-info">Descargar Dia Seleccionado</a></div>
+        <div class="container" >
+            <div class="formBusq">
+                <table class="table table-condensed" width="100%" style="background-color: #FFF;border-radius: 8px;">
+                     <col width="5%">
+                     <col width="25%">
+                     <col width="15%">
+                     <col width="20%">
+                     <col width="15%">
+                     <col width="20%">
+                     <tr>
+                         <td>&nbsp;</td><td align="center"><label class="radio"><input type="radio" checked name="cb" id="opcA"> Seleccionar</label></td>
+                         <td align="center">Desde </td><td><input class="input-medium" type="text" id="txtFechaDesde" value="">
+                         </td><td>Hasta</td><td><input class="input-medium" type="text" id="txtFechaHasta" value=""></td>
+                     </tr>
+                     <tr>
+                         <td>&nbsp;</td><td align="center"><label class="radio"><input type="radio" name="cb" id="opcB"> Seleccionar</label></td>
+                         <td>Fecha Exacta </td><td><input class="input-medium" disabled type="text" id="txtFechaEx" value=""></td><td colspan="2"></td>
+                     </tr>
+                 </table>
+                <div>
+                    <ul class="breadcrumb">
+                      <li><a href="#" id="lnkA">Resumen Ventas Platos</a> <span class="divider">/</span></li>
+                      <li><a href="#" id="lnkB">Resumen Ventas Bebidas</a> <span class="divider">/</span></li>
+                      <li><a href="#" id="lnkC">Platos Por Categoria</a> <span class="divider">/</span></li>
+                      <li><a href="#" id="lnkD">Bebidas Por Categoria</a> <span class="divider">/</span></li>
+                    </ul>
               </div>
-    <!--      <div class="hero-unit">
-            <h1>Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-          </div>
-          <div class="row">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
             </div>
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-           </div>
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
+            <hr>
+            <div id="contenidoData">
+
             </div>
-          </div>
-          <hr>
-          <footer>
-            <p>&copy; Company 2013</p>
-          </footer>-->
-        </div>
       </div>
+      
    </center>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-transition.js"></script>
     <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-alert.js"></script>

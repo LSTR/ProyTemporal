@@ -16,13 +16,13 @@
             }
             return $conex->listarObject($sql);
         }
-        function listarFactura($where=NULL) {
+        function listarFactura($where=NULL,$between=null) {
             require_once '../../bd/conexion.php';
             $conex=new conexion();
             $sql="Select * from v_factura";
+            $cc=0;
             if($where!=NULL){
                $sql.=" where ";
-                $cc=0;
                 foreach ($where as $k => $val) {
                     if($cc>0)
                         $sql.=" AND ";
@@ -30,21 +30,31 @@
                     $cc=1;
                 }
             }
+            if($between!=NULL){
+               if($cc==0)
+                $sql.=" where ";
+               $sql.=" fecha BETWEEN ".$between;
+            }
             return $conex->listarObject($sql);
         }
-        function listarBoleta($where=NULL) {
+        function listarBoleta($where=NULL,$between=null) {
             require_once '../../bd/conexion.php';
             $conex=new conexion();
             $sql="Select * from v_boleta";
+            $cc=0;
             if($where!=NULL){
                $sql.=" where ";
-                $cc=0;
                 foreach ($where as $k => $val) {
                     if($cc>0)
                         $sql.=" AND ";
                     $sql.=" ".$k."='".$val."'";
                     $cc=1;
                 }
+            }
+            if($between!=NULL){
+               if($cc==0)
+                $sql.=" where ";
+               $sql.=" fecha BETWEEN ".$between;
             }
             return $conex->listarObject($sql);
         }

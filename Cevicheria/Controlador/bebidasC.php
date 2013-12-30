@@ -22,7 +22,7 @@
         $Data[3]=$precio;
         $objDAO=new BebidasM();
         $result=$objDAO->insertar($Data);
-        header("Location: ../Vista/Bebidas/tabla.php");
+        header("Location: ../Vista/Bebidas/index.php");
     }
     function actualizar() {
         $nombre=$_POST["txtN"];
@@ -36,12 +36,12 @@
         $Data[3]=$precio;
         $objDAO=new BebidasM();
         $result=$objDAO->actualizar($Data,$idAl);
-        header("Location: ../Vista/Bebidas/tabla.php");
+        header("Location: ../Vista/Bebidas/index.php");
     }
     function eliminar() {
         $id=$_GET["id"];
         $objDAO=new BebidasM();
         $objDAO->eliminar($id);
-        header("Location: ../Vista/Bebidas/tabla.php");
+        header("Location: ../Vista/Bebidas/index.php");
     }
 ?>

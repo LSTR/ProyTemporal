@@ -25,12 +25,12 @@
                   <?php echo $Empleado?>&nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
               </p>
               <ul class="nav">
-                <li class="<?php echo($opcMenu=="personal")?"active":""?>"><a href="../personal/tabla.php">Personal</a></li>
-                <li class="<?php echo($opcMenu=="cargo")?"active":""?>"><a href="../cargo/tabla.php">Cargo</a></li>
-                <li class="<?php echo($opcMenu=="productos")?"active":""?>"><a href="../Productos/tabla.php">Productos</a></li>
-                <li class="<?php echo($opcMenu=="platos")?"active":""?>"><a href="../plato/tabla.php">Platos</a></li>
-                <li class="<?php echo($opcMenu=="bebida")?"active":""?>"><a href="../Bebidas/tabla.php">Bebidas</a></li>
-                <li class="<?php echo($opcMenu=="mesa")?"active":""?>"><a href="../mesa/tabla.php">Mesa</a></li>
+                <li class="<?php echo($opcMenu=="personal")?"active":""?>"><a href="../personal/index.php">Personal</a></li>
+                <li class="<?php echo($opcMenu=="cargo")?"active":""?>"><a href="../cargo/index.php">Cargo</a></li>
+                <li class="<?php echo($opcMenu=="productos")?"active":""?>"><a href="../Productos/index.php">Productos</a></li>
+                <li class="<?php echo($opcMenu=="platos")?"active":""?>"><a href="../plato/index.php">Platos</a></li>
+                <li class="<?php echo($opcMenu=="bebida")?"active":""?>"><a href="../Bebidas/index.php">Bebidas</a></li>
+                <li class="<?php echo($opcMenu=="mesa")?"active":""?>"><a href="../mesa/index.php">Mesa</a></li>
                 <li class="<?php echo($opcMenu=="pedido")?"active":""?>"><a href="../pedido/data.php">Pedidos</a></li>
               </ul>
             </div>

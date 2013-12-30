@@ -21,6 +21,11 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
+      .formBusq{
+          height: auto;
+          border: 1px solid #666666;
+          border-radius: 3px;
+      }
     </style>
     <link href="<?php echo $pathBootstrap?>/css/bootstrap-responsive.css" rel="stylesheet">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $pathBootstrap?>/ico/apple-touch-icon-144-precomposed.png">

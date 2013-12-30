@@ -29,7 +29,7 @@
         $Dt[1]=$_contras;
         $result=$objDAO->insertar($Dt);
         
-        header("Location: ../Vista/personal/tabla.php");
+        header("Location: ../Vista/personal/index.php");
     }
     function actualizar() {
         $idPer=$_POST["txtId"];
@@ -48,7 +48,7 @@
         $objDAO=new UsuarioM();
         $Dt[0]=$_contras;
         $result=$objDAO->actualizar($Dt,$idPer);
-        header("Location: ../Vista/personal/tabla.php");
+        header("Location: ../Vista/personal/index.php");
     }
     function eliminar() {
         $id=$_GET["id"];
@@ -56,7 +56,7 @@
         $objDAO->eliminar($id);
         $objDAO=new UsuarioM();
         $objDAO->eliminar($id);
-        header("Location: ../Vista/personal/tabla.php");
+        header("Location: ../Vista/personal/index.php");
     }
     
     

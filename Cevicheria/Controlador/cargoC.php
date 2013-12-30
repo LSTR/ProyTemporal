@@ -18,7 +18,7 @@
         $Data[1]=$sueldo;
         $objDAO=new CargoM();
         $result=$objDAO->insertar($Data);
-        header("Location: ../Vista/cargo/tabla.php");
+        header("Location: ../Vista/cargo/index.php");
     }
     function actualizar() {
         $nombre=$_POST["txtN"];
@@ -28,12 +28,12 @@
         $Data[1]=$sueldo;
         $objDAO=new CargoM();
         $result=$objDAO->actualizar($Data,$idAl);
-        header("Location: ../Vista/cargo/tabla.php");
+        header("Location: ../Vista/cargo/index.php");
     }
     function eliminar() {
         $id=$_GET["id"];
         $objDAO=new CargoM();
         $objDAO->eliminar($id);
-        header("Location: ../Vista/cargo/tabla.php");
+        header("Location: ../Vista/cargo/index.php");
     }
 ?>

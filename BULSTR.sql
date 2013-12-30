@@ -73,7 +73,7 @@ CREATE TABLE `cargo` (
 
 LOCK TABLES `cargo` WRITE;
 /*!40000 ALTER TABLE `cargo` DISABLE KEYS */;
-INSERT INTO `cargo` VALUES (1,'Administrador','1600.0','A'),(2,'Cajero(a)','950.0','A'),(3,'Cocinero','950.0','A'),(4,'Mozo','600.0','A');
+INSERT INTO `cargo` VALUES (1,'Administrador','1600.0','A'),(2,'Cajero(a)','950.0','A'),(3,'Cocinero(a)','950.0','A'),(4,'Mozo','600.0','A');
 /*!40000 ALTER TABLE `cargo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +203,7 @@ CREATE TABLE `personal` (
   `estado_empl` char(1) NOT NULL DEFAULT 'A',
   PRIMARY KEY (`cod_empleado`),
   KEY `Refcargo37` (`cod_cargo`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -240,7 +240,7 @@ CREATE TABLE `platos` (
 
 LOCK TABLES `platos` WRITE;
 /*!40000 ALTER TABLE `platos` DISABLE KEYS */;
-INSERT INTO `platos` VALUES (1,'Ceviche 3 ajíes','Piqueos Frío','','50.00','A'),(2,'Ceviche de pescado','Piqueos Fríos',NULL,'50.50','A'),(3,'Ceviche Mi Norte','Fuentes',NULL,'60.00','A'),(4,'Ceviche El Clásico','Fuentes',NULL,'60.00','A'),(5,'Ceviche Mixto','Fuentes',NULL,'50.00','A'),(6,'Conchas de San Miguel','Piqueos Fríos',NULL,'32.00','A'),(7,'Uñas de cangrejos en salsa de su elección','Piqueos Fríos',NULL,'45.00','A'),(8,'Mis ceviches','Piqueos Fríos','Ceviche de pescado, tres ajíes y premium','55.00','A'),(9,'De mis entradas','Piqueos Fríos','Causa de pulpa de cangrejo, pulpo al olivo, tiradito a su elección','48.00','A'),(10,'Piqueo huerto marino','Piqueos Fríos','Variedad de 5 tipos de ceviche, cocona, mariscos al ají, ceviche de atún.','65.00','A'),(11,'Ronda de la casa','Piqueos Fríos','Ceviche de pescado con langostinos al rocoto, pulpo al olivo.','65.00','A'),(12,'Ronda Fría','Piqueos Fríos','Ceviche de la abuela, pulpo al olivo, premium y conchas San Miguel','55.00','A'),(13,'Conchas a la parmesana','Piqueos Calientes','8 unidades','40.00','A'),(14,'Conchas al pisco','Piqueos Calientes','Conchas al abanico selecta, en una salsa de crema de ají amarillo y punto de pisco','35.00','A'),(15,'Crocante de pulpa de cangrejo','Piqueos Calientes','Enrollado de pulpa de cangrejo con espinaca y masa wantán','70.00','A'),(16,'Dedos marinos','Piqueos Calientes','8 unidades. Enrollado de pescado empanizado con relleno de pulpa de cangrejo','30.00','A'),(17,'Jalea El Clasico','Fuentes','Filete de pescado, pulpo, langostinos, calamar','65.00','A'),(18,'Parrilla de Manuel y Pepe','Piqueos Calientes','MAriscos, langostinos, pulpo, papas con mantequilla salteada, ajos y pimienta','70.00','A'),(19,'Piqueo caliente El Clásico','Piqueos Calientes','Anticucho, dedos marinos, chicharrón mixto','60.00','A'),(20,'Piqueo Crillísimo','Piqueos Calientes','Papitas rellenas de mariscos, anticucho de pescado y chicharrón de calamar','60.00','A'),(21,'Piqueo Mixto','Piqueos Calientes','Jalea de choros, causa de pulpa de cangrejo','60.00','A'),(22,'Ronda caliente','Piqueos Calientes',NULL,'40.00','A'),(23,'Caldo de Choros','Sopas',NULL,'25.00','A'),(24,'Chilcano de pescado','Sopas',NULL,'25.00','A'),(25,'Chupe de camarones','Sopas',NULL,'45.00','A'),(26,'Parihuela','Sopas',NULL,'35.00','A'),(27,'Sudado de lenguado','Sopas',NULL,'42.00','A'),(28,'Super sopa de choros y cangrejo','Sopas',NULL,'30.00','A'),(29,'Ceviche mixto','Piqueos Fríos','','18.00','A');
+INSERT INTO `platos` VALUES (1,'Ceviche 3 ajíes','Piqueos Fríos','','50.00','A'),(2,'Ceviche de pescado','Piqueos Fríos',NULL,'50.50','A'),(3,'Ceviche Mi Norte','Fuentes',NULL,'60.00','A'),(4,'Ceviche El Clásico','Fuentes',NULL,'60.00','A'),(5,'Ceviche Mixto','Fuentes',NULL,'50.00','A'),(6,'Conchas de San Miguel','Piqueos Fríos',NULL,'32.00','A'),(7,'Uñas de cangrejos en salsa de su elección','Piqueos Fríos',NULL,'45.00','A'),(8,'Mis ceviches','Piqueos Fríos','Ceviche de pescado, tres ajíes y premium','55.00','A'),(9,'De mis entradas','Piqueos Fríos','Causa de pulpa de cangrejo, pulpo al olivo, tiradito a su elección','48.00','A'),(10,'Piqueo huerto marino','Piqueos Fríos','Variedad de 5 tipos de ceviche, cocona, mariscos al ají, ceviche de atún.','65.00','A'),(11,'Ronda de la casa','Piqueos Fríos','Ceviche de pescado con langostinos al rocoto, pulpo al olivo.','65.00','A'),(12,'Ronda Fría','Piqueos Fríos','Ceviche de la abuela, pulpo al olivo, premium y conchas San Miguel','55.00','A'),(13,'Conchas a la parmesana','Piqueos Calientes','8 unidades','40.00','A'),(14,'Conchas al pisco','Piqueos Calientes','Conchas al abanico selecta, en una salsa de crema de ají amarillo y punto de pisco','35.00','A'),(15,'Crocante de pulpa de cangrejo','Piqueos Calientes','Enrollado de pulpa de cangrejo con espinaca y masa wantán','70.00','A'),(16,'Dedos marinos','Piqueos Calientes','8 unidades. Enrollado de pescado empanizado con relleno de pulpa de cangrejo','30.00','A'),(17,'Jalea El Clasico','Fuentes','Filete de pescado, pulpo, langostinos, calamar','65.00','A'),(18,'Parrilla de Manuel y Pepe','Piqueos Calientes','MAriscos, langostinos, pulpo, papas con mantequilla salteada, ajos y pimienta','70.00','A'),(19,'Piqueo caliente El Clásico','Piqueos Calientes','Anticucho, dedos marinos, chicharrón mixto','60.00','A'),(20,'Piqueo Crillísimo','Piqueos Calientes','Papitas rellenas de mariscos, anticucho de pescado y chicharrón de calamar','60.00','A'),(21,'Piqueo Mixto','Piqueos Calientes','Jalea de choros, causa de pulpa de cangrejo','60.00','A'),(22,'Ronda caliente','Piqueos Calientes',NULL,'40.00','A'),(23,'Caldo de Choros','Sopas',NULL,'25.00','A'),(24,'Chilcano de pescado','Sopas',NULL,'25.00','A'),(25,'Chupe de camarones','Sopas',NULL,'45.00','A'),(26,'Parihuela','Sopas',NULL,'35.00','A'),(27,'Sudado de lenguado','Sopas',NULL,'42.00','A'),(28,'Super sopa de choros y cangrejo','Sopas',NULL,'30.00','A'),(29,'Ceviche mixto','Piqueos Fríos','','18.00','A');
 /*!40000 ALTER TABLE `platos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -370,7 +370,7 @@ CREATE TABLE `usuario` (
   `esta_usu` char(1) NOT NULL DEFAULT 'A',
   PRIMARY KEY (`idUsuario`),
   KEY `Refpersonal40` (`cod_empleado`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -864,4 +864,4 @@ USE `cevicheria`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-29  3:08:52
+-- Dump completed on 2013-12-30  4:19:29

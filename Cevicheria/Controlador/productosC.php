@@ -24,7 +24,7 @@
         $Data[4]=$descripcion;
         $objDAO=new ProductosM();
         $result=$objDAO->insertar($Data);
-        header("Location: ../Vista/Productos/tabla.php");
+        header("Location: ../Vista/Productos/index.php");
     }
     function actualizar() {
        
@@ -41,13 +41,13 @@
         $Data[4]=$descripcion;
         $objDAO=new ProductosM();
         $result=$objDAO->actualizar($Data,$idAl);
-        header("Location: ../Vista/Productos/tabla.php");
+        header("Location: ../Vista/Productos/index.php");
     }
     function eliminar() {
         $id=$_GET["id"];
         $objDAO=new ProductosM();
         $objDAO->eliminar($id);
-        header("Location: ../Vista/Productos/tabla.php");
+        header("Location: ../Vista/Productos/index.php");
     }
     function listar() {
         $objDAO=new ProductosM();
