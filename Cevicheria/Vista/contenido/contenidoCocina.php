@@ -33,6 +33,31 @@
           width: 290px;
           margin: 5px;
           margin-left: 45px;
+          background-image: url('../../img/kit.jpg');
+          background-position: center center;
+          background-size: 100%;
+          border-radius: 40px;
+          border: 1px solid #666666;
+          
+          
+      }
+      .bgImg{
+          background-image: url('../../img/bgK.jpg');
+          z-index: 2;
+          top: -10px;
+          position: relative;
+          height: auto;
+      }
+      .cont{
+          opacity: 0.95;
+      }
+      .plato{
+          background-color: #333333;
+          color: #ffffff;
+          border: 2px solid #ffffff;
+          border-radius: 5px;
+          margin: 50px 60px;
+          padding-top: 20px;
       }
     </style>
     <link href="<?php echo $pathBootstrap?>/css/bootstrap-responsive.css" rel="stylesheet">
@@ -53,39 +78,41 @@
     ?>
     <!--FIN NAVBAR-->
 
-    <div>
-        <img src="../../img/portadas/cocina.png" width="1500" height="100" alt="cocina" style="position: relative;top: -50px;left: -30px;"/>
-    </div>
-    <div class="container">
-        <div class="hero-unit">
-            <div class="row">
-              <?php
-                  foreach ($result as $val) {
-                          if($val->estado_cocina!="B")continue;
-                          $cod=$val->nomb_plato;
-                          $mesa=$val->num_mesa;
-                          $desc=$val->tipo_plato;
-                          $ubic=$val->precio;
-                          ?>
-                          <div class="ListaInfo">
-                              <div class="alert alert-success" style="height: 250px">
-                                   <h3 align="center"><?php echo $cod;?></h3>
-                                   <h4>Mesa N&deg;<?php echo $mesa;?></h4>
-                                    <p><?php echo $desc;?></p>
-                                    <p>S/ <?php echo $ubic;?> Soles</p>
-                                    <p align="center"><a class="btn btn-success" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=U&id=<?php echo $val->cod_detallePed;?>">Preparado</a></p>
+    <div class="bgImg">
+        <!--<img src="" width="100%" height="100%" alt="cocina" style="position: absolute;"/>-->
+        <!--<img src="../../img/portadas/cocina.png" width="1500" height="100" alt="cocina" style="position: relative;top: -50px;left: -30px;"/>-->
+    <!--</div>-->
+        <div class="container cont">
+            <div class="hero-unit">
+                <div class="row">
+                  <?php
+                      if(!count($result)){?>
+                        <center><div class="ListaInfo">
+                                <div class="plato" style="height: 130px">
+                                     <h4 align="center">No hay Pedidos</h4>
+                                </div>
+                        </div></center>
+                            <div style="height: 500px;position: relative">&nbsp;</div>
+                      <?php }else
+                      foreach ($result as $val) {
+                              if($val->estado_cocina!="B")continue;
+                              $cod=$val->nomb_plato;
+                              $mesa=$val->num_mesa;
+                              $desc=$val->tipo_plato;
+                              ?>
+                              <div class="ListaInfo">
+                                  <div class="plato" style="height: 130px">
+                                       <h4 align="center"><?php echo $cod;?></h4>
+                                       <h5 align="center">Mesa N&deg;<?php echo $mesa;?></h5>
+                                        <p align="center"><a class="btn btn-success" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=U&id=<?php echo $val->cod_detallePed;?>">Preparado</a></p>
+                                  </div>
                               </div>
-                          </div>
-                  <?php }?>
+                      <?php }?>
+                </div>
+                <hr>
             </div>
-            <hr>
-
-            <footer>
-              <p>&copy; Company 2013</p>
-            </footer>
-        </div>
-    </div> <!-- /container -->
-
+        </div> <!-- /container -->
+    </div>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

@@ -58,15 +58,23 @@
         <?php }else if($resultP[0]->estado_Pedido=="D"){?>
             <a class="btn btn-success" href="">Mesa estara disponible despues de cancelar en caja</a>
         <?php }else{
-            $NoEnCocina=true;
-            foreach ($resultPP as $val)
-                if($val->estado_cocina=="A")$NoEnCocina=false;
+            $existA=false;
+            $existB=false;
+            $existC=false;
+            foreach ($resultPP as $val){
+                if($val->estado_cocina=="A")$existA=true;
+                if($val->estado_cocina=="B")$existB=true;
+                if($val->estado_cocina=="C")$existC=true;
+            }
+                
             if(count($resultPP)==0&&count($resultPB)==0){?>
             <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=C&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Cancelar Pedido</a>
-            <?php }else if($NoEnCocina){?>
-            <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=F&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Finalizar Pedido</a>
-            <?php } else{?>
+            <?php }else if($existA){?>
             <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=E&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Enviar Pedido</a>
+            <?php } else if($existB){?>
+            
+            <?php } else if($existC){?>
+            <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=F&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Finalizar Pedido</a>
             <?php }?>
             <?php }?>
     </div>

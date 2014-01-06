@@ -10,7 +10,6 @@
     $result=$objDAO->listar();
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -114,12 +113,18 @@
                       $ubic=$val->ubicacion;
                       $est=$val->estado;
                       if($ubic=="1er piso")continue;
+                      $est=$val->estado;
+                      $bdg="badge-important";
+                      if($desc!="NO DISPONIBLE"){
+                          $desc="DISPONIBLE";
+                          $bdg="badge-success";
+                      }else $desc="ATENDIENDO";
                       ?>
                       <div class="LMesa">
                         <img src="../../img/table.jpg" width="290" height="290" alt="table" class="img-circle"/>
                         <div class="ppMesa">
                             <h4 align="center">MESA <?php echo $cod;?></h4>
-                            <center><span class="badge badge-success"><?php echo ($desc=="NO DISPONIBLE"?"NO DISPONIBLE":"DISPONIBLE");?></span></center>
+                            <center><span class="badge <?php echo $bdg;?>"><?php echo $desc;?></span></center>
                             <p align="center"><a class="btn btn-primary" href="../pedido/tabla.php?m=<?php echo $val->num_mesa;?>">+ Detalles</a></p>
                         </div>
                     </div>
@@ -129,8 +134,6 @@
               </div>
             </div>
           </div>
-         
-         
       <hr>
 
       <footer>

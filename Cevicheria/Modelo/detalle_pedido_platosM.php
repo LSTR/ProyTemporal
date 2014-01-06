@@ -36,7 +36,7 @@
         }
         function enviarACocina($idPed) {
             require_once '../bd/conexion.php';
-            $sql="UPDATE detalle_pedido_platos set estado_cocina='B' where id_pedido=".$idPed;
+            $sql="UPDATE detalle_pedido_platos set estado_cocina='B' where id_pedido=".$idPed." AND estado_cocina='A'";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }

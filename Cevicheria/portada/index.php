@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Cevicheria El Clasico | Portada</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
@@ -37,25 +36,7 @@
   </head>
 
   <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="index.php">Cevicheria El Clasico</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><a href="#Nosotros">Quienes Somos</a></li>
-              <li><a href="#Ubicacion">Ubicacion</a></li>
-              <li class="active"><a href="../login.php">Iniciar Sesion</a></li>
-            </ul><!-- /.nav -->
-          </div><!--/.nav-collapse -->
-        </div><!-- /.container -->
-      </div><!-- /.navbar-inner -->
-    </div><!-- /.navbar -->
+    
 
     <div class="container" style="background-color: #ffffff">
 
@@ -118,10 +99,6 @@
               <img src="img/main_image_13.jpg" alt="Platos" />
             <div class="carousel-caption"><p>...</p></div>
           </div>
-          <div class="item">
-              <img src="img/main_image_14.jpg" alt="Platos" />
-            <div class="carousel-caption"><p>...</p></div>
-          </div>
           
         </div><!-- .carousel-inner -->
         <!--  next and previous controls here
@@ -131,11 +108,32 @@
       </div><!-- .carousel -->
       <!-- end carousel -->
 
+      <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.php">Cevicheria El Clasico</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="#Nosotros">Quienes Somos</a></li>
+              <li><a href="#Ubicacion">Ubicacion</a></li>
+              <li class="active"><a href="../login.php">Iniciar Sesion</a></li>
+            </ul><!-- /.nav -->
+          </div><!--/.nav-collapse -->
+        </div><!-- /.container -->
+      </div><!-- /.navbar-inner -->
+    </div><!-- /.navbar -->
+    
+    
       <!-- Example row of columns -->
       <div class="lblTitulo">
           Nuestros Platos
       </div>
-      <div class="row" style="padding: 0px 50px">
+      <div class="row" style="padding: 0px 80px">
         <div class="span3" style="width: 315px;">
           <h2>Ceviche El Clasico</h2>
           <img src="img/cev_elclasico.jpg" width="315" height="200" alt="cev_elclasico"/>
@@ -154,7 +152,7 @@
           Nosotros
       </div>
       <div id="Nosotros">
-        <div class="row" style="padding: 0px 50px">
+        <div class="row" style="padding: 0px 80px">
           <div class="span3" style="margin-right: 30px">
             <iframe width="320" height="300"
                 src="http://www.youtube.com/embed/F58a_nGsgw8">
@@ -190,7 +188,7 @@
           Ubicanos
       </div>
       <div id="Ubicacion">
-        <div class="row" style="padding: 0px 50px">
+        <div class="row" style="padding: 0px 80px">
           <div class="span3">
             <h2>Clasico 1</h2>
             <div class="Mapa">

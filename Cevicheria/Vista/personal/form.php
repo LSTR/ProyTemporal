@@ -19,7 +19,7 @@
         $accion="U";
     }
     
-    require_once '../../Modelo/usuarioM.php';
+    require '../../Modelo/usuarioM.php';
     $objDAO=new UsuarioM();
     $Data["cod_empleado"]=$id;
     $result=$objDAO->listar($Data);

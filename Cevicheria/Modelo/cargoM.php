@@ -1,7 +1,7 @@
 <?php
     class CargoM {
         function listar($where=null,$whereLike=null) {
-            require '../../bd/conexion.php';
+            require_once '../../bd/conexion.php';
             $conex=new conexion();
             $sql="Select * from v_cargo";
             $cc=0;

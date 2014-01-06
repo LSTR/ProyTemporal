@@ -72,16 +72,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="<?php echo $host?>">COCINA</a>
+                <a class="brand active" href="<?php echo $host?>">COCINA</a>
             <div class="nav-collapse collapse">
               <p class="navbar-text pull-right">
                   <?php echo $Empleado?> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
               </p>
-              <ul class="nav">
-                <li class="active"><a href="#">Inicio</a></li>
-                <li><a href="../cargo/tblCargo.php">Cargo</a></li>
-                <li><a href="#contact">Personal</a></li>
-              </ul>
             </div>
           </div>
         </div>
