@@ -72,7 +72,7 @@
             <?php }else if($existA){?>
             <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=E&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Enviar Pedido</a>
             <?php } else if($existB){?>
-            
+            <script>setTimeout("document.location.reload();",5000); </script>
             <?php } else if($existC){?>
             <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=F&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Finalizar Pedido</a>
             <?php }?>

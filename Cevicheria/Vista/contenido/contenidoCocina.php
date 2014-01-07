@@ -3,7 +3,7 @@
     require_once '../../session.php';
     $sess=new session();
     if(!$sess->sesionActiva())
-        header("Location: ".$sess->getHost());
+        header("Location: "."http://".$_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"]."/cevicheria");
     require "../../configuracion.php";
     require '../../Modelo/detalle_pedido_platosM.php';
     $Data["estado_cocina"]="B";
@@ -19,6 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script>setTimeout("document.location.reload();",5000); </script>
 
     <!-- Le styles -->
     <link href="<?php echo $pathBootstrap?>/css/bootstrap.css" rel="stylesheet">

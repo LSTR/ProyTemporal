@@ -11,8 +11,8 @@
         background-image: url('img/bg.jpg');
       }
       .lblTitulo{
-          width: 170px;
-          height: 20px;
+          width: 130px;
+          height: 15px;
           background-color: #333333;
           color: #ffffff;
           padding: 10px;
@@ -30,6 +30,9 @@
           font-size: 12px;
           border-radius: 8px;
           text-align: center;
+      }
+      .Mapa{
+          /*float: left;*/
       }
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -189,28 +192,28 @@
       </div>
       <div id="Ubicacion">
         <div class="row" style="padding: 0px 80px">
-          <div class="span3">
+          <div class="span3" style="width: 315px;">
             <h2>Clasico 1</h2>
             <div class="Mapa">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1957.5040950707737!2d-77.61310012333698!3d-11.112767157851357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2s!4v1388285790532" width="280" height="250" frameborder="0" style="border:0"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1957.5040950707737!2d-77.61310012333698!3d-11.112767157851357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2s!4v1388285790532" width="315" height="250" frameborder="0" style="border:0"></iframe>
             </div>
             <div class="fDir">
-                Calle El Inca S/N – Plazuela San Pedro, con teléfono: 2326993
+                Calle El Inca S/N – Plazuela San Pedro, con teléfono: 232 6993
             </div>
           </div>
-          <div class="span3">
+          <div class="span3" style="width: 315px;">
             <h2>Clasico 2</h2>
             <div class="Mapa">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1957.5040950707737!2d-77.61310012333698!3d-11.112767157851357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2s!4v1388285790532" width="280" height="250" frameborder="0" style="border:0"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1957.5040950707737!2d-77.61310012333698!3d-11.112767157851357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2s!4v1388285790532" width="315" height="250" frameborder="0" style="border:0"></iframe>
             </div>
             <div class="fDir">
                 Av. Centenario 127 – San Lorenzo Sta. María, con teléfono 239 3122
             </div>
          </div>
-         <div class="span3">
+         <div class="span3" style="width: 315px;">
             <h2>Clasico 3</h2>
             <div class="Mapa">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1957.5040950707737!2d-77.61310012333698!3d-11.112767157851357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2s!4v1388285790532" width="280" height="250" frameborder="0" style="border:0"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1957.5040950707737!2d-77.61310012333698!3d-11.112767157851357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2s!4v1388285790532" width="315" height="250" frameborder="0" style="border:0"></iframe>
             </div>
             <div class="fDir">
                 Frente a la plazuela el Milagro, con teléfono 237 0408.

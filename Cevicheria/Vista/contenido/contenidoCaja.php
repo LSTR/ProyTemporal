@@ -2,7 +2,7 @@
     require_once '../../session.php';
     $sess=new session();
     if(!$sess->sesionActiva())
-        header("Location: ".$sess->getHost());
+        header("Location: "."http://".$_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"]."/cevicheria");
     require "../../configuracion.php";
     $opcMenu="caja";
 ?>
