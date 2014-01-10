@@ -9,6 +9,7 @@
     <style type="text/css">
       body {
         background-image: url('img/bg.jpg');
+        background-size: 100%
       }
       .lblTitulo{
           width: 130px;
@@ -34,14 +35,26 @@
       .Mapa{
           /*float: left;*/
       }
+      .logo{
+          position: absolute;
+          top: 0px;
+          left: 200px;
+          z-index: 2;
+      }
+      .banner{
+          position: relative;
+          top: 180px;
+      }
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
   </head>
 
   <body>
     
-
-    <div class="container" style="background-color: #ffffff">
+      <div class="logo">
+          <img src="img/logoc.png" width="190" height="220" alt="logoc"/>
+      </div>
+    <div class="container banner" style="background-color: #ffffff">
 
       <!--  Carousel -->
       <!--  consult Bootstrap docs at 

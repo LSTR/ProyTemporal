@@ -72,7 +72,9 @@
             <?php }else if($existA){?>
             <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=E&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Enviar Pedido</a>
             <?php } else if($existB){?>
-            <script>setTimeout("document.location.reload();",5000); </script>
+            <a class="btn btn-success" href="tabla.php?m=<?php echo $id;?>">Actualizar</a>
+            <script>//setTimeout("document.location.reload();",5000); 
+            </script>
             <?php } else if($existC){?>
             <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=F&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Finalizar Pedido</a>
             <?php }?>
@@ -102,69 +104,84 @@
         </div>
         <div class="tabbable tabs-left"> <!-- Only required for left/right tabs -->
             <ul class="nav nav-tabs">
-              <li class="<?php echo (!isset($_GET["p"]))?"active":"";?>"><a href="#tabPlato" data-toggle="tab">PLATOS</a></li>
-              <li><a href="#tabBebida" data-toggle="tab">BEBIDAS</a></li>
+              <li class="<?php echo (!isset($_GET["p"]))?"active":"";?>"><a href="#tabPedidos" data-toggle="tab">Pedidos</a></li>
               <li class="<?php echo (isset($_GET["p"]))?"active":"";?>"><a href="#tabNuevo" data-toggle="tab">NUEVO</a></li>
             </ul>
             <div class="tab-content">
-              <div class="tab-pane <?php echo (!isset($_GET["p"]))?"active":"";?>" id="tabPlato">
-                  <div class="row">
-                    <?php
-                    if(count($resultPP)==0){?>
-                        <div class="alert alert-error" style="padding-left: 100px;padding-top: 5px"> No hay pedidos</div>
-                    <?php }else{
-                        foreach ($resultPP as $val) {
+              <div class="tab-pane <?php echo (!isset($_GET["p"]))?"active":"";?>" id="tabPedidos">
+                  <div style="padding-top: 5px;">
+                    <table class="table table-bordered">
+                        <?php if(count($resultPP)){?>
+                        <thead>
+                            <tr>
+                                <th>PLATO</th>
+                                <th>TIPO</th>
+                                <th>PRECIO</th>
+                                <th>DETALLE</th>
+                            </tr>
+                        </thead>
+                        <?php }?>
+                        <tbody>
+                    <?php 
+                    $total=0;
+                    foreach ($resultPP as $val) {
                         $cod=$val->nomb_plato;
-                        $desc=$val->tipo_plato;
-                        $ubic=$val->precio;
+                        $tipo=$val->tipo_plato;
+                        $prc=$val->precio;
+                        $total+=$prc;
                         ?>
-                        <div class="ListaInfo">
-                            <div class="alert alert-success" style="height: 250px">
-                                 <h3 align="center"><?php echo $cod;?></h3>
-                                  <p><?php echo $desc;?></p>
-                                  <p>S/ <?php echo $ubic;?> Soles</p>
-                                  <?php
-                                  if($val->estado_cocina=="C"){
-                                  ?>
-                                  <p align="center"><button type="button" class="btn btn-success" disabled>Atendido</button></p>
-                                  <?php }else if($val->estado_cocina=="B"){
-                                  ?>
-                                  <p align="center"><button type="button" class="btn btn-success" disabled>En Preparacion</button></p>
-                                  <?php }else{?>
-                                  <p align="center"><a class="btn btn-danger" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=E&id=<?php echo $val->cod_detallePed;?>&m=<?php echo $id;?>">- Cancelar</a></p>
-                                  <?php }?>
-                            </div>
-                        </div>
-                       <?php }
-                       }
-                    ?>
-                  </div>
-
-              </div>
-              <div class="tab-pane" id="tabBebida">
-                  <div class="row">
-                    <?php
-                    if(count($resultPB)==0){?>
-                        <div class="alert alert-error" style="padding-left: 100px;padding-top: 5px"> No hay pedidos</div>
-                    <?php }else{
-                        foreach ($resultPB as $val) {
-                        $cod=$val->nomb_bebida;
-                        $desc=$val->tipo_beb;
-                        $ubic=$val->precio_bebida;
+                        <tr>
+                            <td><?php echo $cod;?></td>
+                            <td><?php echo $tipo;?></td>
+                            <td><p>S/ <?php echo $prc;?> Soles</p></td>
+                            <td>
+                                <?php
+                                if($val->estado_cocina=="C"){
+                                ?>
+                                <p align="center"><button type="button" class="btn btn-success" disabled>Atendido</button></p>
+                                <?php }else if($val->estado_cocina=="B"){
+                                ?>
+                                <p align="center"><button type="button" class="btn btn-success" disabled>En Preparacion</button></p>
+                                <?php }else{?>
+                                <p align="center"><a class="btn btn-danger" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=E&id=<?php echo $val->cod_detallePed;?>&m=<?php echo $id;?>">- Cancelar</a></p>
+                                <?php }?>
+                            </td>
+                        </tr>
+                       <?php }?>
+                        </tbody>
+                        <?php if(count($resultPB)){?>
+                        <thead>
+                            <tr>
+                                <th>BEBIDA</th>
+                                <th>TIPO</th>
+                                <th>PRECIO</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <?php }?>
+                        <?php
+                            foreach ($resultPB as $val) {
+                                $cod=$val->nomb_bebida;
+                                $tipo=$val->tipo_beb;
+                                $prc=$val->precio_bebida;
+                                $total+=$prc;
+                                ?>
+                                <tr>
+                                    <td><?php echo $cod;?></td>
+                                    <td><?php echo $tipo;?></td>
+                                    <td><p>S/ <?php echo $prc;?> Soles</p></td>
+                                    <td></td>
+                                </tr>
+                           <?php }
                         ?>
-                        <div class="ListaInfo">
-                            <div class="alert alert-success" style="height: 250px">
-                                 <h3 align="center"><?php echo $cod;?></h3>
-                                  <p><?php echo $desc;?></p>
-                                  <p>S/ <?php echo $ubic;?> Soles</p>
-                            </div>
-                        </div>
-
-                       <?php }
-                       }
-                    ?>
+                        <tbody>
+                            <tr>
+                                <td colspan="2" style="text-align: right;font-weight: bold">Total</td>
+                                <td colspan="2">S/ <?php echo (strpos($total."", ".")>0)?$total."0":$total.".00";?></td>
+                            </tr>
+                        </tbody>
+                     </table>
                   </div>
-
               </div>
               <div class="tab-pane <?php echo (isset($_GET["p"]))?"active":"";?>" id="tabNuevo">
                   <div class="row" style="padding-left: 50px">
