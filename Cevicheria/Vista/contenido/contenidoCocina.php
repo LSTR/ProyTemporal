@@ -83,6 +83,15 @@
         <!--<img src="" width="100%" height="100%" alt="cocina" style="position: absolute;"/>-->
         <!--<img src="../../img/portadas/cocina.png" width="1500" height="100" alt="cocina" style="position: relative;top: -50px;left: -30px;"/>-->
     <!--</div>-->
+        <?php
+            $ListaP=array();
+            if(!count($result))
+            foreach ($result as $val) {
+                if($val->estado_cocina!="B")continue;
+                if(!isset($ListaP[$val->num_mesa]))$ListaP[$val->num_mesa]=array();
+                array_push($ListaP[$val->num_mesa], $val);
+            }
+        ?>
         <div class="container cont">
             <div class="hero-unit">
                 <div class="row">

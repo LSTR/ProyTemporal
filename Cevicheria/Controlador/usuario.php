@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $usu=$_POST["txtUsu"];
     $pass=$_POST["txtPass"];
     require '../Modelo/usuarioM.php';
@@ -6,6 +7,13 @@
     $Data["cod_empleado"]=$usu;
     $Data["contrasena"]=$pass;
     $result=$objDAO->listar($Data);
+    if(isset($_SESSION["intentos"])&&$_SESSION["intentos"]==3){
+        $_SESSION["intentos"]-=1;
+        if($_POST["txtC"]!=$_POST["txtHC"])header("Location: ../index.php?e=2");
+        else $_SESSION["intentos"]=-1;
+    }
+    if(isset($_SESSION["intentos"]))$_SESSION["intentos"]=$_SESSION["intentos"]+1;
+    else $_SESSION["intentos"]=0;
     if(count($result)>0){
         iniciarSession($result);
         header("Location: ../inicio.php"); 

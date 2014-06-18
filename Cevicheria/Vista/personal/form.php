@@ -39,22 +39,46 @@
     $objDAO=new CargoM();
     $resultC=$objDAO->listar();
 ?>
+    <script>
+        $(document).ready(function (){ 
+        });
+        function validar(){
+            var b=true;
+            $("#Form input").css("color","#837C7C");
+            var txt=$("#txtN").val();
+            if(txt.match(/[0-9]/)){
+                $("#txtN").val("").attr("placeholder","Estos datos no son validos").css("color","#DD4141");
+                b=false;
+            }
+            txt=$("#txtA").val();
+            if(txt.match(/[0-9]/)){
+                $("#txtA").val("").attr("placeholder","Estos datos no son validos").css("color","#DD4141");
+                b=false;
+            }
+            txt=$("#txtP").val();
+            if(!txt.match(/^[a-z0-9_-]{6,18}$/)){
+                $("#txtP").css("border","1px solid #DD4141");
+                b=false;
+            }
+            return b;
+        }
+    </script>
     <div style="width: 60%">
-      <form action="../../Controlador/personalC.php" method="post">
+        <form id="Form" action="../../Controlador/personalC.php" method="post" onsubmit="return validar();">
         <table class="table table-striped"width="100%">
         <col width="50%">
         <col width="50%">
             <tr>
-                <td>Nombre</td>
-                <td><input type="text" required name="txtN" value="<?php echo $nom;?>"></td>
+                <td><label for="txtN">Nombre</label></td>
+                <td><input type="text" required name="txtN" id="txtN" value="<?php echo $nom;?>" ></td>
             </tr>
             <tr>
                 <td>Apellidos</td>
-                <td><input type="text" required name="txtA" value="<?php echo $ape;?>"></td>
+                <td><input type="text" required name="txtA" id="txtA" value="<?php echo $ape;?>"></td>
             </tr>
             <tr>
                 <td>Direccion</td>
-                <td><input type="text" required name="txtD" value="<?php echo $dir;?>"></td>
+                <td><input type="text" required name="txtD" id="txtD" value="<?php echo $dir;?>"></td>
             </tr>
             <tr>
                 <td>Cargo</td>
@@ -73,17 +97,21 @@
                 <td></td>
             </tr>
             <tr>
-                <td>Contrase&ntilde;a</td>
-                <td><input type="password" required name="txtP" value="<?php echo $pass;?>"></td>
+                <td>Contrase&ntilde;a  (Min 6 caracteres - a-z0-9)</td>
+                <td>
+                    <input type="password" required name="txtP" id="txtP" value="<?php echo $pass;?>">
+                    
+                </td>
             </tr>
             <tr>
-                <td><input type="hidden" name="txtAccion" value="<?php echo $accion;?>">
-                    <input type="hidden" name="txtId" value="<?php echo $id;?>"></td>
+                <td></td>
                 <td><input type="submit" class="btn btn-primary">&nbsp;<a href="index.php" class="btn btn-info">Cancelar</a>
                 </td>
             </tr>
         </table>
-       </form>
+        <input type="hidden" name="txtAccion" value="<?php echo $accion;?>">
+        <input type="hidden" name="txtId" value="<?php echo $id;?>">
+      </form>
      </div>
 <?php
     include '../baseFin.php';

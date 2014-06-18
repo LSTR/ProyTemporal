@@ -36,27 +36,51 @@
        
     }
 ?>
-<script src="js/validar.js" type="text/javascript"></script>
+
+<script>
+        $(document).ready(function (){ 
+        });
+        function validar(){
+            var b=true;
+            $("#Form input").css("color","#837C7C");
+            var txt=$("#txtN").val();
+            if(txt.match(/[0-9]/)){
+                $("#txtN").val("").attr("placeholder","Solo letras").css("color","#DD4141");
+                b=false;
+            }
+            var txt=$("#txtT").val();
+            if(txt.match(/[0-9]/)){
+                $("#txtT").val("").attr("placeholder","Solo letras").css("color","#DD4141");
+                b=false;
+            }
+            txt=$("#txtP").val();
+            if(!txt.match(/^\d+(\.\d{1,2})?$/)){
+                $("#txtP").val("").attr("placeholder","Solo Numeros").css("color","#DD4141");
+                b=false;
+            }
+            return b;
+        }
+</script>
 <div style="width: 60%">
-    <form action="../../Controlador/BebidasC.php" method="post" >
+    <form id="Form" action="../../Controlador/BebidasC.php" method="post" onsubmit="return validar()">
         <table class="table table-striped"width="100%">
         <col width="50%">
         <col width="50%">
             <tr>
                 <td>Nombre</td>
-                <td><input type="text" name="txtN" required value="<?php echo $nomb;?>"></td>
+                <td><input type="text" name="txtN" id="txtN" required value="<?php echo $nomb;?>"></td>
             </tr>
             <tr>
                 <td>Categoría</td>
-                <td><input type="text" name="txtT" required value="<?php echo $tip;?>"></td>
+                <td><input type="text" name="txtT" id="txtT" required value="<?php echo $tip;?>"></td>
             </tr>
             <tr>
                 <td>Descripcion</td>
-                <td><input type="text" name="txtD"  value="<?php echo $descrip;?>"></td>
+                <td><input type="text" name="txtD" id="txtD" value="<?php echo $descrip;?>"></td>
             </tr>
             <tr>
                 <td>precio</td>
-                <td><input type="text" name="txtP" required value="<?php echo $prec;?>"></td>
+                <td><input type="text" name="txtP" id="txtP" required value="<?php echo $prec;?>"></td>
             </tr>
             
             <tr>

@@ -1,6 +1,6 @@
 <?php
     require_once '../Modelo/personalM.php';
-    require_once '../Modelo/usuarioM.php';
+    require_once '../Modelo/usuarioM.php'; 
     $accion=null;
     if(isset($_POST["txtAccion"]))
         $accion=$_POST["txtAccion"];
@@ -52,10 +52,11 @@
     }
     function eliminar() {
         $id=$_GET["id"];
+        $nst=$_GET["st"];
         $objDAO=new PersonalM();
-        $objDAO->eliminar($id);
-        $objDAO=new UsuarioM();
-        $objDAO->eliminar($id);
+        $objDAO->eliminar($id,$nst);
+//        $objDAO=new UsuarioM();
+//        $objDAO->eliminar($id);
         header("Location: ../Vista/personal/index.php");
     }
     

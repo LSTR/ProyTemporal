@@ -48,6 +48,7 @@
         <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-collapse.js"></script>
         <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-carousel.js"></script>
         <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-typeahead.js"></script>
+        <script src="../../js/bootstrapValidator.js"></script>
     
     <!--INI NAVBAR-->
     <?php

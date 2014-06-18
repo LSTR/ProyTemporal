@@ -34,6 +34,9 @@
           font-size: 15px;
       }
     </style>
+    <script type='text/javascript' src='<?php echo $pathName?>/js/jquery/js/jquery-1.8.0.min.js'></script>
+    <script type="text/javascript" src="<?php echo $pathName;?>/js/jquery/js/jquery-ui-1.8.23.custom.min.js"></script>
+    <script type='text/javascript' src='<?php echo $pathBootstrap?>/js/bootstrap.min.js'></script>
     <link href="<?php echo $pathBootstrap?>/css/bootstrap-responsive.css" rel="stylesheet">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $pathBootstrap?>/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $pathBootstrap?>/ico/apple-touch-icon-114-precomposed.png">
@@ -42,8 +45,8 @@
     <link rel="shortcut icon" href="<?php echo $pathBootstrap?>/ico/favicon.png">
     <link type="text/css" rel="stylesheet" href="<?php echo $pathName; ?>/js/jquery/css/mint-choc/base/jquery.ui.all.css">
     <link type="text/css" rel="stylesheet" href="<?php echo $pathName;?>/js/jquery/css/mint-choc/base/jquery.ui.datepicker.css">
-    <script type="text/javascript" src="<?php echo $pathName;?>/js/jquery/js/jquery-1.8.0.min.js"></script>
-    <script type="text/javascript" src="<?php echo $pathName;?>/js/jquery/js/jquery-ui-1.8.23.custom.min.js"></script>
+    
+    
     <script type="text/javascript" src="<?php echo $pathName; ?>/js/jquery/js/jquery.ui.core.js"></script>
     <script type="text/javascript" src="<?php echo $pathName; ?>/js/jquery/js/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="<?php echo $pathName; ?>/js/jquery/js/jquery.ui.datepicker.js"></script>
@@ -178,17 +181,5 @@
       </div>
       
    </center>
-    <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-transition.js"></script>
-    <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-alert.js"></script>
-    <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-modal.js"></script>
-    <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-dropdown.js"></script>
-    <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-scrollspy.js"></script>
-    <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-tab.js"></script>
-    <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-tooltip.js"></script>
-    <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-popover.js"></script>
-    <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-button.js"></script>
-    <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-collapse.js"></script>
-    <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-carousel.js"></script>
-    <script src="<?php echo $pathBootstrap?>/scripts/bootstrap-typeahead.js"></script>
   </body>
 </html>

@@ -43,7 +43,7 @@ function activarBtnI(b){
 }
 function print(){
 //    $("#btnImprimir").click(function( ){
-        w=window.open(null, 'Print_Page', 'scrollbars=yes');        
+        var w=window.open(null, 'Print_Page', 'scrollbars=yes');        
         w.document.write(jQuery('#pagePrint').html());
         w.document.close();
         w.print();

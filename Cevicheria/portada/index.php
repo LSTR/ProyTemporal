@@ -1,3 +1,6 @@
+<?php
+    header("Location: ../login.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,7 +53,6 @@
   </head>
 
   <body>
-    
       <div class="logo">
           <img src="img/logoc.png" width="190" height="220" alt="logoc"/>
       </div>
@@ -239,7 +241,6 @@
     </div> <!-- /container -->
     <!-- Le javascript
     ================================================== -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
     <script>

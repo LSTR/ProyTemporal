@@ -65,9 +65,7 @@
                     <link rel="apple-touch-icon-precomposed" href="<?php echo $pathBootstrap?>/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="<?php echo $pathBootstrap?>/ico/favicon.png">
   </head>
-
   <body>
-
     <!--INI NAVBAR-->
     <?php
          $inc='../navbar.php';
@@ -180,19 +178,8 @@
                 </div>
            </div>
            <button id="btnImprimir" onclick="print()" class="btn btn-success"><i class="icon-print icon-white"></i>&nbsp;&nbsp;Imprimir</button>
-        
       </div>
       <hr>
     </div>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-

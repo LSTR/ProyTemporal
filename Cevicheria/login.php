@@ -61,7 +61,6 @@ $E[1] = "Datos Incorrectos";
         <div class="container">
             <form class="form-signin" method="post" action="Controlador/usuario.php" onsubmit="return login();">
                 <h2 class="form-signin-heading">Ingreso al Sistema</h2>
-
                 <select name="txtUsu">
                     <?php
                     require 'Modelo/personalM.php';
@@ -70,11 +69,30 @@ $E[1] = "Datos Incorrectos";
                     $resultP = $objDAO->listar(null,null,1);
                     foreach ($resultP as $val) {
                         ?>
-                        <option value="<?php echo $val->cod_empleado; ?>"><?php echo $val->nombre . " " . $val->apellido; ?></option>
+                        <option value="<?php echo $val->cod_empleado; ?>"><?php echo $val->nombre . " - " . $val->nom_cargo; ?></option>
                     <?php }
                     ?>
                 </select>
                 <input type="password" id="txtPass" name="txtPass" class="input-block-level" placeholder="contraseña">
+                <div class="text-captcha">
+                    <?php
+                    if(isset($_SESSION["intentos"])&&$_SESSION["intentos"]==3){
+                        $abc=array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","Y");
+                        $key="";
+                        for ($i = 0; $i < 5; $i++) {
+                            $r=rand(0, count($abc)-1);
+                            $key.=$abc[$r];
+                        }
+                        trim($key);
+                        ?>
+                        <div style="font-size: 30px;border-radius: 5px;background-image: url(img/captcha.png);height: 35px;width: 280px;color: #FFF;padding: 10px">
+                        <?php echo $key ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="txtC" name="txtC" class="input-small">
+                        <input type="hidden" name="txtHC" value="<?php echo $key ?>">
+                        </div>
+                        <?php
+                    }?>
+                </div>
                 <label class="text-error"><?php if (isset($_GET["e"])) echo $E[$_GET["e"]]; ?></label>
                 <button class="btn btn-large btn-primary" type="submit">Ingresar</button>
             </form>

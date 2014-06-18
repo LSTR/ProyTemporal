@@ -28,18 +28,37 @@
         $suel=$result[0]->suel_cargo;
     }
 ?>
+    <script>
+        $(document).ready(function (){ 
+        });
+        function validar(){
+            var b=true;
+            $("#Form input").css("color","#837C7C");
+            var txt=$("#txtN").val();
+            if(txt.match(/[0-9]/)){
+                $("#txtN").val("").attr("placeholder","Solo letras").css("color","#DD4141");
+                b=false;
+            }
+            txt=$("#txtS").val();
+            if(!txt.match(/^\d+(\.\d{1,2})?$/)){
+                $("#txtS").val("").attr("placeholder","Solo Numeros").css("color","#DD4141");
+                b=false;
+            }
+            return b;
+        }
+    </script>
     <div style="width: 60%">
-       <form action="../../Controlador/cargoC.php" method="post">
+      <form id="Form" action="../../Controlador/cargoC.php" method="post" onsubmit="return validar();">
         <table class="table table-striped"width="100%">
         <col width="50%">
         <col width="50%">
             <tr>
                 <td>Nombre</td>
-                <td><input type="text" required name="txtN" value="<?php echo $nom;?>"></td>
+                <td><input type="text" required name="txtN" id="txtN" value="<?php echo $nom;?>"></td>
             </tr>
             <tr>
                 <td>Sueldo</td>
-                <td><input type="text" required name="txtS" value="<?php echo $suel;?>"></td>
+                <td><input type="text" required name="txtS" id="txtS" value="<?php echo $suel;?>"></td>
             </tr>
             <tr>
                 <td><input type="hidden" name="txtAccion" value="<?php echo $accion;?>">

@@ -32,23 +32,19 @@
        
     }
 ?>
-<script src="js/validar.js" type="text/javascript"></script>
+
 <div style="width: 60%">
-    <form action="../../Controlador/mesaC.php" method="post" >
+    <form id="Form" action="../../Controlador/mesaC.php" method="post" onsubmit="">
         <table class="table table-striped"width="100%">
         <col width="50%">
         <col width="50%">
-<!--            <tr>
-                <td>Numero_Mesa</td>
-                <td><input type="text" name="txtN" required value="<?php // echo $num_mesa;?>"></td>
-            </tr>-->
             <tr>
                 <td>Descripcion</td>
-                <td><input type="text" name="txtD"  value="<?php echo $descripcion;?>"></td>
+                <td><input type="text" name="txtD" id="txtD"  value="<?php echo $descripcion;?>"></td>
             </tr>
             <tr>
                 <td>Ubicacion</td>
-                <td><input type="text" name="txtU"  required value="<?php echo $ubicacion;?>"></td>
+                <td><input type="text" name="txtU" id="txtU" required value="<?php echo $ubicacion;?>"></td>
             </tr>
             <tr>
                 <td><input type="hidden" name="txtAccion" value="<?php echo $accion;?>">
