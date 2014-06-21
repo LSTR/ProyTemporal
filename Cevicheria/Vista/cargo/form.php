@@ -35,7 +35,7 @@
             var b=true;
             $("#Form input").css("color","#837C7C");
             var txt=$("#txtN").val();
-            if(txt.match(/[0-9]/)){
+            if(!txt.match(/[a-zA-Z]$/)){
                 $("#txtN").val("").attr("placeholder","Solo letras").css("color","#DD4141");
                 b=false;
             }

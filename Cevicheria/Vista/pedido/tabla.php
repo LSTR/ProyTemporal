@@ -53,9 +53,12 @@
 <div id="contenido">
     <div class="define">
         <?php
-        if(!$existePedido||$resultP[0]->estado_Pedido=="E"||$resultP[0]->estado_Pedido=="C"){?>
+        $onlyBeb=true;
+        if(!$existePedido||$resultP[0]->estado_Pedido=="E"||$resultP[0]->estado_Pedido=="C"){
+            $onlyBeb=false;?>
             <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=A&m=<?php echo $id;?>">+ Nuevo Pedido</a>
-        <?php }else if($resultP[0]->estado_Pedido=="D"){?>
+        <?php }else if($resultP[0]->estado_Pedido=="D"){
+            $onlyBeb=false;?>
             <a class="btn btn-success" href="">Mesa estara disponible despues de cancelar en caja</a>
         <?php }else{
             $existA=false;
@@ -66,19 +69,19 @@
                 if($val->estado_cocina=="B")$existB=true;
                 if($val->estado_cocina=="C")$existC=true;
             }
-                
             if(count($resultPP)==0&&count($resultPB)==0){?>
             <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=C&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Cancelar Pedido</a>
             <?php }else if($existA){?>
             <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=E&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Enviar Pedido</a>
             <?php } else if($existB){?>
             <a class="btn btn-success" href="tabla.php?m=<?php echo $id;?>">Actualizar</a>
-            <script>//setTimeout("document.location.reload();",5000); 
-            </script>
             <?php } else if($existC){?>
             <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=F&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Finalizar Pedido</a>
+            <?php }else if($onlyBeb&&count($resultLB)){?>
+            <a class="btn btn-success" href="../../Controlador/pedidoC.php?txtAccion=F&id=<?php echo $id_ped;?>&m=<?php echo $id;?>">Finalizar Pedido</a>
             <?php }?>
-            <?php }?>
+            <?php }
+?>
     </div>
     <br>
     <?php
@@ -102,6 +105,7 @@
                 </tr>
             </table>
         </div>
+        
         <div class="tabbable tabs-left"> <!-- Only required for left/right tabs -->
             <ul class="nav nav-tabs">
               <li class="<?php echo (!isset($_GET["p"]))?"active":"";?>"><a href="#tabPedidos" data-toggle="tab">Pedidos</a></li>
@@ -184,59 +188,54 @@
                   </div>
               </div>
               <div class="tab-pane <?php echo (isset($_GET["p"]))?"active":"";?>" id="tabNuevo">
-                  <div class="row" style="padding-left: 50px">
-
-                      <div class="tabbable"> <!-- Only required for left/right tabs -->
-                        <ul class="nav nav-tabs">
-                          <li class="<?php echo (isset($_GET["p"])&&$_GET["p"]==1)?"active":"";?>"><a href="#tabLP" data-toggle="tab">Lista Platos</a></li>
-                          <li class="<?php echo (isset($_GET["p"])&&$_GET["p"]==2)?"active":"";?>"><a href="#tabLB" data-toggle="tab">Lista Bebidas</a></li>
-                        </ul>
-                        <div class="tab-content">
-                          <div class="tab-pane <?php echo (isset($_GET["p"])&&$_GET["p"]==1)?"active":"";?>" id="tabLP">
-                            <?php
+                  <div class="row" style="padding-left: 10px">
+                      <div class="container-fluid">
+                        <div class="row-fluid">
+                          <div class="span6">
+                              <h3>Platos</h3>
+                              <table class="table table-bordered table-hover">
+                                <?php
                                  foreach ($resultLP as $val) {
-                                    $cod=$val->nomb_plato;
-                                    $desc=$val->tipo_plato;
-                                    $ubic=$val->precio;
+                                    $nom=$val->nomb_plato;
+                                    $tip=$val->tipo_plato;
+                                    $prec=$val->precio;
                                     ?>
-                                    <div class="ListaInfo">
-                                        <div class="alert alert-info" style="height: 250px">
-                                             <h3 align="center"><?php echo $cod;?></h3>
-                                              <p><?php echo $desc;?></p>
-                                              <p>S/ <?php echo $ubic;?> Soles</p>
-                                              <p align="center">
-                                                  <a class="btn btn-primary" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=A&pl=<?php echo $val->cod_platos;?>&p=<?php echo $id_ped;?>&m=<?php echo $id;?>">+ Agregar Plato</a>
-                                              </p>
-                                        </div>
-                                    </div>
-
-                                   <?php }
-                                ?>
+                                <tr>
+                                    <td><?php echo $nom?></td>
+                                    <td><?php echo $tip?></td>
+                                    <td><?php echo $prec?></td>
+                                    <td><p align="center">
+                                        <a class="btn btn-primary" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=A&pl=<?php echo $val->cod_platos;?>&p=<?php echo $id_ped;?>&m=<?php echo $id;?>">Agregar</a>
+                                        </p>
+                                    </td>
+                                </tr>
+                                 <?php }?>
+                              </table>
                           </div>
-                          <div class="tab-pane <?php echo (isset($_GET["p"])&&$_GET["p"]==2)?"active":"";?>" id="tabLB">
-                            <?php
+                          <div class="span6">
+                              <h3>Bebidas</h3>
+                              <table class="table table-bordered table-hover">
+                                <?php
                                  foreach ($resultLB as $val) {
-                                    $cod=$val->nomb_bebida;
-                                    $desc=$val->tipo_beb;
-                                    $ubic=$val->precio_bebida;
+                                    $nom=$val->nomb_bebida;
+                                    $tip=$val->tipo_beb;
+                                    $prec=$val->precio_bebida;
                                     ?>
-                                    <div class="ListaInfo">
-                                        <div class="alert alert-info" style="height: 250px">
-                                             <h3 align="center"><?php echo $cod;?></h3>
-                                              <p><?php echo $desc;?></p>
-                                              <p>S/ <?php echo $ubic;?> Soles</p>
-                                              <p align="center">
-                                                  <a class="btn btn-primary" href="../../Controlador/detalle_pedido_bebidasC.php?txtAccion=A&b=<?php echo $val->id_bebidas;?>&p=<?php echo $id_ped;?>&m=<?php echo $id;?>">+ Agregar Bebida</a></p>
-                                        </div>
-                                    </div>
-
-                                   <?php }
-                                ?>
+                                <tr>
+                                    <td><?php echo $nom?></td>
+                                    <td><?php echo $tip?></td>
+                                    <td><?php echo $prec?></td>
+                                    <td><p align="center">
+                                        <a class="btn btn-primary" href="../../Controlador/detalle_pedido_bebidasC.php?txtAccion=A&b=<?php echo $val->id_bebidas;?>&p=<?php echo $id_ped;?>&m=<?php echo $id;?>">Agregar</a>
+                                        </p>
+                                    </td>
+                                </tr>
+                                 <?php }?>
+                              </table>
                           </div>
                         </div>
                       </div>
-
-
+                      
                   </div>
               </div>
             </div>

@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <script>setTimeout("document.location.reload();",5000); </script>
+    <script>setTimeout("document.location.reload();",15000); </script>
 
     <!-- Le styles -->
     <link href="<?php echo $pathBootstrap?>/css/bootstrap.css" rel="stylesheet">
@@ -31,16 +31,15 @@
       }
       .ListaInfo{
           float: left;
-          width: 290px;
+          width: 435px;
           margin: 5px;
           margin-left: 45px;
           background-image: url('../../img/kit.jpg');
           background-position: center center;
           background-size: 100%;
           border-radius: 40px;
-          border: 1px solid #666666;
-          
-          
+          border: 2px solid #666666;
+          padding: 10px 15px;
       }
       .bgImg{
           background-image: url('../../img/bgK.jpg');
@@ -59,6 +58,15 @@
           border-radius: 5px;
           margin: 50px 60px;
           padding-top: 20px;
+      }
+      .detalleMesaPedido{
+          background-color: #FFF;
+          padding: 8px;
+          border: 5px solid #666666;
+      }
+      .tbMesa td{
+          font-size: 13px;
+          font-weight: bold;
       }
     </style>
     <link href="<?php echo $pathBootstrap?>/css/bootstrap-responsive.css" rel="stylesheet">
@@ -80,41 +88,50 @@
     <!--FIN NAVBAR-->
 
     <div class="bgImg">
-        <!--<img src="" width="100%" height="100%" alt="cocina" style="position: absolute;"/>-->
-        <!--<img src="../../img/portadas/cocina.png" width="1500" height="100" alt="cocina" style="position: relative;top: -50px;left: -30px;"/>-->
-    <!--</div>-->
         <?php
             $ListaP=array();
-            if(!count($result))
+            if(count($result))
             foreach ($result as $val) {
                 if($val->estado_cocina!="B")continue;
-                if(!isset($ListaP[$val->num_mesa]))$ListaP[$val->num_mesa]=array();
+                if(!isset($ListaP[$val->num_mesa])){
+                    $ListaP[$val->num_mesa]=array();
+                }
                 array_push($ListaP[$val->num_mesa], $val);
             }
         ?>
         <div class="container cont">
             <div class="hero-unit">
                 <div class="row">
-                  <?php
-                      if(!count($result)){?>
+                    
+                    <?php
+                      if(!count($ListaP)){?>
                         <center><div class="ListaInfo">
-                                <div class="plato" style="height: 130px">
+                                <div class="detalleMesaPedido" style="height: auto">
                                      <h4 align="center">No hay Pedidos</h4>
                                 </div>
                         </div></center>
                             <div style="height: 500px;position: relative">&nbsp;</div>
                       <?php }else
-                      foreach ($result as $val) {
-                              if($val->estado_cocina!="B")continue;
-                              $cod=$val->nomb_plato;
-                              $mesa=$val->num_mesa;
-                              $desc=$val->tipo_plato;
+                      foreach ($ListaP as $k => $val) {
+                              $D=$ListaP[$k];
                               ?>
                               <div class="ListaInfo">
-                                  <div class="plato" style="height: 130px">
-                                       <h4 align="center"><?php echo $cod;?></h4>
-                                       <h5 align="center">Mesa N&deg;<?php echo $mesa;?></h5>
-                                        <p align="center"><a class="btn btn-success" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=U&id=<?php echo $val->cod_detallePed;?>">Preparado</a></p>
+                                  <div class="detalleMesaPedido" style="height: auto">
+                                      <div style="text-align: center;font-weight: bold">
+                                        MESA N&deg;: <span style="font-size: 35px"><?php echo $k;?></span>
+                                    </div>
+                                    <table class="table table-bordered tbMesa" width="100%">
+                                        <col width="45%"><col width="40%"><col width="15%">
+                                        <?php
+                                        foreach ($D as $v) {  
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $v->nomb_plato;?></td>
+                                            <td>Mesa N&deg;<?php echo $v->tipo_plato;?></td>
+                                            <td><a class="btn btn-success" href="../../Controlador/detalle_pedido_platosC.php?txtAccion=U&id=<?php echo $v->cod_detallePed;?>">Listo</a></td>
+                                        </tr>
+                                        <?php }?>
+                                    </table>
                                   </div>
                               </div>
                       <?php }?>

@@ -8,6 +8,18 @@
 <script>
     $(document).ready(function() {
         $("#btnBus").click(function( ){
+          var n=$("#txtN").val();
+          var a=$("#txtA").val();
+          var b=true;
+          if(n!=""&&!n.match(/[a-zA-Z]$/)){
+                $("#txtN").val("").attr("placeholder","Estos datos no son validos").css("color","#DD4141");
+                b=false;
+          }
+          if(a!=""&&!a.match(/[a-zA-Z]$/)){
+                $("#txtA").val("").attr("placeholder","Estos datos no son validos").css("color","#DD4141");
+                b=false;
+          }
+          if(b)
           buscar();
         });
         $("#btnTodo").click(function( ){
@@ -34,8 +46,8 @@
     <form id="frm" method="post">
         <table class="table" border="0">
             <tr>
-                <td>Nombre: <input type="text" name="txtN" value="" /></td>
-                <td>Apellidos: <input type="text" name="txtA" value="" /></td>
+                <td>Nombre: <input type="text" name="txtN" id="txtN" value="" /></td>
+                <td>Apellidos: <input type="text" name="txtA" id="txtA" value="" /></td>
                 <td>Cargo: 
                     <select id="cboCargo" name="cboCargo" style="text-align: center">
                       <option value="">- Todos -</option>

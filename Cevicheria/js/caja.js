@@ -50,6 +50,7 @@ function print(){
 //      });
 }
 function guardar(){
+    $("#parteCli input[type=text]").css("color","#000");
     var cli=$("#txtC").val();
     var dni=$("#txtD").val();
     var tlf=$("#txtT").val();
@@ -57,10 +58,31 @@ function guardar(){
     var tot=$("#totalPagar").html();
     var idPedido=$("#idPed").val();
     var tipo=$("#tipo").val();
+    var pass=true;
+    if(cli==""||!cli.match(/^[a-zA-Z ]+$/)){
+       $("#txtC").val("").attr("placeholder","Solo letras").css("color","#DD4141");
+       pass=false;
+    }
+    if(tlf==""||!tlf.match(/^[0-9]{7,9}/)){
+       $("#txtT").val("").attr("placeholder","Solo numero de telefono/celular").css("color","#DD4141");
+       pass=false;
+    }
+    if(tipo=="b")
+        if(!dni.match(/[1-9]{1}[0-9]{7}/)){
+           $("#txtD").val("").attr("placeholder","Solo 8 numeros").css("color","#DD4141");
+           pass=false;
+        }
+    if(tipo=="f")
+        if(!dni.match(/[1-9]{1}[0-9]{10}/)){
+           $("#txtD").val("").attr("placeholder","Solo 11 numeros").css("color","#DD4141");
+           pass=false;
+        }
+    
     if(cli.length<2&&dni.length<2){
         alert("No hay suficientes datos para procesar");
-        return false;
+        pass=false;
     }
+    if(!pass)return false;
     activarBtnI(true);
     activarBtnG(false);
     var _data="txtAccion=s&cli="+cli+"&dni="+dni+"&tlf="+tlf+"&fec="+fec+"&tot="+tot+"&idP="+idPedido+"&tipo="+tipo;

@@ -5,6 +5,8 @@ if ($sess->sesionActiva())
     header("Location: inicio.php");
 require 'configuracion.php';
 $E[1] = "Datos Incorrectos";
+if(!isset($_SESSION["intentos"]))$_SESSION["intentos"]=0;
+else $E[1] = "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +17,7 @@ $E[1] = "Datos Incorrectos";
         <meta name="description" content="">
         <meta name="author" content="">
         <link href="<?php echo $pathBootstrap ?>/css/bootstrap.css" rel="stylesheet">
+        <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
         <script src="js/validar.js" type="text/javascript"></script>
         <style type="text/css">
             body {
@@ -76,7 +79,7 @@ $E[1] = "Datos Incorrectos";
                 <input type="password" id="txtPass" name="txtPass" class="input-block-level" placeholder="contraseña">
                 <div class="text-captcha">
                     <?php
-                    if(isset($_SESSION["intentos"])&&$_SESSION["intentos"]==3){
+                    if($_SESSION["intentos"]==3){
                         $abc=array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","Y");
                         $key="";
                         for ($i = 0; $i < 5; $i++) {
@@ -87,8 +90,8 @@ $E[1] = "Datos Incorrectos";
                         ?>
                         <div style="font-size: 30px;border-radius: 5px;background-image: url(img/captcha.png);height: 35px;width: 280px;color: #FFF;padding: 10px">
                         <?php echo $key ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" id="txtC" name="txtC" class="input-small">
-                        <input type="hidden" name="txtHC" value="<?php echo $key ?>">
+                        <input type="text" id="txtC" name="txtC" class="input-small" maxlength="5" value="">
+                        <input type="hidden" name="txtHC" id="txtHC" value="<?php echo $key ?>">
                         </div>
                         <?php
                     }?>

@@ -1,3 +1,17 @@
+$(document).ready(function(){
+    var v=$("#txtC").val();
+    if(v===undefined)
+        console.log("u.U");
+    else{
+        $("#txtPass").attr("disabled",true);
+        $("#txtC").keyup(function(){
+           var c=$("#txtHC").val();
+           var ic=$("#txtC").val();
+           if(c==ic)$("#txtPass").attr("disabled",false);
+           else $("#txtPass").attr("disabled",true);
+        });
+    }
+});
 function login(){
         
 	return true;

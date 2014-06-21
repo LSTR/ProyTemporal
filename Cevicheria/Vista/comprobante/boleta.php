@@ -31,6 +31,10 @@
 <input type="hidden" id="tipo" value="b"/>
 <link rel='stylesheet' type='text/css' href='<?php echo $pathName?>/css/print.css' media="print"/>
 <link rel='stylesheet' type='text/css' href='<?php echo $pathName?>/css/estiloCaja.css'/>
+<script type="text/javascript">
+    $(document).ready(function(){
+    });
+</script>
 <div id="page-wrap">
     <table width="100%">
         <tr>

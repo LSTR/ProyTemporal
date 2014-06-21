@@ -5,6 +5,11 @@
         header("Location: "."http://".$_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"]."/cevicheria");
     require "../../configuracion.php";
     $opcMenu="caja";
+    
+    require '../../Modelo/pedidoM.php';
+    $objDAO=new PedidoM();
+    $Data["estado_Pedido"]="D";
+    $resPedido=$objDAO->listar($Data);
 ?>
 
 <!DOCTYPE html>
@@ -28,12 +33,10 @@
           background-color: #dfdede;
       }
     </style>
-    
     <script type='text/javascript' src='<?php echo $pathName?>/js/jquery-1.10.2.min.js'></script>
     <script type='text/javascript' src='<?php echo $pathBootstrap?>/js/bootstrap.min.js'></script>
     <script type='text/javascript' src='<?php echo $pathName?>/js/caja.js'></script>
     <link href="<?php echo $pathBootstrap?>/css/bootstrap-responsive.css" rel="stylesheet">
-
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $pathBootstrap?>/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $pathBootstrap?>/ico/apple-touch-icon-114-precomposed.png">
@@ -50,13 +53,17 @@
          include $inc;
     ?>
     <!--FIN NAVBAR-->
-
     <div class="container">
       <div class="hero-unit">
           <div id="formOptions">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span>Numero de Mesa&nbsp;&nbsp;&nbsp;<input type="text" id="txtMesa"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+              <span>Numero de Mesa&nbsp;&nbsp;&nbsp;
+                  <select id="txtMesa" name="txtMesa">
+                  <?php foreach ($resPedido as $val) {?>
+                      <option value="<?php echo $val->num_mesa;?>">Mesa N&deg;<?php echo $val->num_mesa;?></option>
+                  <?php }?>
+                </select></span>&nbsp;&nbsp;&nbsp;&nbsp;
               <div class="btn-group">
                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                   Tipo de Comprobante

@@ -10,6 +10,12 @@
     if($_POST["cboCargo"]!="")
         $W["cod_cargo"]=$_POST["cboCargo"];
     $result=$objDAO->listarAll($W,$WL);
+    ////CARGOS
+    require '../../Modelo/cargoM.php';
+    $objDAO=new CargoM();
+    $resC=$objDAO->listar();
+    $LCargo=array();
+    foreach ($resC as $v)$LCargo[$v->cod_cargo]=$v->nom_cargo;
 ?>
 <div id="contenido">
     
@@ -40,7 +46,7 @@
                 <td><?php echo $val->nombre;?></td>
                 <td><?php echo $val->apellido;?></td>
                 <td><?php echo $val->direccion;?></td>
-                <td><?php echo $val->nom_cargo;?></td>
+                <td><?php echo $LCargo[$val->cod_cargo];?></td>
                 <td><a href="form.php?id=<?php echo $val->cod_empleado;?>">Modificar</a></td>
                 <td><a href="../../Controlador/personalC.php?txtAccion=E&id=<?php echo $val->cod_empleado;?>&st=<?php echo $val->estado_empl;?>">
                     <?php echo $val->estado_empl=="A"?"Deshabilitar":"Habilitar"?></a></td>
