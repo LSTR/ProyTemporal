@@ -63,17 +63,17 @@ function guardar(){
        $("#txtC").val("").attr("placeholder","Solo letras").css("color","#DD4141");
        pass=false;
     }
-    if(tlf==""||!tlf.match(/^[0-9]{7,9}/)){
+    if(tlf==""||!tlf.match(/^[0-9]{7,9}$/)){
        $("#txtT").val("").attr("placeholder","Solo numero de telefono/celular").css("color","#DD4141");
        pass=false;
     }
     if(tipo=="b")
-        if(!dni.match(/[1-9]{1}[0-9]{7}/)){
+        if(!dni.match(/^[1-9]{1}[0-9]{7}$/)){
            $("#txtD").val("").attr("placeholder","Solo 8 numeros").css("color","#DD4141");
            pass=false;
         }
     if(tipo=="f")
-        if(!dni.match(/[1-9]{1}[0-9]{10}/)){
+        if(!dni.match(/^[1-9]{1}[0-9]{10}$/)){
            $("#txtD").val("").attr("placeholder","Solo 11 numeros").css("color","#DD4141");
            pass=false;
         }
@@ -82,7 +82,8 @@ function guardar(){
         alert("No hay suficientes datos para procesar");
         pass=false;
     }
-    if(!pass)return false;
+//    if(!pass)return false;
+    return false;
     activarBtnI(true);
     activarBtnG(false);
     var _data="txtAccion=s&cli="+cli+"&dni="+dni+"&tlf="+tlf+"&fec="+fec+"&tot="+tot+"&idP="+idPedido+"&tipo="+tipo;

@@ -31,6 +31,30 @@
 <input type="hidden" id="tipo" value="f"/>
 <link rel='stylesheet' type='text/css' href='<?php echo $pathName?>/css/print.css' media="print"/>
 <link rel='stylesheet' type='text/css' href='<?php echo $pathName?>/css/estiloCaja.css'/>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#txtC").keyup(function(){
+            var txt=$(this).val();
+            if(!txt.match(/^[a-zA-Z ]+$/))
+                $(this).css("border-bottom","3px solid #DD4141");
+             else $(this).css("border-bottom","1px solid #333333");
+        });
+        $("#txtT").keyup(function(){
+            var txt=$(this).val();
+            if(!txt.match(/^[0-9]{7}$/))
+                if(!txt.match(/^[0-9]{9}$/))
+                $(this).css("border-bottom","3px solid #DD4141");
+                else $(this).css("border-bottom","1px solid #333333");
+             else $(this).css("border-bottom","1px solid #333333");
+        });
+        $("#txtD").keyup(function(){
+            var txt=$(this).val();
+            if(!txt.match(/^[1-9]{1}[0-9]{10}$/))
+                $(this).css("border-bottom","3px solid #DD4141");
+             else $(this).css("border-bottom","1px solid #333333");
+        });
+    });
+</script>
 <div id="page-wrap">
     <table width="100%">
         <tr>
