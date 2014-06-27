@@ -1,5 +1,4 @@
 <?php
-
     $usu=$_POST["txtUsu"];
     $pass=$_POST["txtPass"];
     require_once '../Modelo/usuarioM.php';

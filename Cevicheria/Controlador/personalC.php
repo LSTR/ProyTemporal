@@ -1,6 +1,7 @@
 <?php
     require_once '../Modelo/personalM.php';
     require_once '../Modelo/usuarioM.php'; 
+    include '../logging.php';
     $accion=null;
     if(isset($_POST["txtAccion"]))
         $accion=$_POST["txtAccion"];
@@ -55,8 +56,8 @@
         $nst=$_GET["st"];
         $objDAO=new PersonalM();
         $objDAO->eliminar($id,$nst);
-//        $objDAO=new UsuarioM();
-//        $objDAO->eliminar($id);
+        if($nst=="A") print_log("Deshabilitando Usuario");
+        else print_log("Habilitando Usuario");
         header("Location: ../Vista/personal/index.php");
     }
     

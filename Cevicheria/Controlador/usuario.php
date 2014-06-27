@@ -3,6 +3,7 @@
     $usu=$_POST["txtUsu"];
     $pass=$_POST["txtPass"];
     require '../Modelo/usuarioM.php';
+    include '../logging.php';
     $objDAO=new UsuarioM();
     $Data["cod_empleado"]=$usu;
     $Data["contrasena"]=$pass;
@@ -15,9 +16,11 @@
     if(isset($_SESSION["intentos"]))$_SESSION["intentos"]=$_SESSION["intentos"]+1;
     else $_SESSION["intentos"]=0;
     if(count($result)>0){
+        print_log("Inicion de Sesion - Exitoso");
         iniciarSession($result);
         header("Location: ../inicio.php"); 
     }else{
+        print_log("Inicion de Sesion - Intento Fallido");
         $e="1";
         header("Location: ../index.php?e=".$e);
     }
