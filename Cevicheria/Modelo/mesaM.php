@@ -28,12 +28,14 @@
         }
         function insertar($Data) {
             require_once '../bd/conexion.php';
-            $sql="INSERT INTO mesa (descripcion,ubicacion,estado_Mesa) VALUES ('$Data[0]','$Data[1]','A')";
+            $sql="INSERT INTO mesa (descripcion,ubicacion,estado_Mesa) VALUES ('DISPONIBLE','$Data[1]','A')";
+//            $sql="INSERT INTO mesa (descripcion,ubicacion,estado_Mesa) VALUES ('$Data[0]','$Data[1]','A')";
             $con=new conexion();
             return $con->ejecutaQuery($sql);
         }
         function actualizar($Data,$id) {
             require_once '../bd/conexion.php';
+            $Data[0]=strtoupper($Data[0]);
             $sql="UPDATE mesa set descripcion='$Data[0]',ubicacion='$Data[1]' where num_mesa=".$id;
             $con=new conexion();
             return $con->ejecutaQuery($sql);

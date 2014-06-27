@@ -39,17 +39,25 @@
         <col width="50%">
         <col width="50%">
             <tr>
-                <td>Descripcion</td>
+                <td>Mesa N&deg;</td>
                 <td><input type="text" name="txtD" id="txtD"  value="<?php echo $descripcion;?>"></td>
             </tr>
             <tr>
                 <td>Ubicacion</td>
-                <td><input type="text" name="txtU" id="txtU" required value="<?php echo $ubicacion;?>"></td>
+                <td>
+                    <select id="cboTipo" name="cboPiso" style="text-align: center">
+                       <?php
+                           $tipoP=array("1er piso","2do piso");
+                           foreach ($tipoP as $val) {?>
+                           <option value="<?php echo $val;?>" <?php echo $val==$ubicacion?"selected":"";?>><?php echo $val;?></option>
+                          <?php }
+                       ?>
+                   </select></td>
             </tr>
             <tr>
                 <td><input type="hidden" name="txtAccion" value="<?php echo $accion;?>">
                     <input type="hidden" name="txtId" value="<?php echo $num_mesa;?>"></td>
-                <td><input type="submit" class="btn btn-primary">&nbsp;<a href="index.php" class="btn btn-info">Cancelar</a>
+                <td><input type="submit" value="Enviar" class="btn btn-primary">&nbsp;<a href="index.php" class="btn btn-info">Cancelar</a>
                 </td>
             </tr>
             <tr>
