@@ -82,8 +82,7 @@ function guardar(){
         alert("No hay suficientes datos para procesar");
         pass=false;
     }
-//    if(!pass)return false;
-    return false;
+    if(!pass)return false;
     activarBtnI(true);
     activarBtnG(false);
     var _data="txtAccion=s&cli="+cli+"&dni="+dni+"&tlf="+tlf+"&fec="+fec+"&tot="+tot+"&idP="+idPedido+"&tipo="+tipo;
