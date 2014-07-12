@@ -14,5 +14,7 @@
             header("Location: Vista/contenido/contenidoCocina.php");
         else if($NivelAcceso=="4")
             header("Location: Vista/contenido/contenidoMozo.php");
+        else
+            header("Location: Vista/contenido/contenidoExtra.php");
     //FIN DE REDIRECCION
 ?>

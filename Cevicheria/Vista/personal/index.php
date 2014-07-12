@@ -10,13 +10,15 @@
         $("#btnBus").click(function( ){
           var n=$("#txtN").val();
           var a=$("#txtA").val();
+          $("#txtN").css("border","1px solid #cccccc");
+          $("#txtA").css("border","1px solid #cccccc");
           var b=true;
-          if(n!=""&&!n.match(/[a-zA-Z]$/)){
-                $("#txtN").val("").attr("placeholder","Estos datos no son validos").css("color","#DD4141");
+          if(n!=""&&!n.match(/^[a-zA-Z]+$/)){
+                $("#txtN").val("").attr("placeholder","Estos datos no son validos").css("border","1px solid #DD4141");
                 b=false;
           }
-          if(a!=""&&!a.match(/[a-zA-Z]$/)){
-                $("#txtA").val("").attr("placeholder","Estos datos no son validos").css("color","#DD4141");
+          if(a!=""&&!a.match(/^[a-zA-Z]+$/)){
+                $("#txtA").val("").attr("placeholder","Estos datos no son validos").css("border","1px solid #DD4141");
                 b=false;
           }
           if(b)
@@ -67,7 +69,7 @@
     </form>
 </div>
 <div style="padding: 8px">
-    <a href="form.php" class="btn btn-info">+ Agregar Nuevo</a>
+    <a href="form.php" class="btn btn-info">+ Nuevo Personal</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

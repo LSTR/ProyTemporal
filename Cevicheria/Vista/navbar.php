@@ -105,4 +105,25 @@
         </div>
     </div>
     <?php }
+    else{?>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+              <p class="navbar-text pull-right">
+                  <?php echo $Empleado?> &nbsp;&nbsp;&nbsp;&nbsp; <a href="../../cerrarsession.php" class="navbar-link">Cerrar Session</a>
+              </p>
+              <ul class="nav">
+                <li class="active"><a href="<?php echo $host?>">Cevicheria El Clasico</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+    <?php }
 ?>

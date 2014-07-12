@@ -57,7 +57,7 @@
     </form>
 </div>
 <div style="padding: 8px">
-    <a href="form.php" class="btn btn-info">+ Agregar Nuevo</a>
+    <a href="form.php" class="btn btn-info">+ Nueva Mesa</a>
 </div>
 <div id="contenidoData">
     

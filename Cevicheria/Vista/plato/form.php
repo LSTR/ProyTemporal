@@ -4,7 +4,7 @@ $id="";
     $tipo="";
     $des="";
     $prec="";
-    $opcMenu="plato";
+    $opcMenu="platos";
     include '../base.php';
     require_once '../../session.php';
     $sess=new session();
@@ -41,18 +41,18 @@ $id="";
             var b=true;
             $("#Form input").css("color","#837C7C");
             var txt=$("#txtN").val();
-            if(!txt.match(/[a-zA-Z]$/)){
+            if(!txt.match(/[a-zA-Z0-9]$/)){
                 $("#txtN").val("").attr("placeholder","Solo letras").css("color","#DD4141");
                 b=false;
             }
             var txt=$("#txtT").val();
-            if(!txt.match(/[a-zA-Z]$/)){
+            if(!txt.match(/[a-zA-Z0-9]$/)){
                 $("#txtT").val("").attr("placeholder","Solo letras").css("color","#DD4141");
                 b=false;
             }
             txt=$("#txtP").val();
-            if(!txt.match(/^\d+(\.\d{1,2})?$/)){
-                $("#txtP").val("").attr("placeholder","Solo Numeros").css("color","#DD4141");
+            if(!txt.match(/^\d+(\.\d{1,2})?$/)&&txt>0){
+                $("#txtP").val("").attr("placeholder","Solo Numeros Positivos").css("color","#DD4141");
                 b=false;
             }
             return b;
@@ -82,7 +82,7 @@ $id="";
             <tr>
                 <td><input type="hidden" name="txtAccion" value="<?php echo $accion;?>">
                     <input type="hidden" name="txtId" value="<?php echo $id;?>"></td>
-                <td><input type="submit" class="btn btn-primary">&nbsp;<a href="index.php" class="btn btn-info">Cancelar</a>
+                <td><input type="submit" value="Enviar"  class="btn btn-primary">&nbsp;<a href="index.php" class="btn btn-info">Cancelar</a>
                 </td>
             </tr>
         </table>

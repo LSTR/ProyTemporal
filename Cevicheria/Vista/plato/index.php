@@ -12,6 +12,14 @@
 <script>
     $(document).ready(function() {
         $("#btnBus").click(function( ){
+          var n=$("#txtN").val();
+          var b=true;
+          $("#txtN").css("border","1px solid #cccccc");
+          if(n!=""&&!n.match(/^[a-zA-Z0-9]+$/)){
+                $("#txtN").val("").attr("placeholder","Estos datos no son validos").css("border","1px solid #DD4141");
+                b=false;
+          }
+          if(b)
           buscar();
         });
         $("#btnTodo").click(function( ){
@@ -38,7 +46,7 @@
     <form id="frm" method="post">
         <table class="table" border="0">
             <tr>
-                <td>Nombre: <input type="text" name="txtN" value="" /></td>
+                <td>Nombre: <input type="text" name="txtN" id="txtN" value="" /></td>
                 <td>Tipo: 
                     <select id="cboTipo" name="cboTipo" style="text-align: center">
                       <option value="">- Todos -</option>
@@ -58,7 +66,7 @@
     </form>
 </div>
 <div style="padding: 8px">
-    <a href="form.php" class="btn btn-info">+ Agregar Nuevo</a>
+    <a href="form.php" class="btn btn-info">+ Nuevo Plato</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

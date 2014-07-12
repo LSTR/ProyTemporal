@@ -4,7 +4,7 @@
     $tip="";
     $descrip="";
     $prec=0;
-    $opcMenu="bebidas";
+    $opcMenu="bebida";
     include '../base.php';
     require_once '../../session.php';
     $sess=new session();
@@ -86,7 +86,7 @@
             <tr>
                 <td><input type="hidden" name="txtAccion" value="<?php echo $accion;?>">
                     <input type="hidden" name="txtId" value="<?php echo $id;?>"></td>
-                <td><input type="submit" class="btn btn-primary">&nbsp;<a href="index.php" class="btn btn-info">Cancelar</a>
+                <td><input type="submit" value="Enviar"  class="btn btn-primary">&nbsp;<a href="index.php" class="btn btn-info">Cancelar</a>
                 </td>
             </tr>
             <tr>

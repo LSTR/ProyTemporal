@@ -18,7 +18,9 @@
         $id=$_GET["id"];
         $accion="U";
     }
-    
+    require '../../Modelo/personalM.php';
+    $objDAO=new PersonalM();
+    $resultAll=$objDAO->listarAll();
     require '../../Modelo/usuarioM.php';
     $objDAO=new UsuarioM();
     $Data["cod_empleado"]=$id;
@@ -38,20 +40,25 @@
     require '../../Modelo/cargoM.php';
     $objDAO=new CargoM();
     $resultC=$objDAO->listar();
+    $lstP="";
+    foreach ($resultAll as $vl)if(($vl->nombre." ".$vl->apellido)!=($nom." ".$ape))$lstP.=":".$vl->nombre." ".$vl->apellido;
 ?>
     <script>
-        $(document).ready(function (){ 
+        var lst;
+        $(document).ready(function (){
+            lst=($("#lstP").val()).split(":");
         });
         function validar(){
+            $("#ErrorP").hide();
             var b=true;
             $("#Form input").css("color","#837C7C");
             var txt=$("#txtN").val();
-            if(!txt.match(/[a-zA-Z]$/)){
+            if(!txt.match(/^[a-zA-ZñÑ]+$/)){
                 $("#txtN").val("").attr("placeholder","Estos datos no son validos").css("color","#DD4141");
                 b=false;
             }
             txt=$("#txtA").val();
-            if(!txt.match(/[a-zA-Z]$/)){
+            if(!txt.match(/^[a-zA-ZñÑ]+$/)){
                 $("#txtA").val("").attr("placeholder","Estos datos no son validos").css("color","#DD4141");
                 b=false;
             }
@@ -60,9 +67,20 @@
                 $("#txtP").css("border","1px solid #DD4141");
                 b=false;
             }
+            if(b)
+            for(var i=0;i<lst.length;i++){
+                if(lst[i]==($("#txtN").val()+" "+$("#txtA").val())){
+                    $("#ErrorP").show();
+                    b=false;
+                }
+            }
             return b;
         }
     </script>
+   <input type="hidden" id="lstP" value="<?php echo $lstP;?>">
+   <div id="ErrorP" style="display: none" class="alert alert-error">
+        Personal ya existe!!!
+    </div>
     <div style="width: 60%">
         <form id="Form" action="../../Controlador/personalC.php" method="post" onsubmit="return validar();">
         <table class="table table-striped"width="100%">
@@ -97,15 +115,15 @@
                 <td></td>
             </tr>
             <tr>
-                <td>Contrase&ntilde;a  (Min 6 caracteres - a-z0-9)</td>
+                <td>Contrase&ntilde;a  (Min 6 caracteres - AlfaNumerico)</td>
                 <td>
-                    <input type="password" required name="txtP" id="txtP" value="<?php echo $pass;?>">
+                    <input type="password" required max="6" name="txtP" id="txtP" value="<?php echo $pass;?>">
                     
                 </td>
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" class="btn btn-primary">&nbsp;<a href="index.php" class="btn btn-info">Cancelar</a>
+                <td><input type="submit" value="Enviar" class="btn btn-primary">&nbsp;<a href="index.php" class="btn btn-info">Cancelar</a>
                 </td>
             </tr>
         </table>
