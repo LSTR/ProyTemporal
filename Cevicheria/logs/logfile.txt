@@ -1,6 +1,0 @@
-[27/Jun/2014:00:10:47] (usuario) Ola k ase
-[27/Jun/2014:00:11:28] (usuario) Ola k ase
-[27/Jun/2014:00:11:47] (usuario) Ola k ase
-[27/Jun/2014:00:11:51] (usuario) Ola k ase
-[27/Jun/2014:00:11:53] (usuario) Ola k ase
-[27/Jun/2014:00:11:55] (usuario) Ola k ase
